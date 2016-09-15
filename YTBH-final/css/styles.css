@@ -17,6 +17,21 @@ body{
     border-right:3px solid #33ccff;
     padding:0;
 }
+.formco{
+
+    text-align: center;
+    padding-top: 10px;
+
+
+}
+.pseudoMenu{
+    color: white;
+    display: inline-block;
+    float: left;
+    margin-top: -14px;
+    font-size:25px;
+    padding-left: 10px;
+}
 .line-separator2{
     margin: 0;
     margin-right:35%;
