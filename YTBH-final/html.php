@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Cette page n'est pas du tout parfaite, il faut rajouter tout le html, css et javascript -->
 <html>
 <head>
 	<meta charset='UTF-8' />
