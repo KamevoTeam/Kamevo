@@ -5,7 +5,10 @@ body{
 	background-attachment: fixed;
 }
 .container{
-	
+    margin-top: 75px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .line-separator{
     margin: 0;
@@ -16,21 +19,6 @@ body{
     height: 35px;
     border-right:3px solid #33ccff;
     padding:0;
-}
-.formco{
-
-    text-align: center;
-    padding-top: 10px;
-
-
-}
-.pseudoMenu{
-    color: white;
-    display: inline-block;
-    float: left;
-    margin-top: -14px;
-    font-size:25px;
-    padding-left: 10px;
 }
 .line-separator2{
     margin: 0;
@@ -75,6 +63,14 @@ body{
     border-bottom:3px solid #333333;
     padding:0;
 }
+.line-separator7{
+    margin: 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width:100%;
+    border-bottom:3px solid #333333;
+    padding:0;
+}
 .menu{
     display: inline-block;
     top: 0;
@@ -89,6 +85,9 @@ body{
     -webkit-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
+}
+.mme{
+    z-index: 1;
 }
 .link{
     color:white;
@@ -331,8 +330,9 @@ position: absolute;
 		margin-top:275px;
 	}
 	.with-sidebar .site-pusher{
+        transition-delay: 0.05s;
         transition-duration: 0.5s;
-        transform: translateY(300px);
+        transform: translateY(270px);
     }
     .site-pusher{
         transition-duration: 0.5s;
