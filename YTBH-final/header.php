@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+require('php/users.class.php');
+if(isset($_SESSION['pseudo'])) $user = new users(1);
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

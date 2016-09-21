@@ -3,13 +3,13 @@
 class users{
 
 	
-	
+	public $pseudo;	
 
 
-	function __construct($pseudo, $mdp){
+	function __construct($ID){
 
-		$this->pseudo = $pseudo;
-		$this->mdp = $mdp;
+		$this->idUser = $ID;
+		
 
 
 	}
@@ -61,9 +61,31 @@ class users{
 		}
 	}
 
+
+
+	public function getPseudo(){
+
+		include('co_pdo.php');
+		$req = $bdd->prepare('SELECT pseudo FROM users WHERE ID = ?');
+		$req->execute(array($this->idUser));
+		$rep = $req->fetch();
+		return $rep['pseudo'];
+	}
+
+	public function getMail(){
+
+		include('co_pdo.php');
+		$req1 = $bdd->prepare('SELECT email FROM users WHERE ID = ?');
+		$req1->execute(array($this->idUser));
+		$resq = $req1->fetch();
+		return $resq['email'];
+	}
+
+	public function getId(){
+
+		return $this->idUser;
+	}
 }
-
-
 
 
 ?>

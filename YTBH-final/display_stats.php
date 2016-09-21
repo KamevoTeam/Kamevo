@@ -16,4 +16,4 @@ include('php/getGeneralStats.php');
 			<h6>21/10 : <strong>Fil d'actualité</strong></h6>
 			<h6>30/12 : <strong>Thême 2017</strong></h6>
 		</div>
-	</div>
+	</div>#

@@ -3,7 +3,7 @@
 		<div class="line-separator5"></div>
 		<div class="group">
 			<img class="group-img" src="img/team.png" alt="William">
-		<h6 class="group-name">YTBH - Staff<br/> Membres : <strong >4765 </strong></h6>
+		<h6 class="group-name">Test<br/> Membres : <strong >4765 </strong></h6>
 		</div>
 		<div class="group">
 			<img class="group-img" src="img/team.png" alt="William">

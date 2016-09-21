@@ -1,6 +1,6 @@
 <?php
 include('header.php'); //including the header
-require('php/users.class.php');
+//require('php/users.class.php');
 $resp = users::waitForInput($_POST);
 ?>
 <div class="container">
