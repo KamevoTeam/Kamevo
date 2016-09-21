@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset='UTF-8' />
-	<script src='../../jquery-3.1.0.min.js'></script>
+	<script src='jquery-3.1.0.min.js'></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
