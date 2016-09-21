@@ -1,5 +1,5 @@
 <?php
-include('../includes/bdd.php');
+include('includes/bdd.php');
 $bdd1 = $bdd; $bdd2 = $bdd; $bdd3 = $bdd;
 
 $error = array(
@@ -18,7 +18,7 @@ if (isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['pass']) && 
 		//echo '0.2';
 		$error['*'] = true;
 	} else {
-			include('traitement.php');
+			include('traitementInsc.php');
 
 			if (strlen($_POST['pass']) >= 8) {
 				//echo 'pass';
@@ -34,7 +34,7 @@ if (isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['pass']) && 
 				$error['mailValid'] = true;
 			}
 			
-			include('mailPseudoVerif.php');
+			include('mailPseudoVerifInsc.php');
 				if ($ok['pseudo'] == true) {
 					//echo '2';
 					$error['pseudo'] = false;
@@ -61,5 +61,5 @@ if (isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['pass']) && 
 }
 
 if ($error == array('passLen' => false, 'mailValid' => false, 'pseudo' => false, 'mail' => false, 'pass' => false, '*' => false, 'traitement' => false)) {
-	include('envoi.php');
-} else { include('html.php'); } ?>
+	include('envoiInsc.php');
+} else { include('htmlInsc.php'); } ?>
