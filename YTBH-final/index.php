@@ -193,7 +193,7 @@
 
 	<script type="text/javascript">
 
-	//window.onresize = function(){ location.reload(); }
+	window.onresize = function(){ location.reload(); }
 
 	var maxed = 1400;
 	var mined = 1100;
