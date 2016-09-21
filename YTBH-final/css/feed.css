@@ -1,13 +1,14 @@
 .container{
-	top: 100px;
+	margin-top: 100px;
 }
 /*----------------------------------*\
               GROUPES 
 \*----------------------------------*/
 .groups{
-	top: 470px;
+	float: right;
 	position: fixed;
-	margin-left: 25px;
+	right: 0;
+	margin-right: 25px;
 	width: 200px;
 	padding: 15px; 
 	background-color: rgba(255,255,255,0.8);
@@ -211,7 +212,8 @@ margin: 0;
               INFO 
 \*----------------------------------*/
 .info{
-	top: 75px;
+	display: block;
+	top: 100px;
 	position: fixed;
 	width: 200px;
 	border-right:solid silver 1px;
@@ -244,37 +246,27 @@ margin: 0;
 		border-radius: 0;
 		margin-top: 10px;
 	}
-	.container{
-		width: 100%;
-		left: 0;
-		margin-top: 55px; 
-		margin-left: 0;
-		margin-right: 0;
-	}
 	.block{
+		position: inherit;
 		transition-duration: 1s;
-		width: 100%;
-		margin: 0;
-		margin-left: 0%;
+		width: 80%;
+		 margin-left: 10%;
 		background: rgba(255,255,255, 0.8);
 		border: solid 1px silver;
 		padding:0;
 	}
-	.block2{transition-duration: 1s; width:100%; margin:0; margin-left: 0%;}
+	.block2{transition-duration: 1s; width:80%; margin-left: 10%;}
 	.block-post{transition-duration: 1s; margin-left: 5%;}
 }
 @media only screen and (max-width: 1350px) and (min-width: 700px){
-	.container{
-		margin-left: 0;
-		margin-right: 0; 
-	}
-	.info{transition-duration:1s; top :0;}
+	.info{transition-duration:1s; margin-top: 300px; position: fixed;}
 	.groups{
 		transition-duration: 1s;
 		width: 200px;
-		margin-left: 25px;	
-		left: 0%;
-		}
+		position: fixed;
+		left: 0;
+		margin-left: 25px;
+	}
 }
 @media only screen and (max-width: 400px){
 	.container{

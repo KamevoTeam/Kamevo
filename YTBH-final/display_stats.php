@@ -1,5 +1,5 @@
 <?php
-include('php/getGeneralStats.php');
+//include('php/getGeneralStats.php');
 ?>
 <div class="info">
 		<div class="users">

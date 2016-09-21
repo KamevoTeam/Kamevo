@@ -55,6 +55,34 @@ body{
     border-bottom:3px solid #333333;
     padding:0;
 }
+.vote-bar span{
+ display: inline-block;
+ font-size: 30px;
+ color:orange;
+}
+.vote-bar:hover span:before{
+ content: '\2605';
+ position: absolute;
+}
+.vote-bar span:hover ~ span:before{
+ content : '';
+}
+.vote-bar{
+ display: inline-block;
+}
+.votes-title{
+ display: inline-block;
+ font-size: 25px;
+ opacity: 0.8;
+}
+.votes{
+ cursor: pointer;
+ display: inline-block;
+ -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
 .line-separator6{
     margin: 0;
     margin-right:10%;
