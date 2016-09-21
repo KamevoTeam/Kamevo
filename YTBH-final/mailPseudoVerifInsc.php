@@ -1,6 +1,6 @@
 <?php
 //je vérifie que les pseudos et mails n'existent pas déjà
-$req = $bdd->prepare('SELECT * FROM users WHERE `pseudo` = :pseudo OR `mail` = :mail');
+$req = $bdd->prepare('SELECT * FROM users WHERE `pseudo` = :pseudo OR `email` = :mail');
 	$req->execute(array(
 		'pseudo' => $pseudo,
 		'mail' => $mail));
