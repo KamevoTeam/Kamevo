@@ -4,7 +4,7 @@
  	  <div class="line-separator7"></div>
      </div>
 		<div class="pub-real">
-			<img alt='pub' class='pub-img' src='img/corona.jpg'>
+			<img alt='pub' width=100% src='img/corona.jpg'>
 		</div>
  	  <div class="line-separator7"></div>
 </div>
