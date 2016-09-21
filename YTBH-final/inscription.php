@@ -1,5 +1,5 @@
 <?php
-include('includes/bdd.php');
+include('php/co_pdo.php');
 $bdd1 = $bdd; $bdd2 = $bdd; $bdd3 = $bdd;
 
 $error = array(
