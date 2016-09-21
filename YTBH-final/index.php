@@ -32,7 +32,7 @@
 	 </nav>
 	</header>
 	<div class="site-pusher">
-		<div class="container">
+<div class="container">
 		<?php
 			include("pubs/index.php");
 		?>
