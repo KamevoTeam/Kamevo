@@ -1,4 +1,4 @@
-<?php include('php/displayPosts.php'); ?>
+<?php include('php/func_posts.php'); ?>
 <div class="content">
 
 
@@ -6,3 +6,5 @@
 
 				
 	</div>
+
+	<script src="js/vote.js"></script>

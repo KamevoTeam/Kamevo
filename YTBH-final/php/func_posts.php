@@ -1,5 +1,25 @@
 <?php
-	
+	function getAverageVote($id_post){
+
+		require('co_pdo.php');
+		$reqAv = $bdd->prepare('SELECT avg(vote) FROM vote WHERE id_post = ?');
+		$reqAv->execute(array($id_post));
+		$resp = $reqAv->fetch();
+		return round($resp['avg(vote)'],1);
+		
+
+	}
+
+	function getNumberVote($id_post){
+
+		require('co_pdo.php');
+		$reqAv = $bdd->prepare('SELECT * FROM vote WHERE id_post = ?');
+		$reqAv->execute(array($id_post));
+		return $reqAv->rowCount();
+		
+
+
+	}
 
 	function getPosts($mode,$pseudo=''){
 
@@ -33,6 +53,7 @@
 
 				<?php if($resp['video'] != ''){ 
 
+					/*Démarrage de la conversion */
 					$url  = $resp['video'];
 					$pattern = '/[\\?\\&]v=([^\\?\\&]+)/';
 					preg_match($pattern,$url,$matches);
@@ -44,7 +65,7 @@
 
 					}	
 		
-		
+				/*Fin de la conversion*/
 
 					
 						
@@ -68,57 +89,14 @@
      			 <span onclick="userVote(4,<?php echo $resp['ID']; ?>);">&#9734;</span>
      			<span onclick="userVote(5,<?php echo $resp['ID']; ?>); return false;">&#9734;</span>
      				</div>
+     				<p>Moyenne: 
+     				<?php echo getAverageVote($resp['ID']); ?>/5 pour <?php echo getNumberVote($resp['ID']); ?> votants.</p>
     		</div>
 			</div>
 			</div>
 
 		
-			<script type="text/javascript">
-
-			var http; 
-
-			function createRequestObject(){ //va donner l'objet http
-											
-    			var http;
-    			if (window.XMLHttpRequest)
-    				{ // Mozilla, Safari, IE7 ...
-       				 http = new XMLHttpRequest();
-    					}
-    					else if (window.ActiveXObject)
-    					{ // Si un gars utilise YTBH avec IE 6 lol
-       					 http = new ActiveXObject("Microsoft.XMLHTTP");
-    					}
-   					return http;
-					}
-
-			function userVote(vote,idPost){
 			
-
-				var params = "lorem=ipsum&name=binny";
-
-    			http = createRequestObject();
-   				http.open('POST', 'php/vote.php', true);
-    			http.onreadystatechange = handleAJAXReturn;
-    			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    			http.send('result='+vote+'&post='+idPost);
-				}
-
-			function handleAJAXReturn()
-			{
-    		if (http.readyState == 4)
-   			 {
-       			 if (http.status == 200)
-       			 {
-           			 alert(http.responseText);
-           			 document.getElementById('resultat').innerHTML = http.responseText;
-       				 }
-        		else
-        		{
-           			 alert('Erreur! Veuillez rechargez la page. ');
-        		}
-    		}
-		}
-</script>
 
 
 
