@@ -14,63 +14,10 @@
 	});
 </script>
 
-<style>	
-	strong {
-		font-weight: bold;
-		text-decoration: none;
+<style>
+	form {
+		text-align: center;
 	}
-	
-	label, input.ask {
-		cursor: help;
-	}
-	
-	#FormInsc {
-		height: 50px;
-		width: 400px;
-		border: 2px solid #ececec;
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: space-between;
-	}
-	#FormErreur {
-		border: 2px solid #E32020;
-		height: 50px;
-		color: #E32020;
-	}
-	
-	input {
-		border:none;
-		outline:none;
-		border: 2px solid #ececec;
-		width: 250px;
-		height: 50px;
-		padding: 5px 10px;
-		-webkit-border-radius: 0px;
-		-moz-border-radius: 0px;
-		border-radius: 0px;
-		background: #fafafa;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		margin-right: 0px;
-	  }
-	  .submitButton {
-		border:none;
-		outline:none;
-		font-size: 14px;
-		line-height:30px;
-		width: 110px;
-		color: #fff;
-		background: green;
-		-webkit-border-radius: 0px;;
-		-moz-border-radius: 0px;;
-		border-radius: 0px;
-		cursor:pointer;
-	  }
-	  .submitButton:hover {
-		position: relative;
-		top:2px;
-	  }
 </style>
 
 <body>

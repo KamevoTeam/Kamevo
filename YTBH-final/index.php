@@ -19,8 +19,8 @@
 	     <a href="#"><li class="logo"> YTBH </li></a><div class="line-separator"></div>
 	    <a href="#"><li class="title"> YOUTUB'HEURE</li></a>
 	     <div class="mme">
-	        <a class="js" href="connexion.php"><li class="link"><i class="fa fa-user-plus" id="icon"></i> Inscription</li></a>
-	         <a class="js" href="#"><li class="link"><i class="fa fa-sign-in" id="icon"></i> Connexion</li></a>
+	        <a class="js" href="inscription.php"><li class="link"><i class="fa fa-user-plus" id="icon"></i> Inscription</li></a>
+	         <a class="js" href="connexion.php"><li class="link"><i class="fa fa-sign-in" id="icon"></i> Connexion</li></a>
 	         <a class="js poplight" href="#?w=50%" rel="popup_name"><li class="link"><i class="fa fa-compass" id="icon"></i> Explorer</li></a>
 	        <a class="js" href="#"><li class="link"><i class="fa fa-home" id="icon"></i> Accueil</li></a>
 	     </div>
