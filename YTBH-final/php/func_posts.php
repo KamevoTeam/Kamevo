@@ -78,7 +78,7 @@
 			  	 	<h6 class="block-name"><strong><?=$resp['title']; ?></strong></h6>
 			  	<h6 class="block-points">Vues : <strong> <?=$resp['views']; ?></strong></h6>
 			 	<p class="block-date">Le <strong><?=$resp['datecreation']; ?></strong></p>
-			 	 <a href="#" class="block-more">En savoir plus</a>
+			 	 <a href="posts.php?id=<?php echo $resp['ID']; ?>" class="block-more">En savoir plus</a>
 			   	
 			   	<div class="votes">
     			<h4 class="votes-title"></h4>
