@@ -1,11 +1,11 @@
-﻿-- phpMyAdmin SQL Dump
--- version 4.5.5.1
+-- phpMyAdmin SQL Dump
+-- version 4.5.4.1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 21 Septembre 2016 à 17:26
+-- Client :  localhost
+-- Généré le :  Ven 30 Septembre 2016 à 07:57
 -- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -82,17 +82,20 @@ CREATE TABLE `tc_tuto_rating` (
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
+  `Nom` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `lastvisit` varchar(255) NOT NULL
+  `lastvisit` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `grade` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`ID`, `pseudo`, `password`, `email`, `lastvisit`) VALUES
-(1, 'toto', '202cb962ac59075b964b07152d234b70', 'abc@hotmail.fr', 'Never');
+INSERT INTO `users` (`ID`, `pseudo`, `Nom`, `password`, `email`, `lastvisit`, `grade`) VALUES
+(1, 'toto', '', '202cb962ac59075b964b07152d234b70', 'abc@hotmail.fr', '0100-01-01 00:00:00', 0),
+(2, 'Paul', 'Leclerc', '19801f8b49b84bf964f2b47d3883faeb', 'paulleclerc@laposte.net', '2016-09-30 09:55:49', 1);
 
 -- --------------------------------------------------------
 
@@ -217,7 +220,7 @@ ALTER TABLE `tc_tuto_rating`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `vote`
 --
