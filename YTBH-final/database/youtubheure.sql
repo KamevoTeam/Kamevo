@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Ven 30 Septembre 2016 à 07:57
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Client :  127.0.0.1
+-- Généré le :  Dim 02 Octobre 2016 à 14:05
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `youtubheure`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comments`
+--
+
+CREATE TABLE `comments` (
+  `ID` int(11) NOT NULL,
+  `id_post` int(11) NOT NULL,
+  `poster` varchar(255) NOT NULL,
+  `comment` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -95,7 +109,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `pseudo`, `Nom`, `password`, `email`, `lastvisit`, `grade`) VALUES
 (1, 'toto', '', '202cb962ac59075b964b07152d234b70', 'abc@hotmail.fr', '0100-01-01 00:00:00', 0),
-(2, 'Paul', 'Leclerc', '19801f8b49b84bf964f2b47d3883faeb', 'paulleclerc@laposte.net', '2016-09-30 09:55:49', 1);
+(3, 'Paul', 'Leclerc', '2b6feac64c4a99c3432bc346f85ee830', 'paulleclerc@laposte.net', '2016-10-02 15:49:35', 1);
 
 -- --------------------------------------------------------
 
@@ -168,6 +182,12 @@ CREATE TABLE `vote_index` (
 --
 
 --
+-- Index pour la table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Index pour la table `note`
 --
 ALTER TABLE `note`
@@ -202,6 +222,11 @@ ALTER TABLE `vote`
 --
 
 --
+-- AUTO_INCREMENT pour la table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
@@ -220,7 +245,7 @@ ALTER TABLE `tc_tuto_rating`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `vote`
 --
