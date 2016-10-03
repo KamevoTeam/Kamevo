@@ -1,0 +1,8 @@
+#CommentairesBoite {
+	border: 3px double;
+	text-align: center;
+}
+
+#Commentaire {
+	border: 1px solid;
+}
