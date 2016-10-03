@@ -32,4 +32,17 @@ $resp = users::waitForInput($_POST);
 			</div>
 
 <?php
+	if (isset($_SESSION['pseudo'])) {
+		if (!empty($_SESSION['pseudo'])) {
+			if (isset($_GET['redirect'])) {
+				if (!empty($_GET['redirect'])) {
+					if (isset($_GET['id'])) {
+						if (!empty($_GET['id'])) {
+							header('location: ' . $_GET['redirect'] . '?id=' . $_GET['id'];
+						}
+					}
+				}
+			}
+		}
+	}
 require('footer.php');
