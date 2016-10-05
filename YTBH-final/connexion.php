@@ -38,7 +38,7 @@ $resp = users::waitForInput($_POST);
 				if (!empty($_GET['redirect'])) {
 					if (isset($_GET['id'])) {
 						if (!empty($_GET['id'])) {
-							header('location: ' . $_GET['redirect'] . '?id=' . $_GET['id'];
+							header('location: ' . $_GET['redirect'] . '?id=' . $_GET['id']);
 						}
 					}
 				}
