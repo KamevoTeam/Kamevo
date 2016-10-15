@@ -18,7 +18,7 @@ class users{
 
 		require('co_pdo.php');
 
-		unset($_SESSION['pseudo']); //cleaning the session
+		unset($_SESSION['ID']); //cleaning the session
 
 		$reqCheckExist = $bdd->prepare('SELECT * FROM users WHERE pseudo = ?');
 		$reqCheckExist->execute(array($pseudo));
@@ -29,7 +29,7 @@ class users{
 			$response = $reqCheckExist->fetch();
 			if($response['password'] == md5($mdp)){
 
-				$_SESSION['pseudo'] = $pseudo;
+				$_SESSION['ID'] = $response['ID'];
 				return 'Félicitations! Vous êtes maintenant connecté! <br /><a href="index.php">Retourner à l\'index</a>';
 
 

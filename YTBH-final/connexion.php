@@ -32,8 +32,8 @@ $resp = users::waitForInput($_POST);
 			</div>
 
 <?php
-	if (isset($_SESSION['pseudo'])) {
-		if (!empty($_SESSION['pseudo'])) {
+	if (isset($_SESSION['ID'])) {
+		if (!empty($_SESSION['ID'])) {
 			if (isset($_GET['redirect'])) {
 				if (!empty($_GET['redirect'])) {
 					if (isset($_GET['id'])) {

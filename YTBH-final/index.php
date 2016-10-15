@@ -22,7 +22,7 @@ if(isset($_SESSION['pseudo'])) $user = new users(1);
 	  <ul>
 	    <a href="#" class="log" id="icon"></a>
 	     <a href="."><li class="logo"> YTBH </li></a><div class="line-separator"></div>
-	    <a href="."><li class="title"> YOUTUB'HEURE</li></a>
+	    <a href="."><li class="title"> KAMEVO</li></a>
 	    <?php if(isset($_SESSION['pseudo'])){ ?><!-- <a href="#"><li class="pseudoMenu"> <?php //echo $_SESSION['pseudo']; ?></li></a> --><?php } ?>
 	     <div class="mme">
 
