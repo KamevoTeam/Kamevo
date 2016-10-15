@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 02 Octobre 2016 à 14:05
+-- Généré le :  Sam 15 Octobre 2016 à 12:20
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -31,7 +31,29 @@ CREATE TABLE `comments` (
   `id_post` int(11) NOT NULL,
   `poster` varchar(255) NOT NULL,
   `comment` text NOT NULL,
+  `note` decimal(10,0) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `comments`
+--
+
+INSERT INTO `comments` (`ID`, `id_post`, `poster`, `comment`, `note`, `date`) VALUES
+(1, 5, 'Paul', 'coucou', '0', '2016-10-03 09:32:23'),
+(2, 5, 'Paul', 'j\'adore ce Post\r\nbises', '0', '2016-10-03 09:43:43'),
+(3, 5, 'Paul', 'j\'adore ce Post\r\nbises', '0', '2016-10-03 09:44:30');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentslikes`
+--
+
+CREATE TABLE `commentslikes` (
+  `ID` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `value` int(11) NOT NULL COMMENT '1 = j''aime, 0 = je n''aime pas'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -144,7 +166,16 @@ INSERT INTO `vote` (`ID`, `vote`, `votant`, `id_post`) VALUES
 (39, '4', 'toto', 4),
 (38, '3', 'toto', 4),
 (37, '4', 'toto', 4),
-(36, '5', 'toto', 4);
+(36, '5', 'toto', 4),
+(52, '4', 'Paul', 2),
+(53, '3', 'Paul', 3),
+(54, '5', 'Paul', 2),
+(55, '5', 'Paul', 2),
+(56, '5', 'Paul', 2),
+(57, '5', 'Paul', 2),
+(58, '5', 'Paul', 2),
+(59, '5', 'Paul', 2),
+(60, '5', 'Paul', 2);
 
 -- --------------------------------------------------------
 
@@ -188,6 +219,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Index pour la table `commentslikes`
+--
+ALTER TABLE `commentslikes`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Index pour la table `note`
 --
 ALTER TABLE `note`
@@ -225,6 +262,11 @@ ALTER TABLE `vote`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `commentslikes`
+--
+ALTER TABLE `commentslikes`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `note`
@@ -250,7 +292,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `vote`
 --
 ALTER TABLE `vote`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
