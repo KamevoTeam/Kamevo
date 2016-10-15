@@ -26,7 +26,7 @@
 			}
 		if ($order == 'default') {
 				if (isset($_GET['id'])){ if (!empty($_GET['id'])){
-					$req = $bdd1->prepare('SELECT ID, id_post, poster, comment, note, DATE_FORMAT(date, \'%d/%m/%Y à %H:%i\') AS date FROM `comments` WHERE `id_post` = :id_post ORDER BY note DESC');
+					$req = $bdd1->prepare('SELECT ID, id_post, poster, comment, note, DATE_FORMAT(date, \'%d/%m/%Y à %H:%i\') AS date FROM `comments` WHERE `id_post` = :id_post ORDER BY note DESC, ID DESC');
 					$req->execute(array(
 					'id_post' => $_GET['id']
 					));
