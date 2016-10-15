@@ -45,7 +45,7 @@
 		<?php
 			while ($donnees = $req->fetch()) {?>
 				<div id='Commentaire'>
-					<?php echo '<a style="font-weight: bold;" href=\'users.php?id=' . $donnees['poster'] . '\'>' . $donnees['poster'] . '</a> : ' . $donnees['comment'] . '<br /><span class="sign" style="text-align: right;">Envoyé par <a href=\'users.php?id=' . $donnees['poster'] . '\'>' . $donnees['poster'] . '</a> le ' . $donnees['date'] . '</span>'; ?>
+					<?php echo '<a style="font-weight: bold;" href=\'users.php?id=' . getPseudoByID($donnees['poster']) . '\'>' . getPseudoByID($donnees['poster']) . '</a> : ' . $donnees['comment'] . '<br /><span class="sign" style="text-align: right;">Envoyé par <a href=\'users.php?id=' . getPseudoByID($donnees['poster']) . '\'>' . getPseudoByID($donnees['poster']) . '</a> le ' . $donnees['date'] . '</span>'; ?>
 				</div><?php } ?>
 		</div></div>
 </body>
