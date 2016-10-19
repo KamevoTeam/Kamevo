@@ -1,7 +1,7 @@
 	<div class='block'>
 		
 		<?php
-		if (isset($_SESSION['pseudo'])) { if (!empty($_SESSION['pseudo'])) {
+		if (isset($_SESSION['ID'])) { if (!empty($_SESSION['ID'])) {
 			$okForTextarea = true;?>
 		<form action='posts.php?id=5' method='POST' style='text-align: center;'>
 		<textarea name='commentaire' id='commentaire' placeholder='Commentez' rows='5' cols='70'></textarea>

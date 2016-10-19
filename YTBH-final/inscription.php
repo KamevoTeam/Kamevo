@@ -14,7 +14,6 @@ $error = array(
 
 	//echo '0.3';
 if (isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_POST['confirm']) && isset($_POST['mail']) && isset($_POST['pseudo'])) {
-	echo '0.1';
 	if (empty($_POST['nom']) && empty($_POST['pseudo']) && empty($_POST['pass']) && empty($_POST['confirm']) && empty($_POST['mail']) && empty($_POST['pseudo'])) {
 		//echo '0.2';
 		$error['*'] = true;
