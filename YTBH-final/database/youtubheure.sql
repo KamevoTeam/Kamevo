@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 19 Octobre 2016 à 16:47
+-- Généré le :  Dim 23 Octobre 2016 à 13:24
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `comments` (
   `ID` int(11) NOT NULL,
   `id_post` int(11) NOT NULL,
-  `poster` varchar(255) NOT NULL,
+  `poster` int(11) NOT NULL,
   `comment` text NOT NULL,
   `note` decimal(10,0) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -40,9 +40,9 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`ID`, `id_post`, `poster`, `comment`, `note`, `date`) VALUES
-(1, 5, '3', 'coucou', '0', '2016-10-03 09:32:23'),
-(2, 5, '3', 'j\'adore ce Post\r\nbises', '0', '2016-10-03 09:43:43'),
-(3, 5, '3', 'j\'adore ce Post\r\nbises', '0', '2016-10-03 09:44:30');
+(1, 5, 3, 'coucou', '0', '2016-10-03 09:32:23'),
+(2, 5, 3, 'j\'adore ce Post\r\nbises', '0', '2016-10-03 09:43:43'),
+(3, 5, 3, 'j\'adore ce Post\r\nbises', '0', '2016-10-03 09:44:30');
 
 -- --------------------------------------------------------
 

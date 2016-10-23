@@ -11,7 +11,7 @@
 	
 	function getComm($number, $order, $id_post) {
 		include('php/co_pdo.php');
-		include('php/users.class.php');
+		include('php/users.php');
 		
 		if ($order == 'default') {
 			$req = $bdd->prepare('SELECT ID, id_post, poster, comment, note, DATE_FORMAT(date, \'%d/%m/%Y à %H:%i\') AS date FROM `comments` WHERE `id_post` = :id_post ORDER BY note DESC, ID DESC');
