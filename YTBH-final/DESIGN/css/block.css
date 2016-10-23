@@ -90,10 +90,11 @@ textarea:focus{
 	margin-right: 10px;
 	color:silver;
 	text-decoration: none;
+	transition: all ease 0.8s; 
 }
 .block-more:hover{
 	text-decoration: underline;
-	color: #33ccff;
+	color: #2c3e50;
 }
 .like{
 	display: inline-block;
@@ -110,7 +111,7 @@ textarea:focus{
 	display: inline-block;
 	padding-top: 3px;
 	padding-left: 45px;
-	color: #e67e22;
+	color: #333333;
 }
 .block-points{
 	display: inline-block;
