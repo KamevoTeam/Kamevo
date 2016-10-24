@@ -21,7 +21,7 @@
 
 	}
 
-	function getPosts($mode,$pseudo=''){
+	function getPosts($mode,$id='',$author='', $order=''){
 
 		require('co_pdo.php');
 
@@ -29,9 +29,9 @@
 		* = homeNoConnect: Display all messages (10?) range by points
 		* = homeConnect: Dipslay all messages from followed users
 		* = profile: Display all messages of the current user
+		* = onePost: Diplay only one post, found by ID
 		*
-		*
-		*
+		*	
 		*
 		**/
 
@@ -40,6 +40,14 @@
 
 			$req = $bdd->prepare('SELECT * FROM posts ORDER BY points DESC LIMIT 10');
 			$req->execute();
+
+		}elseif ($mode == 'onePost') {
+
+			$req = $bdd->prepare('SELECT * FROM posts WHERE ID = ? ORDER BY points DESC LIMIT 10');
+			$req->execute(array($id));
+		}
+
+			
 			while($resp = $req->fetch()){?>
 
 			<div class="block">
@@ -102,11 +110,11 @@
 
 			<?php }
 
-		}			
+					
 
 	}
 	
-	function getPost($id) {
+/*	function getPost($id) {
 		require('co_pdo.php');
 		
 		$req = $bdd->prepare('SELECT * FROM posts WHERE ID = :id');
@@ -127,7 +135,7 @@
 
 				<?php if($resp['video'] != ''){ 
 
-					/*Démarrage de la conversion */
+					
 					$url  = $resp['video'];
 					$pattern = '/[\\?\\&]v=([^\\?\\&]+)/';
 					preg_match($pattern,$url,$matches);
@@ -139,7 +147,6 @@
 
 					}	
 		
-				/*Fin de la conversion*/
 
 					
 						
@@ -169,6 +176,6 @@
 			</div>
 			</div>
 		<?php }
-	}
-echo '1';
+	}*/
+
 ?>

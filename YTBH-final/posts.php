@@ -9,7 +9,7 @@ if(!isset($_GET['ID'])){
 
 	$id_post = (int)$_GET['ID'];
 }
-	getPost($id_post);
+	getPosts('onePost',$id_post);
 	
 include('commentaires.php');
 ?>
