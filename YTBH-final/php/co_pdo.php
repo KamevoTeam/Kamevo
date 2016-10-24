@@ -1,5 +1,5 @@
 <?php
-$dsn = 'mysql:dbname=youtubheure;host=localhost';
+$dsn = 'mysql:dbname=kamevobdd;host=localhost';
 $user = 'root';
 $password = '';
 

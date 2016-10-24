@@ -1,6 +1,7 @@
 <?php
 
 	function sendComm($poster, $commentaire, $id_post) {
+		include('php/co_pdo.php');
 		$req = $bdd->prepare('INSERT INTO `comments` (`ID`, `id_post`, `poster`, `comment`) VALUES (NULL, :ID, :user, :comment)');
 		$req->execute(array(
 			'ID' => $id_post,

@@ -2,7 +2,14 @@
 include('header.php');
 include('php/func_posts.php');
 echo '<br /><br /><br />';
-	getPost($_GET['id']);
+if(!isset($_GET['ID'])){
+
+	$id_post = 1;
+}else{
+
+	$id_post = (int)$_GET['ID'];
+}
+	getPost($id_post);
 	
 include('commentaires.php');
 ?>

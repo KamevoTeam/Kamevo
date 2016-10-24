@@ -1,12 +1,18 @@
 <?php
 include('php/co_pdo.php');
 $bdd1 = $bdd;
-
 include('php/commentaires.php');
+if(!isset($_GET['ID'])){
+
+	$id_post = 1;
+}else{
+
+	$id_post = (int)$_GET['ID'];
+}
 
 	if (isset($_POST['commentaire']) && isset($_SESSION['ID'])) {
 		if (!empty($_POST['commentaire']) && !empty($_SESSION['ID'])) {
-			sendComm($_SESSION['ID'], $_POST['commentaire'], $_GET['ID']);
+			sendComm($_SESSION['ID'], $_POST['commentaire'], $id_post);
 		}
 	}
 ?>
