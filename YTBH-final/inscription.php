@@ -1,6 +1,12 @@
 <?php
-include('header.php');
-include('php/co_pdo.php');
+
+	  require('display_header.php'); //include header with session panel
+	  include("pubs/index.php"); //include all for adv
+	  include("display_stats.php"); //include stats/info panel
+	  include("display_groups.php"); //include groups panel
+
+	  require("php/co_pdo.php");
+	  
 $bdd1 = $bdd; $bdd2 = $bdd; $bdd3 = $bdd;
 
 $error = array(
@@ -63,3 +69,6 @@ if (isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['pass']) && 
 if ($error == array('passLen' => false, 'mailValid' => false, 'pseudo' => false, 'mail' => false, 'pass' => false, '*' => false, 'traitement' => false)) {
 	include('envoiInsc.php');
 } else { include('htmlInsc.php'); } ?>
+
+<?php
+include('display_footer.php');	
