@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php
-require("head.php");
-?>
+	<?php
+		require("head.php");
+	?>
 </head>
 <body>
-<?php
-
-	$profile['id'] = '123';
-
-require("menu.php");
-
-session_start();
-
-	if(isset($_SESSION['id'])){
-		require("1203.php");
-	}else{
-		require("1204.php");
-	}
-	require("style.php");
-?>
+	<?php
+	  require("menu.php");
+	 ?>
+	<div class="site-pusher">
+	  <div class="content">
+	 <?php
+	   require("profile.php");
+	    require("infos.php");
+	  require("block.php");
+	?>
+	</div>
+<?php require("../../php/javascript.php") ?>
+<?php require("animation.php") ?>
 </body>
 </html>
