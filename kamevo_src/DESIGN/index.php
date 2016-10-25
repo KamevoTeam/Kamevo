@@ -48,6 +48,10 @@
         <label class="label-helper" for="input3">Confirmation de votre Adresse E-Mail</label>
       </div>
       <input type="submit" name="submit" class="leto" value="S'inscire">
+      <div class="checkall">
+      	<input type="checkbox" name="checked" id="checks" class="checks">
+        J'ai lu et j'accepte les <a href="#">conditions d'utilisations</a> de Kamevo.com .
+      </div>
       </form> <!-- end .content -->
 	</div>
 </body>
