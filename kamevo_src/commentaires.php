@@ -48,6 +48,4 @@ if(!isset($_GET['ID'])){
 			getComm(30, $order, $_GET['id']);
 		}}
 		
-		
-include('footer.php');
 ?>
