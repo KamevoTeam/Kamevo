@@ -1,3 +1,9 @@
+<?php 
+session_start();
+require('php/users.class.php');
+if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']);
+ ?>
+
 	<title>YTBH - Accueil</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/feed.css">

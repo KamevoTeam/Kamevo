@@ -30,6 +30,7 @@ class users{
 			if($response['password'] == md5($mdp)){
 
 				$_SESSION['ID'] = $response['ID'];
+				$_SESSION['pseudo'] = $pseudo;
 				return 'Félicitations! Vous êtes maintenant connecté! <br /><a href="index.php">Retourner à l\'index</a>';
 
 

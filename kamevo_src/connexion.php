@@ -1,14 +1,28 @@
-<?php
-	  require('display_header.php'); //include header with session panel
-	  include("pubs/index.php"); //include all for adv
-	  include("display_stats.php"); //include stats/info panel
-	  include("display_groups.php"); //include groups panel
-		
-$resp = users::waitForInput($_POST);
-?>
-<div class="container">
 
-			<div class="block">
+ 
+<!DOCTYPE html>
+<html>
+<head>
+	<?php
+		require ("head.php");
+		if(isset($_SESSION['ID'])){ header("location: index.php"); }else{  print_r($_SESSION);   } 
+		$resp = users::waitForInput($_POST);
+	?>
+</head>
+<body>
+	<?php
+		require ("menu.php");
+	?>
+	<div class="site-pusher">
+      <div class="content">
+		<div class="social">
+		  <div class="social-header"><p class="social-text">SUIVEZ-NOUS , NOUS SOMMES PARTOUT : </p></div>
+			<img src="img/twitter.png" alt='twitter' class='social-log'>
+			 <img src="img/facebook.png" alt='facebook' class='social-log'>
+			<img src="img/youtube.png" alt='youtube' class='social-log'>
+		  </div>
+		  
+		  	<div class="block">
 			<div class="block-title">
 			
 			   <h2 class="block-name"><strong>Connexion</strong></h2>
@@ -30,23 +44,19 @@ $resp = users::waitForInput($_POST);
 			<br/>
 			   
 			</div>
-			</div>
 
-			</div>
 
-<?php
-	if (isset($_SESSION['ID'])) {
-		if (!empty($_SESSION['ID'])) {
-			if (isset($_GET['redirect'])) {
-				if (!empty($_GET['redirect'])) {
-					if (isset($_GET['id'])) {
-						if (!empty($_GET['id'])) {
-							header('location: ' . $_GET['redirect'] . '?id=' . $_GET['id']);
-						}
-					}
-				}
-			}
-		}
-	}
-	
-include('display_footer.php');	
+
+
+			<?php require ("pub.php");
+		  ?>	
+		</div>
+		<?php
+			
+			require ("groups.php");
+			$id = 14;
+		?>
+	</div>
+<?php require ("javascript.php"); ?>
+</body>
+</html>
