@@ -11,16 +11,30 @@
 	?>
 	<div class="site-pusher">
       <div class="content">
-		<div class="social">
-		  <div class="social-header"><p class="social-text">SUIVEZ-NOUS , NOUS SOMMES PARTOUT : </p></div>
-			<img src="img/twitter.png" alt='twitter' class='social-log'>
-			 <img src="img/facebook.png" alt='facebook' class='social-log'>
-			<img src="img/youtube.png" alt='youtube' class='social-log'>
-		  </div>
-		  <?php
-		  	require ("block.php");
+		<?php include('social.php'); ?>
+		  
+		  	<div class="block">
+			<div class="block-title">
+			
+			   <h2 class="block-name"><strong>Titre de la page</strong></h2>
+			  
+			</div>
+			<p class="block-bio">Description<br /><br />
 
-			require ("pub.php");
+			
+			<div class="line-separator1"></div>
+			<div class="line-separator2"></div>
+			<div class="line-separator3"></div>
+			<div class="line-separator4"></div>
+			<div class="line-separator5"></div>
+
+			  
+			<div class="line-separator6"></div>
+			<br/>
+			   
+			</div>
+
+			<?php require ("pub.php");
 		  ?>	
 		</div>
 		<?php

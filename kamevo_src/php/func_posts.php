@@ -45,6 +45,16 @@
 
 			$req = $bdd->prepare('SELECT * FROM posts WHERE ID = ? ORDER BY points DESC LIMIT 10');
 			$req->execute(array($id));
+		}elseif($mode == 'homeConnect'){
+
+			echo '<div class="block">
+			<div class="block-title">
+			
+			   <h2 class="block-name"><strong>En travaux x)</strong></h2>
+			  
+			</div>'; 
+			exit();
+
 		}
 
 			

@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require('php/users.class.php');
+require('php/func_posts.php');
 if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']);
  ?>
 
