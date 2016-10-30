@@ -2,7 +2,8 @@
 session_start();
 require('php/users.class.php');
 require('php/func_posts.php');
-if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']);
+require('php/getGeneralStats.php');
+if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the user objet 
  ?>
 
 	<title>YTBH - Accueil</title>
@@ -15,6 +16,7 @@ if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']);
 	<link rel="stylesheet" href="css/line-separator.css">
 	<link rel="stylesheet" href="css/style.max.css">
 	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="profile/css/profile.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>

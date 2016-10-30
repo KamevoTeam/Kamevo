@@ -1,23 +1,18 @@
 body{
-	background-color: #ededed;	
+	
 }
 .content{
 	margin-top: 0px;
 	height: 100vh;
 	padding-top: 100px;
-	width: 1050px;
-	margin-left: calc((100% - 1050px) / 2);
-	margin-right: calc((100% - 1050px) / 2);
+	width: 70%;
+	margin-left: 15%;
 }
-.toTop{
-	position: fixed;
+@media only screen and (max-width: 1400px){
+	.content{
+		margin-left:0;
+	}
 }
-.fixedal{
-    position: fixed;
-    width: 1050px;
-    margin-top:-47px;
-    z-index:999;
-}
-.fixedom{
-    margin-top:220px;
+.social{
+	margin-top: 0px;
 }
