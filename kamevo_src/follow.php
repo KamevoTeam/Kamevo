@@ -1,5 +1,4 @@
 <?php
-	include('header.php');
 	include('php/co_pdo.php');
 	
 	if (isset($_GET['id'])) {
@@ -11,12 +10,4 @@
 			));
 		}
 	}
-?><br /><br /><br /><?php
-		if (isset($_SESSION['ID'])) {
-			if (!empty($_SESSION['ID'])) {
-				echo '<a href="follow.php?id=1">follow</a>';
-			}
-		}
-	
-	include('footer.php');
 ?>

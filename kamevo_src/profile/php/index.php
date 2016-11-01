@@ -6,8 +6,8 @@
 	?>
 </head>
 <body>
-	<?php
-	  require("menu.php");
+	  	<?php
+require("menu.php");
 	 ?>
 	<div class="site-pusher">
 	  <div class="content">
@@ -17,7 +17,7 @@
 	  require("block.php");
 	?>
 	</div>
-<?php require("../../php/javascript.php") ?>
+<?php require("../../javascript.php") ?>
 <?php require("animation.php") ?>
 </body>
 </html>
