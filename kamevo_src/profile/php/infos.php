@@ -16,7 +16,7 @@
 	</div>
 	<div class="infos">
 		<div class="sub-div">
-	  <form class="subscriber" method="post" action="follow.php?id=<?php echo $user_id;?>&redirect=.">
+	  <form class="subscriber" method="post" action="">
 		<input type="submit" name="submit" class="subscribe-btn" value="S'abonner">
 		<!-- Value="Abonné" if already subscribed -->
 	   </form>
