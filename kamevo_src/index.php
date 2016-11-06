@@ -2,6 +2,7 @@
 <html>
 <head>
 	<?php
+		//changer en head2.php pour utiliser les frameworks en local (actuellement non-fonctionnels)
 		require ("head.php");
 	?>
 </head>
