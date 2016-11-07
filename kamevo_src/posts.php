@@ -9,7 +9,7 @@
 	<?php
 		require ("menu.php");
 
-include('php/func_posts.php');
+require_once('php/func_posts.php');
 echo '<br /><br /><br />';
 if(!isset($_GET['ID'])){
 
