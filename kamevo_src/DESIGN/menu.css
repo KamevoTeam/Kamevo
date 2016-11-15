@@ -165,8 +165,8 @@
   bottom: 0;
   color:#e67e22;
   left: 0;
-  z-index: 1; }
-
+  z-index: 1; 
+}
 .input-text:focus + .label-helper, .input-text:invalid + .label-helper {
   bottom: 95%;
   font-family: arial;
@@ -186,7 +186,8 @@
 }
 .checkall{
     margin:5px;
-}.line-separator{
+}
+.line-separator{
     margin: 0;
     margin-right:15px;
     margin-top:-4px;
@@ -195,4 +196,57 @@
     height: 35px;
     border-right:3px solid #f1c40f;
     padding:0;
+}
+
+/*----------------------------------*\
+            CONNECTION 
+\*----------------------------------*/
+.connect{
+  float: right;
+  margin-right:50px;
+  margin-top: -3px;
+}
+.connect-text{
+  padding : 5px;
+  border: none;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom: solid 2px #f1c40f;
+  background-color: white;
+  padding-left:10px;
+}
+.connect-text-bis{
+  padding : 5px;
+  border: none;
+  border-bottom: solid 2px #f1c40f;
+  background-color: white;
+  padding-left:10px;
+}
+.connect-text:focus{
+  background-color: white;
+  outline: none;
+}
+.connect-text-bis:focus{
+  background-color: white;
+  outline: none;
+}
+.connect-submit{
+  padding : 5px;
+  padding-left:0;
+  background-color: white;
+  border:none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: solid 2px #f1c40f;
+  width:120px;
+  transition: all ease 0.2s;
+}
+.connect-submit:hover{
+  outline: none;
+  cursor: pointer;
+  background-color : rgba(236, 240, 241,1.0);
+  color: #e67e22;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
