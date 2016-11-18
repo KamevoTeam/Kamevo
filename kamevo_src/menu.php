@@ -18,7 +18,7 @@
 	         <?php }?>
 
 	         <a class="js poplight" href="#?w=50%" rel="popup_name"><li class="link"><i class="fa fa-compass" id="icon"></i> Explorer</li></a>
-	        <a class="js" href="#"><li class="link"><i class="fa fa-home" id="icon"></i> Accueil</li></a>
+	        <a class="js" href="."><li class="link"><i class="fa fa-home" id="icon"></i> Accueil</li></a>
 	     </div>
 	     <li class="link-look"><form class="form" action="" method="post">
 	       <input type="search" class="f-input" name="search" placeholder=" Rechercher un profil">

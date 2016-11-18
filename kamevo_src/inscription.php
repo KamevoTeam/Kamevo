@@ -91,9 +91,7 @@ if ($error == array('passLen' => false, 'mailValid' => false, 'pseudo' => false,
 		'grade' => 1));
 	header('location: ./?message=\'InscFinish\'');
 } else { ?>
-
 <!-- #####-> début de l'affichage de la page <-##### -->
-
 <script>
 	$( function() {
 	$( document ).tooltip();
@@ -104,12 +102,9 @@ if ($error == array('passLen' => false, 'mailValid' => false, 'pseudo' => false,
 		text-align: center;
 	}
 </style>
-
 	<div class="block">
 			<div class="block-title">
-			
 			   <h2 class="block-name"><strong>Inscription</strong></h2>
-			  
 			</div>
 	<?php if (isset($error)) { 
 				if ($error == '*') { 

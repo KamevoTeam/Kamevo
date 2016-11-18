@@ -9,7 +9,6 @@ if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the 
 	<title>YTBH - Accueil</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/feed.css">
-	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/block.css">
 	<link rel="stylesheet" href="css/pub.css">
 	<link rel="stylesheet" href="css/social.css">

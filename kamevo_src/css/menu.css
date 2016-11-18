@@ -130,7 +130,7 @@
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      font-family: arial;
+      /*font-family: arial;*/
     }
 .form-row {
   margin-bottom: 20px;
