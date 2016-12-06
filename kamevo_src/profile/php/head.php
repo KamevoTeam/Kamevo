@@ -17,3 +17,5 @@ if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the 
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="profile/php/js.php"></script>
+
+   

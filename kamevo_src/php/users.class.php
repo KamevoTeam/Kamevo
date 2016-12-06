@@ -31,7 +31,7 @@ class users{
 
 				$_SESSION['ID'] = $response['ID'];
 				$_SESSION['pseudo'] = $pseudo;
-				return 'Félicitations! Vous êtes maintenant connecté! <br /><a href="index.php">Retourner à l\'index</a>';
+				return 'Félicitations! Vous êtes maintenant connecté! <img src="img/loader2.gif" alt="" />';
 
 
 			}else{
@@ -44,6 +44,61 @@ class users{
 		}
 
 	}
+
+	static public function waitForInputIns($data){
+
+		if(isset($data['go_ins'])){
+
+			print_r($data);
+
+		   if(!empty($data['psd_ins']) AND !empty($data['name_ins']) AND !empty($data['birthdate_ins']) AND !empty($data['pass_ins']) AND !empty($data['pass_ins_confirm']) AND !empty($data['mail_ins']) AND !empty($data['mail_ins_confirm'])){
+
+
+
+			if(strlen($data['psd_ins']) <= 15){
+
+
+				if($data['pass_ins'] == $data['pass_ins_confirm']){
+
+						if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $data['mail_ins'])){
+
+
+							if($data['mail_ins_confirm'] == $data['mail_ins']){
+
+								return 'Inscription validée! Vous pouvez vous connecter!';
+
+							}else{
+
+								return 'Les deux adresses mails ne correspondents pas!';
+							}
+
+						}else{
+
+							return 'Adresse mail invalide!';
+
+						}
+
+				}else{
+
+					return 'Les deux mots de passe ne correspondent pas!';
+				}
+
+
+			}else{
+
+				return 'Ce pseudo est trop grand';
+			}
+
+		}else{
+
+
+			return 'Vous devez remplir tout les champs!';
+		}
+	}
+
+		
+
+	} //end of static func
 
 	static public function waitForInput($data){
 		
