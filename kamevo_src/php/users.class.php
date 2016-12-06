@@ -14,6 +14,23 @@ class users{
 
 	}
 
+	static private function ifUserExist($pseudo){
+
+			require('co_pdo.php');
+
+
+			$userExist = 'non';
+
+			$reqUExist = $bdd->prepare('SELECT * FROM users WHERE pseudo = ?');
+			$reqUExist->execute(array($pseudo));
+			$value = $reqUExist->rowCount();
+			if($value>0) $userExist='oui'; 
+
+			return $userExist;
+
+
+	}
+
 	static public function checkuser($pseudo,$mdp){
 
 		require('co_pdo.php');
@@ -65,7 +82,35 @@ class users{
 
 							if($data['mail_ins_confirm'] == $data['mail_ins']){
 
-								return 'Inscription validée! Vous pouvez vous connecter!';
+								if(!empty($data['cgu_ins'])){
+
+
+									if(users::ifUserExist($data['psd_ins']) == 'non'){
+
+										include('co_pdo.php');
+									$req = $bdd->prepare('INSERT INTO `users` (`pseudo`, `password`, `Nom`, `email`, `grade`) VALUES (:pseudo, :password, :nom, :mail, :grade)');
+									$req->execute(array(
+												'pseudo' => $data['psd_ins'],
+												'password' => md5($data['pass_ins']),
+												'nom' => $data['name_ins'],
+												'mail' => $data['mail_ins'],
+												'grade' => 1));
+
+									return 'Inscription validée! Vous pouvez vous connecter!';
+
+
+									}else{
+
+										return 'Ce pseudo existe déjà!';
+									}
+
+									
+								}else{
+
+									return 'Vous devez accepter les CGU!';
+								}
+
+								
 
 							}else{
 
