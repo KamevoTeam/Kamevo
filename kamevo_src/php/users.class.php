@@ -6,7 +6,7 @@ class users{
 	public $pseudo;	
 
 
-	function __construct($ID){
+	public function __construct($ID){
 
 		$this->idUser = $ID;
 		

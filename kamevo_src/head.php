@@ -1,8 +1,8 @@
 <?php 
 //session_start();
-require('php/users.class.php');
+/*require('php/users.class.php');
 require('php/func_posts.php');
-require('php/getGeneralStats.php');
+require('php/getGeneralStats.php');*/
 //if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the user objet 
  ?>
 

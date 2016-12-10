@@ -4,6 +4,7 @@
 	<?php
 		//changer en head2.php pour utiliser les frameworks en local (actuellement non-fonctionnels)
 		require ("head.php");
+		require('php/func_posts.php');
 	?>
 </head>
 <body>
