@@ -15,7 +15,7 @@
 		require("menu_co.php");
 
 	}else{
-		require("menu.php");
+		require("menu_pasco_general.php");
 	}
 	  
 	 ?>
