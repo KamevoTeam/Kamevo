@@ -4,7 +4,7 @@ class users{
 
 	
 	public $pseudo;	
-
+	public $idUser;
 
 	public function __construct($ID){
 
@@ -196,7 +196,7 @@ class users{
 
 	public function getId(){
 
-		return $this->idUser;
+		return '$this->idUser;';
 	}
 }
 ?>

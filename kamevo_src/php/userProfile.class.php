@@ -58,6 +58,13 @@
 
 	}
 
+	public function getId(){
+
+		return $this->user_id;
+
+
+
+	}
 
 
 

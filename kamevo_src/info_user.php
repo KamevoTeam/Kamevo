@@ -1,8 +1,8 @@
 <div class="groups">
 	<div class="points">
-	 <h4>INFOS</h4>
+	 <h4>INFOS</h4>	
 		<div class="line-separator5"></div>
-	   	<h6 class="inf-t">Points : <span class="p-count"><?=$userPage->user_pts; ?></span></h6>
+	   	<h6 class="inf-t">Points :<span class="p-count"><?=$userPage->user_pts; ?></span></h6>
 	   </div>
 	   <div class="points">
 	   	<h6 class="inf-t">Abonnés : <span class="p-count"><?=$userPage->user_subscribers; ?></span></h6>
@@ -16,10 +16,11 @@
 	</div>
 	<div class="infos">
 		<div class="sub-div">
-	  <form class="subscriber" method="post" action="">
-		<input type="submit" name="submit" class="subscribe-btn" value="S'abonner">
+		<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">S'abonner</button>
 		<!--<input type="submit" name="submit" class="subscribe-btn" value="Abonné" disabled="disabled"> -->
-		
+		<div id="submessage" class="submessage" style="display:none;"></div>
 	   </form>
 	  </div>
 	</div>
+	<script type="text/javascript" src="js/sub.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>

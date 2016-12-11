@@ -1,4 +1,7 @@
 	<?php
+		require('php/users.class.php');
+		$user = 'nop';
+		if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the user objet 
 		$id = (int)($_GET['id']);
 		if(isset($id) AND $id>0){
 			if(userProfile::ifUserExist($id) == 'yes'){
