@@ -1,0 +1,110 @@
+body{
+  margin:0;
+  background-color: #ededed;
+}
+.container{
+  width: 600px;
+  margin-left: calc(50vw - 270px);
+  padding-top:100px;
+}
+.pay-btn {
+  background: #f08a0c;
+  background-image: -webkit-linear-gradient(top, #f08a0c, #bd5c13);
+  background-image: -moz-linear-gradient(top, #f08a0c, #bd5c13);
+  background-image: -ms-linear-gradient(top, #f08a0c, #bd5c13);
+  background-image: -o-linear-gradient(top, #f08a0c, #bd5c13);
+  background-image: linear-gradient(to bottom, #f08a0c, #bd5c13);
+  border: none;
+  -webkit-border-radius: 48;
+  -moz-border-radius: 48;
+  border-radius: 48px;
+  -webkit-box-shadow: 0px 0px 3px #666666;
+  -moz-box-shadow: 0px 0px 3px #666666;
+  box-shadow: 0px 0px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.pay-btn:hover {
+  background: #fc8f3c;
+  background-image: -webkit-linear-gradient(top, #fc8f3c, #e68309);
+  background-image: -moz-linear-gradient(top, #fc8f3c, #e68309);
+  background-image: -ms-linear-gradient(top, #fc8f3c, #e68309);
+  background-image: -o-linear-gradient(top, #fc8f3c, #e68309);
+  background-image: linear-gradient(to bottom, #fc8f3c, #e68309);
+  text-decoration: none;
+  cursor: pointer;
+}
+.pay-btn:focus{
+  outline: none;
+}
+.invisible{
+  display: none;
+ transition-duration: 1s;
+}
+.verif{
+ display:none;
+ transition-duration: 1s;
+}
+.pay{
+  display: none;
+}
+.visible{
+  display: block;
+ transition-duration: 1s;
+}
+.back{
+  position: fixed;
+}
+.back-img{
+  position:fixed;
+  top:100px;
+  padding: 8px;
+  padding-left:3px;
+  left:45px;
+  width: 45px;
+  height: 45px;
+  background-color: #e67e22;
+  border-radius: 50%;
+  transition: all ease 1s;
+}
+.back-img:hover{
+    transform: rotate(360deg);
+}
+.name-input{
+  border: none;
+  border-bottom: solid 3px #e67e22;
+  background-color: transparent;
+  width: 140px;
+  padding:3px;
+  text-transform: uppercase;
+}
+.mail-input{
+  border: none;
+  border-bottom: solid 3px #e67e22;
+  background-color: transparent;
+  width: 260px;
+  text-transform: uppercase;
+  padding:3px;
+}
+.select{
+  width: 400px;
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 3px #e67e22;
+  padding:8px;
+}
+.select:focus{
+  outline: none;
+}
+option{
+  background-color: transparent;
+}
+.example{
+  position:fixed;
+  top: 348px;
+  margin-left: -75px;
+}
