@@ -106,6 +106,8 @@
 
 		include('co_pdo.php');
 
+		
+
 		$getPosts = $bdd->prepare('SELECT * FROM posts WHERE author = ? ORDER BY ID DESC LIMIT 10');
 		$getPosts->execute(array($this->user_psd));
 		$nbposts = $getPosts->rowCount();
@@ -123,6 +125,7 @@
 
 			while($resp = $getPosts->fetch()){
 
+				$this->updateLikes($resp['ID']);
 			?>
 
 
@@ -136,16 +139,18 @@
 	 			</div>
 
 				<p class="block-bio"><?=$resp['message']; ?></p>
-					<div class="img" id="145">
-						<img src="../../img/123.jpg" alt="" id="<?php echo '14'?>" class="image">
-						<img src="../../img/error.png" alt="close" class="errbut">
-					</div>
+
+					<!--<div class="img" id="145">
+						<img src="img/123.jpg" alt="" id="" class="image">
+						<img src="img/error.png" alt="close" class="errbut">
+					</div> -->
 
 			<br/><div class="line-separator6"></div>
 
 	 			<div class="abouts">
-	  				 <a href="" class="like">J'aime ( <?=$resp['likes']; ?> )</a>
-	  				 <a href="" class="like">Je n'aime pas ( <?=$resp['dislikes']; ?> )</a>
+	  				 <button onclick="userVote(1,46)" class="like"><img src="img/poucevert.jpg" alt="like" height="20" weight="20" /> <?=$resp['likes']; ?></button>
+	  				 <button onclick="userVote(2,46)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button>
+
  	 				 <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   				</div>
 
@@ -157,6 +162,25 @@
 
 
 	} //end of function
+
+	private function updateLikes($idPost){
+
+		require('co_pdo.php');
+
+		$getL = $bdd->prepare('SELECT * FROM vote WHERE id_post = ? AND vote = 1'); //1 = like
+		$getL->execute(array($idPost));
+		$nblikes = $getL->rowCount();
+
+		$getD = $bdd->prepare('SELECT * FROM vote WHERE id_post = ? AND vote = 2'); //2 = dislike
+		$getD->execute(array($idPost));
+		$nbdislikes = $getD->rowCount();
+
+		$LDupds = $bdd->prepare('UPDATE posts SET likes = ?, dislikes = ? WHERE ID = ?');
+		$LDupds->execute(array($nblikes,$nbdislikes,$idPost));
+
+		$LDupds->closeCursor();
+
+	}
 
 
 
