@@ -6,7 +6,7 @@
 		if(isset($id) AND $id>0){
 			if(userProfile::ifUserExist($id) == 'yes'){
 					$userPage = new userProfile($id);
-					$userPage->initProfile();
+					$userPage->updateProfile();
 					$pseudo = $userPage->user_psd;
 			}else{
 				$errorProfile = 'unknowUser';

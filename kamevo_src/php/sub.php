@@ -2,16 +2,41 @@
 session_start();
 
 
+
 include('co_pdo.php');
 
 //echo 'Données reçues:'.print_r($_POST); 
 
 	if(isset($_SESSION['ID'])){
 
-		$req = $bdd->prepare('INSERT INTO subs(abonne,abonnement) VALUES(?,?)');
-		$req->execute(array($_SESSION['ID'],',87'));
+		$userId = (int)$_POST['abonnement'];
 
-		echo 'Abonnement effectué!';
+		if(isUserSub($_SESSION['ID'],$userId) == 0){
+
+			if($userId <> $_SESSION['ID']){
+
+			$req = $bdd->prepare('INSERT INTO subs(abonne,abonnement) VALUES(?,?)');
+			$req->execute(array($_SESSION['ID'],$userId));
+
+			echo 'Abonnement effectué!';
+		}else{
+
+			echo 'Inutile de s\'abonner à sa propre chaîne...';
+
+		}
+
+		}else{
+
+			//section pour se désabonner
+
+			$reqDel = $bdd->prepare('DELETE FROM subs WHERE abonne = ? AND abonnement = ?');
+			$reqDel->execute(array($_SESSION['ID'],$userId));
+
+			echo 'Vous n\'êtes plus abonné à cette chaîne';
+			
+		}
+
+		
 
 	}else{
 
@@ -19,5 +44,16 @@ include('co_pdo.php');
 		echo 'Tu dois être connecté pour voter';
 	}
 
+function isUserSub($tryer,$sub){
 
+	//$isSub = false;
+	include('co_pdo.php');
+
+	$req2 = $bdd->prepare('SELECT * FROM subs WHERE abonne=:abo AND abonnement=:abonemnt');
+	$req2->execute(array('abo' => $tryer, 'abonemnt' => $sub));
+	$nb = $req2->rowCount();
+	return $nb;
+
+}
 ?>
+

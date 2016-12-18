@@ -26,9 +26,19 @@
 	 if(!isset($errorProfile)){
 
 	 	
-	   require("user_profile.php");
-	    require("info_user.php");
-	  require("posts_user.php");
+	   require("user_profile.php"); 
+	   require("info_user.php"); ?>
+
+	   <div class="fade"></div>
+		<div class=blockallz>
+	
+
+	<?php
+
+		 //require("posts_user.php");
+	$userPage->printUserPosts();
+
+	  echo '</div>';
 	}else{
 
 		include('userNotExist.php');

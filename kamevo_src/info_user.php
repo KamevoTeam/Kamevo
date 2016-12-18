@@ -1,3 +1,7 @@
+<?php 
+
+
+var_dump($userPage->ifUserSub($_SESSION['ID'])); ?>
 <div class="groups">
 	<div class="points">
 	 <h4>INFOS</h4>	
@@ -16,8 +20,11 @@
 	</div>
 	<div class="infos">
 		<div class="sub-div">
+		<?php if($userPage->ifUserSub($_SESSION['ID']) == FALSE) { ?>
 		<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">S'abonner</button>
-		<!--<input type="submit" name="submit" class="subscribe-btn" value="Abonné" disabled="disabled"> -->
+		<?php }else{ ?>
+		<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">Se désabonner</button>
+		<?php } ?>
 		<div id="submessage" class="submessage" style="display:none;"></div>
 	   </form>
 	  </div>

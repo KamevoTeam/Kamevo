@@ -1,5 +1,3 @@
-<div class="fade"></div>
-<div class=blockallz>
 <div class="block">
   <div class="block-title">
 	<img class="block-img" src="img/user.png" alt="William">
@@ -15,6 +13,7 @@
  	  <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   </div>
 </div>
+
 <div class="block">
   <div class="block-title">
 	<img class="block-img" src="img/user.png" alt="William">
@@ -34,6 +33,7 @@
  	  <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   </div>
 </div>
+
 <div class="block">
   <div class="block-title">
 	<img class="block-img" src="img/user.png" alt="William">
@@ -53,6 +53,7 @@
  	  <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   </div>
 </div>
+
 <div class="block">
   <div class="block-title">
 	<img class="block-img" src="img/user.png" alt="William">
@@ -72,6 +73,7 @@
  	  <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   </div>
 </div>
+
 <div class="block">
   <div class="block-title">
 	<img class="block-img" src="img/user.png" alt="William">
@@ -91,4 +93,5 @@
  	  <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   </div>
  </div>
-</div>
+
+
