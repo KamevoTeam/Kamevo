@@ -21,12 +21,12 @@
 
     			http = createRequestObject();
    				http.open('POST', 'php/vote.php', true);
-    			http.onreadystatechange = handleAJAXReturn2;
+    			http.onreadystatechange = handleAJAXReturn;
     			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     			http.send('result='+vote+'&post='+idPost);
 				}
 
-			function handleAJAXReturn2()
+			function handleAJAXReturn()
 			{
     		if (http.readyState == 4)
    			 {

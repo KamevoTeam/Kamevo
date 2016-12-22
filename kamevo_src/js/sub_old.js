@@ -19,7 +19,7 @@ var http;
 			{
     		if (http.readyState == 4)
    			 {
-       			 if (http.status == 200)
+       			 if (http.status == 200 && (http.responseText == 'subok' || http.responseText == 'unsubok' || http.responseText == 'subown' || http.responseText == 'subnoco'))
        			 {
            			 //alert(http.responseText);
 
@@ -31,7 +31,7 @@ var http;
 
            			$(document).ready(function(){
     				setTimeout(function(){$(".submessage").fadeOut('slow');}, 1000);
-					});
+					     });
            			 
 
 

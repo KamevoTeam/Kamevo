@@ -18,10 +18,10 @@ include('co_pdo.php');
 			$req = $bdd->prepare('INSERT INTO subs(abonne,abonnement) VALUES(?,?)');
 			$req->execute(array($_SESSION['ID'],$userId));
 
-			echo 'Abonnement effectué!';
+			echo 'subok';
 		}else{
 
-			echo 'Inutile de s\'abonner à sa propre chaîne...';
+			echo 'subown';
 
 		}
 
@@ -32,7 +32,7 @@ include('co_pdo.php');
 			$reqDel = $bdd->prepare('DELETE FROM subs WHERE abonne = ? AND abonnement = ?');
 			$reqDel->execute(array($_SESSION['ID'],$userId));
 
-			echo 'Vous n\'êtes plus abonné à cette chaîne';
+			echo 'unsubok';
 			
 		}
 
@@ -41,7 +41,7 @@ include('co_pdo.php');
 	}else{
 
 
-		echo 'Tu dois être connecté pour voter';
+		echo 'subnoco';
 	}
 
 function isUserSub($tryer,$sub){
