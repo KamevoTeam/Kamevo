@@ -148,8 +148,9 @@
 			<br/><div class="line-separator6"></div>
 
 	 			<div class="abouts">
-	  				 <button onclick="userVote(1,46)" class="like"><img src="img/poucevert.jpg" alt="like" height="20" weight="20" /> <?=$resp['likes']; ?></button>
-	  				 <button onclick="userVote(2,46)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button>
+	  				 <button onclick="userVote(1,<?=$resp['ID'] ?>)" class="like"><img src="img/poucevert.jpg" alt="like" height="20" weight="20" /> <?=$resp['likes']; ?></button>
+	  				 <button onclick="userVote(2,<?=$resp['ID'] ?>)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button>
+	  				 <div id="votemessage" class="submessage" style="display:none;"></div>
 
  	 				 <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   				</div>
@@ -163,13 +164,14 @@
 
 	} //end of function
 
-	private function updateLikes($idPost){
+	public function updateLikes($idPost){
 
 		require('co_pdo.php');
 
 		$getL = $bdd->prepare('SELECT * FROM vote WHERE id_post = ? AND vote = 1'); //1 = like
 		$getL->execute(array($idPost));
 		$nblikes = $getL->rowCount();
+
 
 		$getD = $bdd->prepare('SELECT * FROM vote WHERE id_post = ? AND vote = 2'); //2 = dislike
 		$getD->execute(array($idPost));

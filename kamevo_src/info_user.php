@@ -1,7 +1,4 @@
-<?php 
 
-
-var_dump($userPage->ifUserSub($_SESSION['ID'])); ?>
 <div class="groups">
 	<div class="points">
 	 <h4>INFOS</h4>	

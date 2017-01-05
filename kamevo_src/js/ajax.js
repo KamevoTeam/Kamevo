@@ -5,35 +5,32 @@
        			 if (http.status == 200)
        			 {
               var getFromPhp = http.responseText; //je stocke la valeur de retour http danq une variable
-              //alert(typeof(getFromPhp));
+              var infoReturn = 0;
 
-              console.log(getFromPhp);
+              if(getFromPhp.indexOf("sub") >= 0 ){
+                /*   Retour ajax: abonnement   */
 
-              if(getFromPhp == 'subown'){
+                  var div_sub = document.getElementById('submessage');
+                  div_sub.style.display = "block"; //on affiche la div
+                  div_sub.innerHTML = http.responseText; //on affiche le message. Faudra faire une div plus propre quand-même xD
 
-                console.log('reponse: subown');
-              }else{
+                  $(document).ready(function(){
+                         setTimeout(function(){$(".submessage").fadeOut('slow');}, 1000);
+                  });
+                  
+                }else{
 
-                console.log('reponse: pas subown');
-              }
+                  /*  retour ajax vote   */
+                  var div_vote = document.getElementById('votemessage');
+                  div_vote.style.display = "block"; //on affiche la div
+                  div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
 
-           			 //alert(http.responseText);
-               // if(http.responseText == 'subok' || http.responseText == 'unsubok' || http.responseText == 'subown' || http.responseText == 'subnoco'){
-           			     var div_sub = document.getElementById('submessage');
-
-           			    div_sub.style.display = "block"; //on affiche la div
-
-           			    div_sub.innerHTML = http.responseText; //on affiche le message. Faudra faire une div plus propre quand-même xD
-
-           			      $(document).ready(function(){
-    				             setTimeout(function(){$(".submessage").fadeOut('slow');}, 1000);
-					             });
-           			 
-                   //}else{
-
-                    //alert('Une erreur fatal est survenue!');
-
-                  // }
+                  $(document).ready(function(){
+                         setTimeout(function(){$(".votemessage").fadeOut('slow');}, 1000);
+                  });
+                   
+                 
+                }
 
        				 }
         		else
