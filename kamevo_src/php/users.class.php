@@ -47,7 +47,7 @@ class users{
 			if($response['password'] == hash('sha512', $mdp)){
 
 				$_SESSION['ID'] = $response['ID'];
-				$_SESSION['pseudo'] = $pseudo;
+				$_SESSION['pseudo'] = htmlspecialchars($pseudo);
 				return 'Félicitations! Vous êtes maintenant connecté! <img src="img/loader2.gif" alt="" />';
 
 
@@ -72,7 +72,7 @@ class users{
 
 
 
-			if(strlen($data['psd_ins']) <= 15){
+			if(strlen($data['psd_ins']) <= 35){
 
 
 				if($data['pass_ins'] == $data['pass_ins_confirm']){
