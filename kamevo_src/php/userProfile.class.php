@@ -187,14 +187,15 @@
 	 			<div class="abouts">
 	  				 <button onclick="userVote(1,<?=$resp['ID'] ?>)" class="like"><img src="img/poucevert.jpg" alt="like" height="20" weight="20" /> <?=$resp['likes']; ?></button>
 	  				 <button onclick="userVote(2,<?=$resp['ID'] ?>)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button>
-	  				 <div id="votemessage" class="submessage" style="display:none;"></div>
+	  				 <div id="votemessage" class="votemessage <?=$resp['ID'] ?>" style="display:none;"></div>
 
- 	 				 <a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+ 	 				 <?php if($mode=='profile'){?><a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a><?php } ?>
   				</div>
 
-			</div>
+  				<?php
+  				if($mode == 'profile') echo "</div>"; //si on affiche pas de commentaires, on ferme la div, sinon on la ferme après les commentaires
 
-			<?php
+			
 				} //end of fetching datas
 		}//end of if
 

@@ -26,7 +26,7 @@
                   div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
 
                   $(document).ready(function(){
-                         setTimeout(function(){$(".votemessage").fadeOut('slow');}, 1000);
+                         setTimeout(function(){$(".votemessage").filter(div).fadeOut('slow');}, 1000);
                   });
                    
                  

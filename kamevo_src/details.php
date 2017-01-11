@@ -55,7 +55,19 @@
 
 
 		$current_post->printUserPosts('uniq',1);
+		$current_post->loadComments();
 	?>	
 	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+		
+	 $(document).ready(function(){
+
+	 					 $('.block-comment').filter('com1').hide();
+                         setTimeout(function(){$(".block-comment").filter('com1').fadeIn('slow');}, 1000);
+                  });
+
+
+</script>
