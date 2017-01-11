@@ -9,7 +9,7 @@
 
 
  			<a class="js" href="deco.php"><li class="link"><i class="fa fa-user-plus" id="icon"></i> Déconnexion</li></a>
-	         <a class="js" href="base.php?id=<?php echo $_SESSION['ID']; ?>"><li class="link"><i class="fa fa-sign-in" id="icon"></i> <?php echo $_SESSION['pseudo']; ?></li></a>
+	         <a class="js" href="user.php?id=<?php echo $_SESSION['ID']; ?>"><li class="link"><i class="fa fa-sign-in" id="icon"></i> <?php echo $_SESSION['pseudo']; ?></li></a>
 
 	         <a class="js poplight" href="#?w=50%" rel="popup_name"><li class="link"><i class="fa fa-compass" id="icon"></i> Explorer</li></a>
 	        <a class="js" href="."><li class="link"><i class="fa fa-home" id="icon"></i> Accueil</li></a>

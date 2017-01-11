@@ -8,11 +8,13 @@
 	public $user_pts;
 	public $user_subscribers;
 	public $user_subscriptions;
+	public $user_nb_posts;
 
 
 	function __construct($id_user){
 
 				$this->user_id = $id_user;
+				$this->user_nb_posts = 0;
 	}
 
 	static public function ifUserExist($id_user){
@@ -40,18 +42,24 @@
 
 		include('co_pdo.php');
 
-		$this->updateSubs(); //on met à jour les abonnes/abonnements
+
+
 
 
 		$req = $bdd->prepare('SELECT * FROM users WHERE ID = ?');
 		$req->execute(array($this->user_id));
 		$rep = $req->fetch();
 
-		
 		$this->user_psd = $rep['pseudo'];
 		$this->user_pts = $rep['points'];
 		$this->user_subscribers = $rep['abonnes'];
 		$this->user_subscriptions = $rep['abonnements'];
+		$req->closeCursor();
+
+		
+		$this->updateSubs(); //on met à jour les abonnes/abonnements
+		$this->updateNbPosts(); //
+
 
 
 	}
@@ -79,11 +87,26 @@
 		$nb_subs = $subs->rowCount();
 
 		$subst = $bdd->prepare('SELECT * FROM subs WHERE abonne = ?');
-		$subst->execute(array($this->user_id	));
+		$subst->execute(array($this->user_id));
 		$nb_subst = $subst->rowCount();
 
 		$upds = $bdd->prepare('UPDATE users SET abonnes = ?, abonnements = ? WHERE ID = ?');
 		$upds->execute(array($nb_subs,$nb_subst,$this->user_id));
+
+	}
+	private function updateNbPosts(){
+		
+		include('co_pdo.php');
+		$posts = $bdd->prepare('SELECT * FROM posts WHERE author = ?');
+		$posts->execute(array($this->user_psd));
+		$nb_posts = $posts->rowCount();
+		$posts->closeCursor();
+
+
+		/*$upds = $bdd->prepare('UPDATE users SET abonnes = ? WHERE ID = ?');
+		$upds->execute(array($nb_subs,$nb_subst,$this->user_id));*/
+		$this->user_nb_posts = $nb_posts;
+
 
 	}
 
@@ -152,7 +175,7 @@
 	  				 <button onclick="userVote(2,<?=$resp['ID'] ?>)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button>
 	  				 <div id="votemessage" class="submessage" style="display:none;"></div>
 
- 	 				 <a href="#" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+ 	 				 <a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   				</div>
 
 			</div>
