@@ -35,11 +35,11 @@ if (isset($_POST['nom']) && isset($_POST['pseudo']) && isset($_POST['pass']) && 
 		//echo '0.2';
 		$error['*'] = true;
 	} else {
-			$nom = htmlspecialchars($_POST['nom']);
-			$pseudo = htmlspecialchars($_POST['pseudo']);
-			$pass = md5(htmlspecialchars($_POST['pass']));
-			$confirm = md5(htmlspecialchars($_POST['confirm']));
-			$mail = htmlspecialchars($_POST['mail']);
+			$nom = $_POST['nom'];
+			$pseudo = $_POST['pseudo'];
+			$pass = hash('sha512', $_POST['pass']);
+			$confirm = hash('sha512', $_POST['confirm']);
+			$mail = $_POST['mail'];
 
 			if (strlen($_POST['pass']) >= 8) {
 				//echo 'pass';

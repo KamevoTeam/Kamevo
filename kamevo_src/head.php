@@ -16,6 +16,6 @@ require('php/getGeneralStats.php');*/
 	<link rel="stylesheet" href="css/style.max.css">
 	<link rel="stylesheet" href="css/menu_co.css">
 	<link rel="stylesheet" href="profile/css/profile.css">
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="frameworks/w3.css">
     <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="frameworks/jquery.min.js"></script>

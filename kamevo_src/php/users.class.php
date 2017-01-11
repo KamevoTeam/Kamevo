@@ -44,10 +44,10 @@ class users{
 		if($value > 0){
 
 			$response = $reqCheckExist->fetch();
-			if($response['password'] == md5($mdp)){
+			if($response['password'] == hash('sha512', $mdp)){
 
 				$_SESSION['ID'] = $response['ID'];
-				$_SESSION['pseudo'] = $pseudo;
+				$_SESSION['pseudo'] = htmlspecialchars($pseudo);
 				return 'Félicitations! Vous êtes maintenant connecté! <img src="img/loader2.gif" alt="" />';
 
 
@@ -72,7 +72,7 @@ class users{
 
 
 
-			if(strlen($data['psd_ins']) <= 15){
+			if(strlen($data['psd_ins']) <= 35){
 
 
 				if($data['pass_ins'] == $data['pass_ins_confirm']){
@@ -91,7 +91,7 @@ class users{
 									$req = $bdd->prepare('INSERT INTO `users` (`pseudo`, `password`, `Nom`, `email`, `grade`) VALUES (:pseudo, :password, :nom, :mail, :grade)');
 									$req->execute(array(
 												'pseudo' => $data['psd_ins'],
-												'password' => md5($data['pass_ins']),
+												'password' => hash('sha512', $data['pass_ins']),
 												'nom' => $data['name_ins'],
 												'mail' => $data['mail_ins'],
 												'grade' => 1));
@@ -151,7 +151,7 @@ class users{
 
 			if(isset($data['pseudo'],$data['password']) AND !empty($data['pseudo']) AND !empty($data['password'])){
 
-				$rep = users::checkuser(htmlspecialchars($data['pseudo']), htmlspecialchars($data['password']));
+				$rep = users::checkuser($data['pseudo'], $data['password']);
 				
 				return $rep;
 
