@@ -9,6 +9,7 @@
 	public $user_subscribers;
 	public $user_subscriptions;
 	public $user_nb_posts;
+	public $current_post_id = 0;
 
 
 	function __construct($id_user){
@@ -125,17 +126,30 @@
 
 	}
 
-	public function printUserPosts(){
+	public function printUserPosts($mode){
 
 		include('co_pdo.php');
 
+		if($mode == 'uniq'){
+
+			$req = "SELECT * FROM posts WHERE ID = ?";
+			$getPosts = $bdd->prepare($req);
+			$getPosts->execute(array($this->current_post_id));
+			$nbposts = $getPosts->rowCount();
+
+		}
+
+		if($mode == 'profile'){
+			$req = "SELECT * FROM posts WHERE author = ? ORDER BY ID DESC LIMIT 10";
+			$getPosts = $bdd->prepare($req);
+			$getPosts->execute(array($this->user_psd));
+			$nbposts = $getPosts->rowCount();
+
+		} 
+
 		
 
-		$getPosts = $bdd->prepare('SELECT * FROM posts WHERE author = ? ORDER BY ID DESC LIMIT 10');
-		$getPosts->execute(array($this->user_psd));
-		$nbposts = $getPosts->rowCount();
-
-		if($nbposts == 0){ ?>
+		if($nbposts == 0 AND $mode == 'profile'){ ?>
 
 			<div class="block">
   				<div class="block-title">

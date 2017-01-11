@@ -36,7 +36,7 @@
 	<?php
 
 		 //require("posts_user.php");
-	$userPage->printUserPosts();
+	$userPage->printUserPosts('profile');
 
 	  echo '</div>';
 	}else{

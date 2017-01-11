@@ -1,6 +1,23 @@
 <?php
 	session_start();
 	require('php/userProfile.class.php');
+	require('php/publication.class.php');
+	require('php/users.class.php');
+	$user = 'nop';
+	$id_post = (int)($_GET['idpost']);
+
+	if(isset($_SESSION['ID']) AND (isset($id_post) AND $id_post>0)){
+		 $user = new users($_SESSION['ID']); //initialize the user objet 
+
+		 $current_post = new publication($id_post);		  
+
+		}else{
+
+			header('location:index.php?return=detailsErrorAcess');
+			die();
+
+		}
+
 
 	?>
 
@@ -32,7 +49,12 @@
 	 ?>
 	<div class="container">
 	<?php 
-		require("DESIGN/details/block.php");
+	/*Beginning of displaying post*/
+
+
+
+
+		$current_post->printUserPosts('uniq',1);
 	?>	
 	</div>
 </body>
