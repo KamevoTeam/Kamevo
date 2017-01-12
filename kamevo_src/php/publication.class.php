@@ -3,62 +3,126 @@
 	class publication extends userProfile{
 
 		public $title_of_publi;
+		private $errorMessage;
 
 
 		function __construct($id_post){
 
 				$this->current_post_id = $id_post;
+				$this->errorMessage = '';
+
+		}
+
+		private function sendComment(){
+
+
+			require('co_pdo.php');
+
+			$textComment =  htmlspecialchars($_POST['comment']);
+			$id_post_to_send = $this->current_post_id;
+			$id_sender_of_comment = $_SESSION['ID'];
+
+			//for ($i=0; $i < 100 ; $i++) { 
+				$sendCom = $bdd->prepare('INSERT INTO comments(id_post,poster,comment,note) VALUES (?,?,?,?)');
+				$sendCom->execute(array($id_post_to_send,$id_sender_of_comment,$textComment,'0'));
+
+			//}
+			
+
+			//echo 'Commentaire posté!';
+			$_POST = array(); //cleaning receving datas
+
+
 
 		}
 
 		public function loadComments(){
-			
-			//todo
-			?>
+				
+			require('co_pdo.php');	
+			if(isset($_POST['submit']) AND !empty($_POST['comment'])) $this->sendComment(); ?>
+
 			<div class="comments">
 			
+				<!-- Post comment form --> 
 				<div class="forms">
-  					<form method="post" class="comment-form">
+  					<form method="post" class="comment-form" action="">
 	  					<h6 class="block-name"><strong>William - Gaming </strong></h6><br/>
   						<textarea class="comment-input" name="comment" placeholder="Mon commentaire ..."></textarea>
   						<input type="submit" name="submit" class="post-btn" value="publier mon commentaire">
   					</form>
+  					<span class="respComSend" id="resComSend" style="color:red;background:yellow;"><?=$this->errorMessage; ?></span>
   				</div>
+  				<!-- End of post comment form --> 
+  				<?php 
 
+  				$CommentsPerPage = 20;
+				$nbTotalCommentsReq = $bdd->prepare('SELECT ID FROM comments WHERE id_post = ?');
+				$nbTotalCommentsReq->execute(array($this->current_post_id));
+				$nbTotalComments = $nbTotalCommentsReq->rowCount();
+
+				$totalPages = ceil($nbTotalComments/$CommentsPerPage);
+
+				if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
+   					 $currentPage = (int)$_GET['page'];
+				} else {
+   					$currentPage = 1;
+				}
+
+				$start = ($currentPage-1)*$CommentsPerPage;
+				echo '<div id="pagesDisplay">';
+  				for($i=1;$i<=$totalPages;$i++) {
+         			if($i == $currentPage) {
+            			echo $i.' ';
+         			}elseif ($i == $currentPage+1) {
+         				echo '<a href="details.php?idpost='.$this->current_post_id.'&page='.$i.'" class="nextPage">'.$i.'</a> ';
+         			} else {
+            			echo '<a href="details.php?idpost='.$this->current_post_id.'&page='.$i.'">'.$i.'</a> ';
+         			}
+      			} 
+      			?> 
+      			</div>
+      			<div id="allCommentsDiv">
+  				<?php
+  				/*Request to load all the comments */
+
+  				
+
+  				$loadCom = $bdd->prepare('SELECT * FROM comments WHERE id_post = ? ORDER BY ID DESC LIMIT '.$start.','.$CommentsPerPage);
+				$loadCom->execute(array($this->current_post_id));
+				while($dataCom = $loadCom->fetch()){ ?>
+
+				
+
+			
   				<!-- Only one comment -->
-  	 			<div class="block-comment com1">
-					<img class="block-img" src="../img/user.png" alt="William">
-	 				 <h6 class="block-name"><strong>William - Gaming </strong> | <span class="comment-date">16/09/2016 à 16:49</span></h6>
-					<p class="comment-content">
-						 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	  					 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	  					 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	 					 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	 					 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	 					 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	  				 <br/><a href="" class="comment-like">J'aime ( 1 )</a>
-	  				<a href="" class="comment-like">Je n'aime pas ( - )</a>
-	 					<br/></p>
+  				<div class="oneComment">
+	  	 			<div class="block-comment com1">
+						<img class="block-img" src="img/user.png" alt="William">
+		 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($dataCom['poster']); ?> </strong> | <span class="comment-date"><?=$dataCom['date']; ?></span></h6>
+						<p class="comment-content">
+							 <?=$dataCom['comment']; ?>
+		  				 <br/><a href="" class="comment-like">J'aime ( 1 )</a>
+		  				<a href="" class="comment-like">Je n'aime pas ( - )</a>
+		 					<br/></p>
+					</div>
 				</div>
-
-				<div class="block-comment com2">
-					<img class="block-img" src="../img/user.png" alt="William">
-	 				 <h6 class="block-name"><strong>William - Gaming </strong> | <span class="comment-date">16/09/2016 à 16:49</span></h6>
-					<p class="comment-content">
-						 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	  					 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	  					 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	 					 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	 					 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	 					 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	  				 <br/><a href="" class="comment-like">J'aime ( 1 )</a>
-	  				<a href="" class="comment-like">Je n'aime pas ( - )</a>
-	 					<br/></p>
+				<?php } ?>
 				</div>
 
 
 		</div>
 			<?php
+		}
+
+		private function getPsdFromId($userIdSearch){
+
+			include('co_pdo.php');
+			$req = $bdd->prepare('SELECT pseudo FROM users WHERE ID = ?');
+			$req->execute(array($userIdSearch));
+			$rep = $req->fetch();
+			return $rep['pseudo'];
+
+
 		}
 
 

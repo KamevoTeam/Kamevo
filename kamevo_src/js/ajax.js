@@ -6,6 +6,8 @@
        			 {
               var getFromPhp = http.responseText; //je stocke la valeur de retour http danq une variable
               var infoReturn = 0;
+              var infoIdComment = getFromPhp .substr(0,1);
+              getFromPhp = getFromPhp.substr(1);
 
               if(getFromPhp.indexOf("sub") >= 0 ){
                 /*   Retour ajax: abonnement   */
@@ -21,12 +23,13 @@
                 }else{
 
                   /*  retour ajax vote   */
-                  var div_vote = document.getElementById('votemessage');
+                  var nameOfdiv = 'votemessage'+infoIdComment;
+                  var div_vote = document.getElementById(nameOfdiv);
                   div_vote.style.display = "block"; //on affiche la div
                   div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
 
                   $(document).ready(function(){
-                         setTimeout(function(){$(".votemessage").filter(div).fadeOut('slow');}, 1000);
+                         setTimeout(function(){$('.'+nameOfdiv).fadeOut('slow');}, 1000);
                   });
                    
                  

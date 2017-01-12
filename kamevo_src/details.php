@@ -32,7 +32,30 @@
 	<link rel="stylesheet" href="DESIGN/details/css/style.max.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/createHttpObject.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script> 
+    <script type="text/javascript" src="js/jquery-ias.min.js"></script> <!-- infinite scroll lib for better stuff :)  --> 
+    <script type="text/javascript">
+    	/*  Infinite scroll pour charger les commentaires   */
+    	var ias = jQuery.ias({
+  			container:  '#allCommentsDiv',
+  			item:       '.oneComment',
+  			pagination: '#pagesDisplay',
+  			next:       '.nextPage'
+		});
+
+		ias.extension(new IASSpinnerExtension());
+		ias.extension(new IASNoneLeftExtension({text: "Fin des commmentaires"}));
+
+		ias.extension(new IASTriggerExtension({
+
+			text: 'Afficher plus de commentaires', 
+			offset: 2
+
+		}));
+
+    </script>
 </head>
 <body>
 
