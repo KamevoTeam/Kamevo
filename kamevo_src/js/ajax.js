@@ -6,11 +6,11 @@
        			 {
               var getFromPhp = http.responseText; //je stocke la valeur de retour http danq une variable
               var infoReturn = 0;
-              var infoIdComment = getFromPhp .substr(0,1);
-              getFromPhp = getFromPhp.substr(1);
+  
 
               if(getFromPhp.indexOf("sub") >= 0 ){
                 /*   Retour ajax: abonnement   */
+
 
                   var div_sub = document.getElementById('submessage');
                   div_sub.style.display = "block"; //on affiche la div
@@ -20,20 +20,55 @@
                          setTimeout(function(){$(".submessage").fadeOut('slow');}, 1000);
                   });
                   
-                }else{
+                }
+                 if(getFromPhp.indexOf("votep") >= 0 ){
 
                   /*  retour ajax vote   */
+
+                  var whereVoteIs = getFromPhp.indexOf('votep');
+                  var infoIdComment = getFromPhp .substr(0,whereVoteIs);
+                  
+
+                  getFromPhp = getFromPhp.substr(5+whereVoteIs);
+
+
                   var nameOfdiv = 'votemessage'+infoIdComment;
                   var div_vote = document.getElementById(nameOfdiv);
                   div_vote.style.display = "block"; //on affiche la div
                   div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
 
                   $(document).ready(function(){
-                         setTimeout(function(){$('.'+nameOfdiv).fadeOut('slow');}, 1000);
+                         setTimeout(function(){$('.'+nameOfdiv).fadeOut('slow');}, 2000);
                   });
                    
                  
                 }
+                if(getFromPhp.indexOf("votec") >= 0 ){ 
+
+                  /*  retour ajax vote commentaire  */
+                  var whereVoteIs = getFromPhp.indexOf('votec');
+                  var infoIdComment = getFromPhp .substr(0,whereVoteIs);
+                    
+
+                  getFromPhp = getFromPhp.substr(5+whereVoteIs);
+
+                  
+
+
+                  var nameOfdiv = 'ErrorcommentId'+infoIdComment;
+                  var div_vote = document.getElementById(nameOfdiv);
+                  div_vote.style.display = "block"; //on affiche la div
+                  div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
+
+                  $(document).ready(function(){
+                         setTimeout(function(){$('.'+nameOfdiv).fadeOut('slow');}, 2000);
+                  });
+
+                  
+                 
+                }
+
+
 
        				 }
         		else
@@ -59,4 +94,13 @@
           http.onreadystatechange = handleAJAXReturn;
           http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           http.send('result='+vote+'&post='+idPost);
+    }
+
+        function userVoteComment(vote,idComment){
+
+          http = createRequestObject();
+          http.open('POST', 'php/voteComment.php', true);
+          http.onreadystatechange = handleAJAXReturn;
+          http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          http.send('result='+vote+'&comment='+idComment);
         }

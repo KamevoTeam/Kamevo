@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="DESIGN/user/css/menu.css">
 	<link rel="stylesheet" href="DESIGN/details/css/line-separator.css">
 	<link rel="stylesheet" href="DESIGN/details/css/block.css">
+	<link rel="stylesheet" href="DESIGN/details/css/progressBar.css">
 	<link rel="stylesheet" href="DESIGN/details/css/style.max.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">

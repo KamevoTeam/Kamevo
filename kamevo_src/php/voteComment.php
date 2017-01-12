@@ -5,7 +5,7 @@ if(isset($_SESSION['ID'])){
 
 	if($_POST['result'] == 1 || $_POST['result'] == 2){
 
-		$userVoteYet = isUservote($_SESSION['ID'],$_POST['post']);
+		$userVoteYet = isUservote($_SESSION['ID'],$_POST['comment']);
 
 		if ($userVoteYet[0] > 0){
 
@@ -19,15 +19,15 @@ if(isset($_SESSION['ID'])){
 
 			if($newvote == 0){
 
-				$reqDelVote = $bdd->prepare('DELETE FROM vote WHERE votant = ? AND id_post = ?');
-				$reqDelVote->execute(array($_SESSION['ID'],$_POST['post']));
-				echo $_POST['post'].'votepVote annulé';
+				$reqDelVote = $bdd->prepare('DELETE FROM votecomments WHERE votant = ? AND id_com = ?');
+				$reqDelVote->execute(array($_SESSION['ID'],$_POST['comment']));
+				echo $_POST['comment'].'votecVote annulé';
 
 			}else{
 
-				$reqUpdateVote = $bdd->prepare('UPDATE vote SET vote = ? WHERE id_post = ? AND votant = ?');
-				$reqUpdateVote->execute(array($newvote,$_POST['post'],$_SESSION['ID']));
-				echo $_POST['post'].'votepVote mis à jour';
+				$reqUpdateVote = $bdd->prepare('UPDATE votecomments SET vote = ? WHERE id_com = ? AND votant = ?');
+				$reqUpdateVote->execute(array($newvote,$_POST['comment'],$_SESSION['ID']));
+				echo $_POST['comment'].'votecVote mis à jour';
 
 			}
 
@@ -36,10 +36,10 @@ if(isset($_SESSION['ID'])){
 		}else{
 
 
-		$req = $bdd->prepare('INSERT INTO vote(vote,votant,id_post) VALUES (?,?,?)');
-		$req->execute(array(htmlspecialchars($_POST['result']), $_SESSION['ID'], $_POST['post']));
-		if($_POST['result'] == 1) echo $_POST['post'].'votepTu aimes cette publication ';
-		if($_POST['result'] == 2) echo $_POST['post'].'votepTu n\'aimes pas cette publication';
+		$req = $bdd->prepare('INSERT INTO votecomments(vote,votant,id_com) VALUES (?,?,?)');
+		$req->execute(array(htmlspecialchars($_POST['result']), $_SESSION['ID'], $_POST['comment']));
+		if($_POST['result'] == 1) echo $_POST['comment'].'votecTu aimes ce commentaire ';
+		if($_POST['result'] == 2) echo $_POST['comment'].'votecTu n\'aimes pas ce commentaire';
 
 		}
 		
@@ -65,7 +65,7 @@ function isUservote($tester,$idpost){
 
 	$responseVote = array(0,0);
 
-	$req2 = $bdd->prepare('SELECT * FROM vote WHERE votant=:votantuser AND id_post=:currentpost');
+	$req2 = $bdd->prepare('SELECT * FROM votecomments WHERE votant=:votantuser AND id_com=:currentpost');
 	$req2->execute(array('votantuser' => $tester, 'currentpost' => $idpost));
 	$nb = $req2->rowCount();
 	$retourResult = $req2->fetch();

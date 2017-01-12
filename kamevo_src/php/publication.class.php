@@ -45,7 +45,7 @@
 			
 				<!-- Post comment form --> 
 				<div class="forms">
-  					<form method="post" class="comment-form" action="">
+  					<form method="post" class="comment-form" action="#">
 	  					<h6 class="block-name"><strong>William - Gaming </strong></h6><br/>
   						<textarea class="comment-input" name="comment" placeholder="Mon commentaire ..."></textarea>
   						<input type="submit" name="submit" class="post-btn" value="publier mon commentaire">
@@ -85,25 +85,35 @@
   				<?php
   				/*Request to load all the comments */
 
-  				
+  				$updateCom = $bdd->prepare('SELECT * FROM comments WHERE id_post = ? ORDER BY ID DESC LIMIT '.$start.','.$CommentsPerPage);
+				$updateCom->execute(array($this->current_post_id));
+				while($dataCom = $updateCom->fetch()){
+
+					$this->updateLikesComments($dataCom['ID']); //updating likes for every comments
+				} 
 
   				$loadCom = $bdd->prepare('SELECT * FROM comments WHERE id_post = ? ORDER BY ID DESC LIMIT '.$start.','.$CommentsPerPage);
 				$loadCom->execute(array($this->current_post_id));
-				while($dataCom = $loadCom->fetch()){ ?>
 
 				
 
+				
+				while($dataCom = $loadCom->fetch()){
+				 ?>
+
+					
+
 			
   				<!-- Only one comment -->
-  				<div class="oneComment">
-	  	 			<div class="block-comment com1">
+  				<div class="oneComment" id="comment<?=$dataCom['ID']; ?>" style="padding-top: 50px;">
+	  	 			<div class="block-comment com">
 						<img class="block-img" src="img/user.png" alt="William">
 		 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($dataCom['poster']); ?> </strong> | <span class="comment-date"><?=$dataCom['date']; ?></span></h6>
 						<p class="comment-content">
 							 <?=$dataCom['comment']; ?>
-		  				 <br/><a href="" class="comment-like">J'aime ( 1 )</a>
-		  				<a href="" class="comment-like">Je n'aime pas ( - )</a>
-		 					<br/></p>
+		  				 <br/><a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(1,<?=$dataCom['ID']; ?>)">J'aime ( <?=$dataCom['likes']; ?> )</a>
+		  				<a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(2,<?=$dataCom['ID']; ?>)">Je n'aime pas ( <?=$dataCom['dislikes']; ?> )</a>
+		 					<br/></p><span id="ErrorcommentId<?=$dataCom['ID']; ?>" class="ErrorcommentId<?=$dataCom['ID']; ?>"></span>
 					</div>
 				</div>
 				<?php } ?>
@@ -124,6 +134,26 @@
 
 
 		}
+
+		public function updateLikesComments($idComment){
+
+			require('co_pdo.php');
+
+			$ComgetL = $bdd->prepare('SELECT * FROM votecomments WHERE id_com = ? AND vote = 1'); //1 = like
+			$ComgetL->execute(array($idComment));
+			$Comnblikes = $ComgetL->rowCount();
+
+
+			$ComgetD = $bdd->prepare('SELECT * FROM votecomments WHERE id_com = ? AND vote = 2'); //2 = dislike
+			$ComgetD->execute(array($idComment));
+			$Comnbdislikes = $ComgetD->rowCount();
+
+			$ComLDupds = $bdd->prepare('UPDATE comments SET likes = ?, dislikes = ? WHERE ID = ?');
+			$ComLDupds->execute(array($Comnblikes,$Comnbdislikes,$idComment));
+
+			$ComLDupds->closeCursor();
+
+	}
 
 
 		

@@ -132,6 +132,7 @@
 
 		if($mode == 'uniq'){
 
+			$this->updateLikes($this->current_post_id);
 			$req = "SELECT * FROM posts WHERE ID = ?";
 			$getPosts = $bdd->prepare($req);
 			$getPosts->execute(array($this->current_post_id));
@@ -163,6 +164,7 @@
 			while($resp = $getPosts->fetch()){
 
 				$this->updateLikes($resp['ID']);
+				$calculPourcent = 100*(($resp['likes'])/($resp['likes']+$resp['dislikes']));
 			?>
 
 
@@ -177,16 +179,16 @@
 
 				<p class="block-bio"><?=$resp['message']; ?></p>
 
-					<!--<div class="img" id="145">
+					<div class="img" id="145">
 						<img src="img/123.jpg" alt="" id="" class="image">
 						<img src="img/error.png" alt="close" class="errbut">
-					</div> -->
+					</div> 
 
 			<br/><div class="line-separator6"></div>
 
 	 			<div class="abouts">
 	  				 <button onclick="userVote(1,<?=$resp['ID'] ?>)" class="like"><img src="img/poucevert.jpg" alt="like" height="20" weight="20" /> <?=$resp['likes']; ?></button>
-	  				 <button onclick="userVote(2,<?=$resp['ID'] ?>)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button>
+	  				 <button onclick="userVote(2,<?=$resp['ID'] ?>)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button> <meter min="0" max="100" value="<?=$calculPourcent; ?>"></meter>
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
  	 				 <?php if($mode=='profile'){?><a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a><?php } ?>
