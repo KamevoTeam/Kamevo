@@ -6,10 +6,12 @@
 		private $errorMessage;
 
 
+
 		function __construct($id_post){
 
 				$this->current_post_id = $id_post;
-				$this->errorMessage = '';
+				$this->errorMessage = 'debug';
+				$this->updateViews($id_post);
 
 		}
 
@@ -85,9 +87,10 @@
   				<?php
   				/*Request to load all the comments */
 
-  				$updateCom = $bdd->prepare('SELECT * FROM comments WHERE id_post = ? ORDER BY ID DESC LIMIT '.$start.','.$CommentsPerPage);
+  				$updateCom = $bdd->prepare('SELECT * FROM comments WHERE id_post = ? ');
 				$updateCom->execute(array($this->current_post_id));
 				while($dataCom = $updateCom->fetch()){
+
 
 					$this->updateLikesComments($dataCom['ID']); //updating likes for every comments
 				} 
@@ -134,6 +137,25 @@
 
 
 		}
+		public function getIdCreator(){
+
+			include('co_pdo.php');
+
+			$getAth = $bdd->prepare('SELECT author FROM posts WHERE ID = ?');
+			$getAth->execute(array($this->current_post_id));
+			$rep = $getAth->fetch();
+			$psd_author =  $rep['author'];
+			$getAth->closeCursor();
+
+			$getId = $bdd->prepare('SELECT ID FROM users WHERE pseudo = ?');
+			$getId->execute(array($psd_author));
+			$id_creator = $getId->fetch();
+			return $id_creator['ID'];
+
+
+
+
+		}
 
 		public function updateLikesComments($idComment){
 
@@ -164,8 +186,66 @@
 
 
 
+	private function updateViews($id_post){
+
+		/*  Visites uniques: 
 
 
+
+		  */
+
+		include('co_pdo.php');
+
+		$ip_client = $this->get_ip();
+
+
+		$checkIp = $bdd->prepare('SELECT * FROM views_posts WHERE ip = ? AND id_post = ?');
+		$checkIp->execute(array($ip_client,$id_post));
+
+		$nb = $checkIp->rowCount();
+		$checkIp->closeCursor();
+
+		if($nb == 0){
+			$upViews = $bdd->prepare('INSERT INTO views_posts(IP,id_post,nb_visites) VALUES (?,?,?)');
+			$upViews->execute(array($ip_client,$id_post,1));
+			$upViews->closeCursor();
+
+			$upViewsGlobal = $bdd->prepare('UPDATE posts SET uniq_views = uniq_views+1 WHERE ID = ?');
+			$upViewsGlobal->execute(array($id_post));
+			$upViewsGlobal->closeCursor();
+
+		}else{
+
+			$upViews = $bdd->prepare('UPDATE views_posts SET nb_visites = nb_visites+1 WHERE ip = ?');
+			$upViews->execute(array($ip_client));
+			$upViews->closeCursor();
+
+			$upViewsGlobal2 = $bdd->prepare('UPDATE posts SET total_views = total_views+1 WHERE ID = ?');
+			$upViewsGlobal2->execute(array($id_post));
+			$upViewsGlobal2->closeCursor();
+
+		}
+
+
+
+
+
+	}
+
+	public function get_ip() {
+		// IP si internet partagé
+			if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+			return $_SERVER['HTTP_CLIENT_IP'];
+		}
+		// IP derrière un proxy
+		elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}
+		// Sinon : IP normale
+		else {
+			return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+		}
+}
 
 
 
