@@ -6,6 +6,9 @@
     position: fixed;
     left: 0;
     background-color: #e67e22;
+    background: -webkit-linear-gradient(#e67e22,#cf6d17);
+    background: -o-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);
     height: 55px;
     margin: 0;
     margin-bottom: 120px;
@@ -48,12 +51,12 @@
     margin-top:-32px;
 }
 .link:hover{
-    background-color:#f39c12;
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#f39c12,#da8b0b);
+    background: -o-linear-gradient(#f39c12,#da8b0b);
+    background: -moz-linear-gradient(#f39c12,#da8b0b);
     padding-bottom: 17px;
     border-bottom: solid 3px #e67e22;
-    -webkit-box-shadow: 3px 0px 17px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 3px 0px 17px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 0px 17px 0px rgba(0,0,0,0.75);
 }
 .container-left{
     display: inline-block;
@@ -106,6 +109,26 @@
 }
 .h-input:focus > .label{
     color:black;
+}
+.form{
+  display: inline-block;
+}
+.f-input{
+  display: inline-block;
+  transition-duration: 1s;
+    border : solid 1px #e67e22;
+  width: 228px;
+    margin-top: -3px;
+  padding: 9px;
+}
+.f-input:focus{
+  transition-duration: 1s;
+  width: 400px;
+    outline: none;
+}
+.looking{
+  color: #e67e22;
+  margin-left: -32px;
 }
 /*----------------------------------*\
               PLACEHOLDER 

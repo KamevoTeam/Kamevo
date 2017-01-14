@@ -6,6 +6,9 @@
     position: fixed;
     left: 0;
     background-color: #e67e22;
+    background: -webkit-linear-gradient(#e67e22,#cf6d17);
+    background: -o-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);
     height: 55px;
     margin: 0;
     margin-bottom: 120px;
@@ -13,8 +16,21 @@
     -moz-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
 }
-.menu > .mme{
-    z-index: 1;
+.logo{
+    
+    margin-right: 15px;
+    color: #f1c40f;
+    display: inline-block;
+    font-size:35px;
+    margin-top: -14px;
+    float: left;
+}
+.title{
+    color: white;
+    display: inline-block;
+    float: left;
+    margin-top: -14px;
+    font-size:35px;
 }
 .link{
     color:white;
@@ -35,12 +51,12 @@
     margin-top:-32px;
 }
 .link:hover{
-    background-color:#f39c12;
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#f39c12,#da8b0b);
+    background: -o-linear-gradient(#f39c12,#da8b0b);
+    background: -moz-linear-gradient(#f39c12,#da8b0b);
     padding-bottom: 17px;
     border-bottom: solid 3px #e67e22;
-    -webkit-box-shadow: 3px 0px 17px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 3px 0px 17px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 0px 17px 0px rgba(0,0,0,0.75);
 }
 .logo{
     

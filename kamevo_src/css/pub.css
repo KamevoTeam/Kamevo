@@ -3,6 +3,7 @@
 	left:  calc(((100% - 1150px) / 2) + 860px);
 	top: 100px;
 	width: 300px;
+	z-index: 9999;
 	padding: 10px;
 	background-color: white; 
 	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
