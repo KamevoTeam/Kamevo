@@ -16,8 +16,8 @@
 		<?php include('social.php'); ?>
 		  <?php
 		  //if(!isset($_SESSION['ID'])){ getPosts('homeNoConnect'); }else{ getPosts('homeConnect'); } 
-		  	if(!isset($_SESSION['ID'])){ getPosts('homeNoConnect'); }else{ getPosts('homeNoConnect'); } 
-
+		  //if(!isset($_SESSION['ID'])){ getPosts('homeNoConnect'); }else{ getPosts('homeNoConnect'); } 
+		  	require("post-examples.php");
 			require ("pub.php");
 		  ?>	
 		</div>
