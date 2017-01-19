@@ -8,7 +8,7 @@
  <div class="text">
   <form action="" method="post">
   	<textarea name="text" class="text-area" placeholder="Votre message ..."></textarea>
-  	<a href="#" class="btn">Envoyer</a><!-- envoyer vers une page XXXX.php avec un texte gene "Merci ! " , je ferai le style plus tard -->
+  	<input type="submit" name="submit" value="Envoyer" class="btn"><!-- envoyer vers une page XXXX.php avec un texte gene "Merci ! " , je ferai le style plus tard -->
   </form>
   <h6>Merci de nous envoyer vos idées pour nous permettre d'améliorer Kamevo ! Nous espérons que votre message nous sera utile !
   <br/>ATTENTION : Vous ne pouvez envoyer qu'une seule suggestion par compte , faites en bon usage !</h6>

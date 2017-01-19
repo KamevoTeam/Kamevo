@@ -54,8 +54,10 @@
 	border-radius: 5px;
 	width: 100px;
 	text-align: center;
+	outline: none;
 }
 .btn:hover{
+	cursor: pointer;
 	background-color: #cf6d17;
     background: -webkit-linear-gradient(#cf6d17,#e67e22);
     background: -o-linear-gradient(#cf6d17,#e67e22);
