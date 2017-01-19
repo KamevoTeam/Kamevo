@@ -14,6 +14,7 @@ require('php/getGeneralStats.php');*/
 	<link rel="stylesheet" href="css/social.css">
 	<link rel="stylesheet" href="css/line-separator.css">
 	<link rel="stylesheet" href="css/style.max.css">
+	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="css/menu_co.css">
     <link rel="stylesheet" href="frameworks/w3.css">
     <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">

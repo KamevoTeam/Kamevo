@@ -22,6 +22,7 @@
 	<title><?=$pseudo; ?> - Kamevo</title>
 	<meta charset="utf-8">	<link rel="stylesheet" href="DESIGN/user/css/pub.css">
 	<link rel="stylesheet" href="DESIGN/user/css/profile.css">
+	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="DESIGN/user/css/line-separator.css">
 	<link rel="stylesheet" href="DESIGN/user/css/style.max.css">
 	<link rel="stylesheet" href="DESIGN/user/css/infos.css">

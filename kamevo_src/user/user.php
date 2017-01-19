@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/feeds.css">
+	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">

@@ -1,0 +1,10 @@
+(function($){
+    $('.popopen').click(function(e){
+	    e.preventDefault();
+	    $('.popup-content').toggleClass('showed');
+	})
+	$('.fade-popup').click(function(e){
+		e.preventDefault();
+	    $('.popup-content').toggleClass('showed');
+	})
+})(jQuery);

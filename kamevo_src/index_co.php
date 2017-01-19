@@ -28,5 +28,6 @@
 		?>
 	</div>
 <?php require ("javascript.php"); ?>
+<script src="js/explore.js"></script>
 </body>
 </html>
