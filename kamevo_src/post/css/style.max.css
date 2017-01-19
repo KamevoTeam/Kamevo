@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
 	background-color: #ededed;
 	overflow-x: hidden;
@@ -6,4 +7,14 @@ body{
 	width: 1000px;
 	margin-left: calc((100% - 1000px)/2);
 	margin-right: calc((100% - 1000px)/2);
+=======
+body{
+	background-color: #ededed;
+	overflow-x: hidden;
+}
+.container{
+	width: 1000px;
+	margin-left: calc((100% - 1000px)/2);
+	margin-right: calc((100% - 1000px)/2);
+>>>>>>> 643795f9215336b97ba1b23be0b52ecee084b770
 }
