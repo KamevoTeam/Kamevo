@@ -1,6 +1,10 @@
 <div class="publisher">
-<?php print_r($_POST); ?>	
-<?php print_r($_FILES); ?>	
+<?php 
+	$sendPost  = new Post($_POST,$_FILES);
+	$sendPost->checkData();
+	//if(!empty($sendPost->errorReturn)) $sendPost->errorReturn = '<h5 class="error-text">'.$sendPost->errorReturn.'</h5>';
+	print_r($_FILES);
+?>
 
 
  <div class="block-title">
@@ -27,7 +31,7 @@
  	 </div><br/>
  	 <div class="category">
  	  <h5 class="category-label">Ajouter une catégorie à votre message : </h5>
- 	   <select class="select">
+ 	   <select class="select" name="categorie">
  	   	<option value="Technology">Technologie</option>
  	   	 <option value="Gaming">Gaming</option>
  	   	  <option value="Beauty">Beauté</option>
@@ -43,7 +47,8 @@
  	 </div>
  	 <div class="error">
  	 	<!-- Si vous devez afficher un message d'erreur -->
- 	 	<h5 class="error-text">Veuillez remplir tous les champs !</h5>
+ 	 	<?=$sendPost->errorReturn; ?>
+ 	 	
  	 </div>
  	</form>
  </div>

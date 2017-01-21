@@ -3,6 +3,7 @@
 		header('location:index.php');
 	}else{
 		require('php/users.class.php');
+		require('php/post.class.php');
 		$user = new users($_SESSION['ID']); //initialize the user objet 
 	}
 
