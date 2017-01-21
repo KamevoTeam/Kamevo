@@ -14,7 +14,7 @@
 
                   var div_sub = document.getElementById('submessage');
                   div_sub.style.display = "block"; //on affiche la div
-                  $('.subscribe-btn').empty();
+                  
 
                   
 
@@ -31,6 +31,7 @@
                     if(getFromPhp.indexOf("good") >= 0){
 
                       div_sub.innerHTML = 'Abonnement effectué!';
+                      $('.subscribe-btn').empty();
                       $('.subscribe-btn').append("Se désabonner");
 
 
@@ -45,6 +46,7 @@
                           if(getFromPhp.indexOf("unsubok") >= 0){
 
                             div_sub.innerHTML = 'Abonnement retiré';
+                            $('.subscribe-btn').empty();
                             $('.subscribe-btn').append("S'abonner");
 
                           }

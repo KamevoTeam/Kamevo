@@ -5,13 +5,17 @@ class users{
 	
 	public $pseudo;	
 	public $idUser;
+	public $points;
+	public $grade;
+	public $mail;
+	public $name;
+	public $abonnes;
+	public $abonnements;
+	public $lastvisit;
 
 	public function __construct($ID){
 
-		$this->idUser = $ID;
-		
-
-
+		$this->initialize($ID);
 	}
 
 	static private function ifUserExist($pseudo){
@@ -28,6 +32,25 @@ class users{
 
 			return $userExist;
 
+
+	}
+
+	private function initialize($ID){
+
+		include('co_pdo.php');
+		$req = $bdd->prepare('SELECT * FROM users WHERE ID = ?');
+		$req->execute(array($ID));
+		$rep = $req->fetch();
+
+		$this->idUser = $rep['ID'];
+		$this->pseudo = $rep['pseudo'];
+		$this->mail = $rep['email'];
+		$this->name = $rep['Nom'];
+		$this->grade = $rep['grade'];
+		$this->lastvisit = $rep['lastvisit'];
+		$this->abonnes = $rep['abonnes'];
+		$this->abonnements = $rep['abonnements'];
+		$this->points = $rep['points'];
 
 	}
 
@@ -162,16 +185,6 @@ class users{
 		}
 	}
 
-
-
-	public function getPseudo(){
-
-		include('co_pdo.php');
-		$req = $bdd->prepare('SELECT pseudo FROM users WHERE ID = ?');
-		$req->execute(array($this->idUser));
-		$rep = $req->fetch();
-		return $rep['pseudo'];
-	}
 	
 	public function getPseudoByID($id_func) {
 		include('php/co_pdo.php');
@@ -185,18 +198,5 @@ class users{
 		}
 	}
 
-	public function getMail(){
-
-		include('co_pdo.php');
-		$req1 = $bdd->prepare('SELECT email FROM users WHERE ID = ?');
-		$req1->execute(array($this->idUser));
-		$resq = $req1->fetch();
-		return $resq['email'];
-	}
-
-	public function getId(){
-
-		return '$this->idUser;';
-	}
 }
 ?>
