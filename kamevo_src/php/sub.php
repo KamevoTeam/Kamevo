@@ -18,7 +18,7 @@ include('co_pdo.php');
 			$req = $bdd->prepare('INSERT INTO subs(abonne,abonnement) VALUES(?,?)');
 			$req->execute(array($_SESSION['ID'],$userId));
 
-			echo 'subok';
+			echo 'subgood';
 		}else{
 
 			echo 'subown';

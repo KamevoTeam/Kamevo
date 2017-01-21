@@ -14,14 +14,50 @@
 
                   var div_sub = document.getElementById('submessage');
                   div_sub.style.display = "block"; //on affiche la div
-                  div_sub.innerHTML = http.responseText; //on affiche le message. Faudra faire une div plus propre quand-même xD
+                  $('.subscribe-btn').empty();
+
+                  
 
                   $(document).ready(function(){
                          setTimeout(function(){$(".submessage").fadeOut('slow');}, 1000);
                   });
+
+                  if(getFromPhp.indexOf("noco") >= 0){
+
+                    div_sub.innerHTML = 'Tu dois être connecté!';
+
+                  }else {
+
+                    if(getFromPhp.indexOf("good") >= 0){
+
+                      div_sub.innerHTML = 'Abonnement effectué!';
+                      $('.subscribe-btn').append("Se désabonner");
+
+
+                    }else{
+
+                      if(getFromPhp.indexOf("own") >= 0){
+
+                        div_sub.innerHTML = 'Inutile!';
+
+                      }else{
+
+                          if(getFromPhp.indexOf("unsubok") >= 0){
+
+                            div_sub.innerHTML = 'Abonnement retiré';
+                            $('.subscribe-btn').append("S'abonner");
+
+                          }
+
+                      }
+                    }
+
+                  }
+
                   
                 }
-                 if(getFromPhp.indexOf("votep") >= 0 ){
+
+              if(getFromPhp.indexOf("votep") >= 0 ){
 
                   /*  retour ajax vote   */
 
