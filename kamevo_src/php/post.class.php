@@ -7,9 +7,11 @@ class Post{
 	private $fileForm = array();
 
 	private $text;
-	private $catego;
+	private $catego = 'unclassed';
 	private $videoType;
-
+	private $author;
+	private $idImg = '';
+	private $video = '';
 
 
 
@@ -18,12 +20,13 @@ class Post{
 
 
 
-	function __construct($dataForm,$fileForm = array()){
+	function __construct($author,$dataForm,$fileForm = array()){
 
 		if(sizeof($this->dataForm) == 0){
 
 			$this->dataForm = $dataForm;
 			$this->fileForm = $fileForm;
+			$this->author = $author;
 
 		}else{
 
@@ -51,7 +54,14 @@ class Post{
 
 							//$this->errorReturn = '<h5 class="error-text">DataOK</h5>';
 
-							$this->checkFile(); //Vérifions le fichier envoyé
+							$result = $this->checkFile(); //Vérifions le fichier envoyé
+							if($result){
+
+								$this->errorReturn = '<h5 class="error-textOK">Post publié!</h5>';
+								//die();
+
+								$this->saveDataInDb(); //on enregistre dans la base de donnée
+							}
 
 							
 
@@ -77,7 +87,7 @@ class Post{
 
 	private function checkLink($link){
 
-		return TRUE;
+		return TRUE; //pour l'instant pas de vérification
 
 		$pattern = "#(youtube)#i";
 		preg_match($pattern, $link);
@@ -88,7 +98,7 @@ class Post{
 
 	private function checkFile(){
 
-		$return  = FALSE;
+		
 	
 		if(count($this->fileForm) >= 1){
 
@@ -101,23 +111,27 @@ class Post{
 					$maxFileSize = 1048576;
 
 
-					if(in_array($ext_file,$ext_img_auth)){
+					if(in_array($ext_file,$ext_img_auth)){ // si l'exentention du fichier est OK
 
 
-						if($this->fileForm['picture']['size'] <= $maxFileSize){
+						if($this->fileForm['picture']['size'] <= $maxFileSize){ //si le fichier n'est pas trop gros
 
 							$this->errorReturn = '<h5 class="error-text">Fichier OK!</h5>';
 
-							$idPic = md5(uniqid(rand(), true));
+							$idPic = md5(uniqid(rand(), true)); //génération d'un identifiant unique
+
 							$pathOfPic = 'userDataUpload/picPost/';
 							$finalNameFile = $pathOfPic.$idPic.'.'.$ext_file;
+							$this->idImg = $idPic.'.'.$ext_file;
 
 							$movePic = move_uploaded_file($_FILES['picture']['tmp_name'],$finalNameFile);
+							return true;
 
 
 						}else{
 
 							$this->errorReturn = '<h5 class="error-text">Fichier Trop gros!</h5>';
+							return false;
 
 						}
 
@@ -128,17 +142,25 @@ class Post{
 					}else{
 
 						$this->errorReturn = '<h5 class="error-text">Fichier .'.$ext_file.' non autorisé!</h5>';
+						return false;
 
 					}
 				}else{
 
 
 					$this->errorReturn = '<h5 class="error-text">Erreur dans l\'upload!</h5>';
+					return false;
 				}
+			}else{
+
+				return true;
 			}
 
 			//if ( in_array($ext_file,$ext_img_auth) ) echo "Extension correcte";
 
+		}else{
+
+			return true;
 		}
 		
 
@@ -148,6 +170,19 @@ class Post{
 
 	}
 		
+
+	private function saveDataInDb(){
+
+		require('co_pdo.php');
+
+		$reqSd = $bdd->prepare('INSERT INTO posts(author,message,datecreation,title,video,image,categorie) VALUES(?,?,?,?,?,?,?)');
+		$reqSd->execute(array($this->author, $this->text,'Today','Titre random',$this->video,$this->idImg,$this->catego)) or die(print_r($reqSd->errorInfo(), TRUE));;
+		$reqSd->closeCursor();
+		return;
+		//$req->execute(array($_GET['id_possesseur'], $_GET['prix_max'])) or die(print_r($req->errorInfo(), TRUE));
+
+
+	}
 
 }
 

@@ -193,3 +193,10 @@
 	background-color: #ff6666;
 	color:white;
 }
+.error-textOK{
+	padding: 10px;
+	border: solid green 1px;
+	border-radius: 8px;
+	background-color: #4caf50;
+	color:white;
+}

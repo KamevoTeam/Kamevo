@@ -13,7 +13,7 @@
 
 
                   var div_sub = document.getElementById('submessage');
-                  div_sub.style.display = "block"; //on affiche la div
+                  //div_sub.style.display = "block"; //on affiche la div
                   
 
                   
@@ -24,13 +24,13 @@
 
                   if(getFromPhp.indexOf("noco") >= 0){
 
-                    div_sub.innerHTML = 'Tu dois être connecté!';
+                    //div_sub.innerHTML = 'Tu dois être connecté!';
 
                   }else {
 
                     if(getFromPhp.indexOf("good") >= 0){
 
-                      div_sub.innerHTML = 'Abonnement effectué!';
+                     // div_sub.innerHTML = 'Abonnement effectué!';
                       $('.subscribe-btn').empty();
                       $('.subscribe-btn').append("Se désabonner");
 
@@ -39,7 +39,7 @@
 
                       if(getFromPhp.indexOf("own") >= 0){
 
-                        div_sub.innerHTML = 'Inutile!';
+                        //div_sub.innerHTML = 'Inutile!';
 
                       }else{
 

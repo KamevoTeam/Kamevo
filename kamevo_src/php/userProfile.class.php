@@ -143,7 +143,7 @@
 		if($mode == 'profile'){
 			$req = "SELECT * FROM posts WHERE author = ? ORDER BY ID DESC LIMIT 10";
 			$getPosts = $bdd->prepare($req);
-			$getPosts->execute(array($this->user_psd));
+			$getPosts->execute(array($this->user_id));
 			$nbposts = $getPosts->rowCount();
 
 		} 

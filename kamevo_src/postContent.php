@@ -1,9 +1,9 @@
 <div class="publisher">
 <?php 
-	$sendPost  = new Post($_POST,$_FILES);
+	$sendPost  = new Post(htmlspecialchars($_SESSION['ID']),$_POST,$_FILES);
 	$sendPost->checkData();
 	//if(!empty($sendPost->errorReturn)) $sendPost->errorReturn = '<h5 class="error-text">'.$sendPost->errorReturn.'</h5>';
-	print_r($_FILES);
+	//print_r($_POST);
 ?>
 
 
@@ -16,6 +16,7 @@
  <div class="submit-btn">
  	<a href="#" class="btn" onclick="document.getElementById('formData').submit();" id="subform">Publier</a><!-- remlace the input type="submit" -->
  </div>
+ 
  <div class="text">
   <form action="" method="post" id="formData" enctype="multipart/form-data"	>
   	<textarea name="text" class="text-area" placeholder="Votre message ..."></textarea>
@@ -71,6 +72,11 @@ $("#subform").click(function(){
 
     }
 });
+
+  $(document).ready(function(){
+                         setTimeout(function(){$(".error-text").fadeOut('slow');}, 1000); //on efface le message d'erreurS
+                  });
+
 
 
 </script>
