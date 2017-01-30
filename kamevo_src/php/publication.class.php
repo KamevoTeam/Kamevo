@@ -10,7 +10,7 @@
 		function __construct($id_post){
 
 				$this->current_post_id = $id_post;
-				$this->errorMessage = 'debug';
+				$this->errorMessage = '';
 				$this->updateViews($id_post);
 
 		}
@@ -43,11 +43,11 @@
 			require('co_pdo.php');	
 			if(isset($_POST['submit']) AND !empty($_POST['comment'])) $this->sendComment(); ?>
 
-			<div class="comments">
+			<div class="comments" id="startComment">
 			
 				<!-- Post comment form --> 
 				<div class="forms">
-  					<form method="post" class="comment-form" action="#">
+  					<form method="post" class="comment-form" action="#startComment">
 	  					<h6 class="block-name"><strong>William - Gaming </strong></h6><br/>
   						<textarea class="comment-input" name="comment" placeholder="Mon commentaire ..."></textarea>
   						<input type="submit" name="submit" class="post-btn" value="publier mon commentaire">
@@ -127,7 +127,7 @@
 			<?php
 		}
 
-		private function getPsdFromId($userIdSearch){
+		/*private function getPsdFromId($userIdSearch){
 
 			include('co_pdo.php');
 			$req = $bdd->prepare('SELECT pseudo FROM users WHERE ID = ?');
@@ -136,7 +136,7 @@
 			return $rep['pseudo'];
 
 
-		}
+		}*/
 		public function getIdCreator(){
 
 			include('co_pdo.php');

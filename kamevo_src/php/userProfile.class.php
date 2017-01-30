@@ -164,7 +164,8 @@
 			while($resp = $getPosts->fetch()){
 
 				$this->updateLikes($resp['ID']);
-				$calculPourcent = 100*(($resp['likes'])/($resp['likes']+$resp['dislikes']));
+				if(($resp['likes'] + $resp['dislikes']) == 0) { $calculPourcent = 50; }else {
+				$calculPourcent = 100*(($resp['likes'])/($resp['likes']+$resp['dislikes'])); }
 			?>
 
 
@@ -172,9 +173,9 @@
 
   				<div class="block-title">
 					<img class="block-img" src="img/user.png" alt="William">
-	 				 <h6 class="block-name"><strong><?=$resp['author']; ?> |</strong></h6>
+	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> |</strong></h6>
 					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
-					 <h6 class="block-points" style="padding-left: 56%;"><img src='img/view.png' alt='Views' height="26px" style="padding-top:7px;"> <strong> <?=$resp['uniq_views']; ?></strong></h6>
+					 <h6 class="block-points" style="padding-left: 58%;"><img src='img/view.png' alt='Views' height="26px" style="padding-top:7px;"> <strong> <?=$resp['uniq_views']; ?></strong></h6>
 						<p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
 
 
@@ -182,16 +183,21 @@
 
 				<p class="block-bio"><?=$resp['message']; ?></p>
 
+				<?php if(!empty($resp['image'])) {?>
+
 					<div class="img" id="145">
-						<img src="img/123.jpg" alt="" id="" class="image">
+						<img src="userDataUpload/picPost/<?=$resp['image']; ?>" alt="" id="" class="image">
 						<img src="img/error.png" alt="close" class="errbut">
 					</div> 
+
+				<?php } ?>
+					
 
 			<br/><div class="line-separator6"></div>
 
 	 			<div class="abouts">
-	  				 <button onclick="userVote(1,<?=$resp['ID'] ?>)" class="like"><img src="img/poucevert.jpg" alt="like" height="20" weight="20" /> <?=$resp['likes']; ?></button>
-	  				 <button onclick="userVote(2,<?=$resp['ID'] ?>)" class="like"><img src="img/poucerouge.jpg" alt="like" height="20" weight="20" /> <?=$resp['dislikes']; ?></button> <span class="infoLike"><meter min="0" max="100" value="<?=$calculPourcent; ?>"></meter></span>
+	  				<img onclick="userVote(1,<?=$resp['ID'] ?>)" src="img/poucevert.jpg" alt="like" height="20" weight="20" class="like"/> <?=$resp['likes']; ?>
+	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.jpg" alt="like" height="20" weight="20" class="like"/> <?=$resp['dislikes']; ?> <span class="infoLike"><meter min="0" max="100" value="<?=$calculPourcent; ?>"></meter></span>
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
  	 				 <?php if($mode=='profile'){?><a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a><?php } ?>
@@ -227,7 +233,16 @@
 
 	}
 
+	public function getPsdFromId($userIdSearch){
 
+			include('co_pdo.php');
+			$req = $bdd->prepare('SELECT pseudo FROM users WHERE ID = ?');
+			$req->execute(array($userIdSearch));
+			$rep = $req->fetch();
+			return $rep['pseudo'];
+
+
+     }
 
 } //end of class
 
