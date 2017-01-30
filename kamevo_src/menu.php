@@ -32,5 +32,5 @@ if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the 
 	      <input type="text" name="pseudo" class="connect-text" placeholder="Pseudonyme" />
 	    	<input type="password" name="password" class="connect-text-bis" placeholder="Mot de passe"/>
 	       <input type="submit" class="connect-submit" name="go" value=" Se connecter" />
-	    <label><?=$resp; ?></label></form></div></ul>
+	    <label style="color:white;"><?=$resp; ?></label></form></div></ul>
 	 </nav></header>

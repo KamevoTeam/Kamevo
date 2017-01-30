@@ -104,7 +104,14 @@ class Post{
 
 			if($this->fileForm['picture']['error'] != 4){
 
+
 				if($this->fileForm['picture']['error'] == 0){
+
+					if(!empty($this->dataForm['video'])){
+						$this->errorReturn = '<h5 class="error-text">Vous ne pouvez pas poster une image et une vidéo dans la même publication!</h5>';
+						return false;
+
+					}
 
 					$ext_img_auth = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
 					$ext_file = strtolower(  substr(  strrchr($this->fileForm['picture']['name'], '.')  ,1)  );
@@ -145,6 +152,7 @@ class Post{
 						return false;
 
 					}
+
 				}else{
 
 

@@ -1,7 +1,7 @@
 <?php
 $dsn = 'mysql:dbname=kamevobdd;host=localhost';
 $user = 'root';
-$password = 'root';
+$password = '';
 
 try {
     $bdd = new PDO($dsn, $user, $password);

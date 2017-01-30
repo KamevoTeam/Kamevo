@@ -183,14 +183,54 @@
 
 				<p class="block-bio"><?=$resp['message']; ?></p>
 
-				<?php if(!empty($resp['image'])) {?>
+				<?php if(!empty($resp['image'])) { //affichage dans le cas d'une image ?>
 
 					<div class="img" id="145">
 						<img src="userDataUpload/picPost/<?=$resp['image']; ?>" alt="" id="" class="image">
 						<img src="img/error.png" alt="close" class="errbut">
 					</div> 
 
-				<?php } ?>
+				<?php }
+				 if(!empty($resp['video'])) { //si une vidéo est détectée!
+
+				 	/*Démarrage de la conversion */
+
+					$url  = $resp['video'];
+
+					$patternYT = '/[\\?\\&]v=([^\\?\\&]+)/'; //parsing youtube url :)
+					preg_match($patternYT,$url,$matches);
+
+					if(isset($matches[1])){
+
+						$id_vid_yt = $matches[1];
+						$iframeYt = 'https://www.youtube.com/embed/'.$id_vid_yt.'" frameborder="0" allowfullscreen>'; 
+						$thumbnailsYt = 'http://i.ytimg.com/vi/'.$id_vid_yt.'/hqdefault.jpg';
+
+					}else{
+
+						$iframeYt = 'img/unknowVid.png';
+						$thumbnailsYt = 'img/unknowVid.png';
+
+					}	
+		
+				/*Fin de la conversion*/
+
+				 	if($mode == 'uniq'){ //mode "voir plus": affichage du lecteur ?>
+
+					<div class="video">
+					  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<?php } 
+
+				
+					if($mode == 'profile'){ //mode affichage multiple  = miniature only ?>
+					<div class="img">
+						<a href="#lskflkj"><img src="<?=$thumbnailsYt; ?>" alt="" id="" class="image" /></a>
+						
+					</div> 
+
+				<?php } }?>
+					
 					
 
 			<br/><div class="line-separator6"></div>
@@ -243,8 +283,15 @@
 
 
      }
+     private function getThumbnailFromUrl($video){
+
+			return $video;
+
+	}
 
 } //end of class
+
+	
 
 
 

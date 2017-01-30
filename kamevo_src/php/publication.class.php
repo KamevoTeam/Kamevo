@@ -144,13 +144,10 @@
 			$getAth = $bdd->prepare('SELECT author FROM posts WHERE ID = ?');
 			$getAth->execute(array($this->current_post_id));
 			$rep = $getAth->fetch();
-			$psd_author =  $rep['author'];
+			$id_author =  $rep['author'];
 			$getAth->closeCursor();
 
-			$getId = $bdd->prepare('SELECT ID FROM users WHERE pseudo = ?');
-			$getId->execute(array($psd_author));
-			$id_creator = $getId->fetch();
-			return $id_creator['ID'];
+			return $id_author;
 
 
 
