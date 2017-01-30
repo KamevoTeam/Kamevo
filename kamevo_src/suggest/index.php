@@ -1,4 +1,15 @@
-<?php session_start(); ?>
+<?php session_start();
+if (isset($_SESSION['ID'])) {
+	if (empty($_SESSION['ID'])) {
+		header('location: ../?message=Vous devez être connecté pour pouvoir suggérer des ajouts !');
+	}
+} else {
+	header('location: ../?message=Vous devez être connecté pour pouvoir suggérer des ajouts !');
+}
+if (isset($_POST['suggest'])) {
+require('php/send.php');
+}
+?>
 <html>
 <head>
 	<meta charset="UTF-8">
