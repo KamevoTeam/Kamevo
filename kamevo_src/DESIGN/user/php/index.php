@@ -17,7 +17,6 @@
 	  require("block.php");
 	?>
 	</div>
-<?php require("../../php/javascript.php") ?>
 <?php require("animation.php") ?>
 </body>
 </html>

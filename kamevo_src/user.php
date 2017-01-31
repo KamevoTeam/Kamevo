@@ -45,7 +45,6 @@
 	}
 	?>
 	</div>
-<?php require("DESIGN/php/javascript.php") ?>
 <?php require("js/animation_user.php") ?>
 <script src="js/explore.js"></script>
 </body>
