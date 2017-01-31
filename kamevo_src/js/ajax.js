@@ -72,14 +72,29 @@
 
                   var nameOfdiv = 'votemessage'+infoIdComment;
                   var div_vote = document.getElementById(nameOfdiv);
-                  div_vote.style.display = "block"; //on affiche la div
+                 // div_vote.style.display = "block"; //on affiche la div
                   div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
 
                   $(document).ready(function(){
                          setTimeout(function(){$('.'+nameOfdiv).fadeOut('slow');}, 2000);
                   });
                    
-                 
+
+                   var containerLike = '.nblikesid'+infoIdComment;
+                   var containerDislike = '.nbdislikesid'+infoIdComment;
+
+                   var valLikeBefore = document.getElementById('nblikesid'+infoIdComment).innerHTML;
+                   var valDislikeBefore = document.getElementById('nbdislikesid'+infoIdComment).innerHTML;
+
+                  var newLike = parseInt(valLikeBefore)+1;
+                  var newDislike = parseInt(valDislikeBefore)+1;
+                   
+
+                   $(containerLike).empty();
+                   $(containerDislike).empty();
+
+                   $(containerLike).append(newLike);
+                   $(containerDislike).append(newDislike);
                 }
                 if(getFromPhp.indexOf("votec") >= 0 ){ 
 
