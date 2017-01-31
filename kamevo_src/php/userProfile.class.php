@@ -99,7 +99,7 @@
 		
 		include('co_pdo.php');
 		$posts = $bdd->prepare('SELECT * FROM posts WHERE author = ?');
-		$posts->execute(array($this->user_psd));
+		$posts->execute(array($this->user_id));
 		$nb_posts = $posts->rowCount();
 		$posts->closeCursor();
 
@@ -129,6 +129,7 @@
 	public function printUserPosts($mode){
 
 		include('co_pdo.php');
+		echo '<div id="totalPost" class="totalPost">';
 
 		if($mode == 'uniq'){
 
@@ -141,16 +142,48 @@
 		}
 
 		if($mode == 'profile'){
-			$req = "SELECT * FROM posts WHERE author = ? ORDER BY ID DESC LIMIT 10";
-			$getPosts = $bdd->prepare($req);
-			$getPosts->execute(array($this->user_id));
-			$nbposts = $getPosts->rowCount();
+			
+			
 
+			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
+			$req = "SELECT * FROM posts WHERE author = ? ORDER BY ID DESC";
+			$PostsPerPage = 5;
+			$nbTotalPostsReq = $bdd->prepare($req);
+			$nbTotalPostsReq->execute(array($this->user_id));
+			$nbTotalPosts = $nbTotalPostsReq->rowCount();
+
+			$totalPages = ceil($nbTotalPosts/$PostsPerPage);
+
+			if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
+   					 $currentPage = (int)$_GET['page'];
+				} else {
+   					$currentPage = 1;
+			}
+
+			$start = ($currentPage-1)*$PostsPerPage;
+
+				echo '<div class="pageCount" id="pageCount" style="visibility:hidden;">';
+  				for($i=1;$i<=$totalPages;$i++) {
+         			if($i == $currentPage) {
+            			echo $i.' ';
+         			}elseif ($i == $currentPage+1) {
+         				echo '<a href="user.php?id='.$this->user_id.'&page='.$i.'" class="nextPage">'.$i.'</a> ';
+         			} else {
+            			echo '<a href="user.php?id='.$this->user_id.'&page='.$i.'">'.$i.'</a> ';
+         			}
+      			} 
+      			echo '</div>';
+
+      			/*CHARGEMENT DE LA REQUETE*/
+      			$reqDisp = 'SELECT * FROM posts WHERE author = ? ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
+      			$getPosts = $bdd->prepare($reqDisp);
+				$getPosts->execute(array($this->user_id));
+				$nbposts = $getPosts->rowCount(); 
 		} 
 
 		
 
-		if($nbposts == 0 AND $mode == 'profile'){ ?>
+		 if($nbposts == 0 AND $mode == 'profile'){ ?>
 
 			<div class="block">
   				<div class="block-title">
@@ -170,7 +203,6 @@
 
 
 			<div class="block">
-
   				<div class="block-title">
 					<img class="block-img" src="img/user.png" alt="William">
 	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> |</strong></h6>
@@ -207,7 +239,7 @@
 						$thumbnailsYt = 'http://i.ytimg.com/vi/'.$id_vid_yt.'/hqdefault.jpg';
 
 					}else{
-
+						/* Vidéo inconnue! */
 						$iframeYt = 'img/unknowVid.png';
 						$thumbnailsYt = 'img/unknowVid.png';
 
@@ -250,7 +282,7 @@
 				} //end of fetching datas
 		}//end of if
 
-
+		echo '</div>';
 	} //end of function
 
 	public function updateLikes($idPost){
