@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 14 Janvier 2017 à 17:45
+-- Généré le :  Mar 31 Janvier 2017 à 16:19
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -158,14 +158,31 @@ INSERT INTO `comments` (`ID`, `id_post`, `poster`, `comment`, `note`, `date`, `l
 (117, 5, 12, 'Ce commentaires est trÃ¨s sympatique', '0', '2017-01-12 16:53:18', 0, 0),
 (118, 5, 12, 'Ce commentaires est trÃ¨s sympatique', '0', '2017-01-12 16:55:31', 0, 0),
 (119, 5, 12, 'J\'aime le vÃ©lo et la trotinette', '0', '2017-01-12 17:03:49', 0, 0),
-(120, 7, 12, 'dfgdfg', '0', '2017-01-12 17:10:38', 0, 1),
+(120, 7, 12, 'dfgdfg', '0', '2017-01-12 17:10:38', 0, 0),
 (121, 3, 12, 'Test d\'un commentaire\r\n', '0', '2017-01-12 18:11:47', 1, 0),
 (122, 3, 12, 'Cette publication est trÃ¨s intÃ©rÃ©ssalqkslfqsldjsqd\r\n\r\n\r\n', '0', '2017-01-12 18:32:29', 0, 0),
-(123, 7, 12, 'toto fait du vÃ©lo', '0', '2017-01-12 18:41:59', 0, 1),
+(123, 7, 12, 'toto fait du vÃ©lo', '0', '2017-01-12 18:41:59', 0, 0),
 (124, 7, 12, 'toto gazefzezefzef', '0', '2017-01-12 18:42:11', 0, 1),
 (125, 6, 12, 'Ceci est un super commentaire!', '0', '2017-01-12 19:11:09', 0, 0),
-(126, 7, 12, 'xc', '0', '2017-01-14 18:01:43', 0, 0),
-(127, 7, 12, 'sdfsfsdfsd', '0', '2017-01-14 18:01:49', 0, 0);
+(128, 13, 12, 'Commentaire sur la page de connexion', '0', '2017-01-22 18:30:12', 0, 0),
+(126, 7, 12, 'xc', '0', '2017-01-14 18:01:43', 0, 1),
+(127, 7, 12, 'sdfsfsdfsd', '0', '2017-01-14 18:01:49', 1, 0),
+(129, 16, 12, 'Ceci est un commentaire\r\n', '0', '2017-01-30 11:34:24', 0, 0),
+(130, 16, 12, 'Ceci est un commentaire\r\n', '0', '2017-01-30 11:34:54', 0, 1),
+(131, 16, 12, 'Ceci est un commentaire\r\n', '0', '2017-01-30 11:35:05', 0, 0),
+(132, 2, 12, 'Le serveur Factionnary je connais c\'est super', '0', '2017-01-30 11:48:36', 0, 0),
+(133, 2, 12, 'Le serveur Factionnary je connais c\'est super', '0', '2017-01-30 11:48:46', 0, 0),
+(134, 2, 12, 'Le serveur Factionnary je connais c\'est super', '0', '2017-01-30 11:48:54', 0, 0),
+(135, 2, 12, 'Le serveur Factionnary je connais c\'est super', '0', '2017-01-30 11:51:10', 0, 0),
+(136, 2, 12, 'Le serveur Factionnary je connais c\'est super', '0', '2017-01-30 11:51:15', 0, 0),
+(137, 2, 12, 'qsdlkqsjldkqjsldkjlqskjdlkjqslkdj', '0', '2017-01-30 11:51:27', 0, 0),
+(138, 2, 12, 'sdqsdqsdqsldkjqlskdjlqksjdlkqjsldkjqlskjdlqksjldkjqslkdjlqskjd', '0', '2017-01-30 11:51:37', 0, 1),
+(139, 2, 12, 'sdqsdqsdqsldkjqlskdjlqksjdlkqjsldkjqlskjdlqksjldkjqslkdjlqskjd', '0', '2017-01-30 11:52:07', 0, 0),
+(140, 2, 12, 'Ceci est un commentaire trÃ¨s cool', '0', '2017-01-30 11:52:57', 0, 1),
+(141, 2, 12, 'Ceci est un commentaire trÃ¨s cool', '0', '2017-01-30 11:53:30', 0, 0),
+(142, 2, 12, 'Voici mon commentaire', '0', '2017-01-30 11:53:41', 0, 1),
+(143, 2, 12, 'En vrai psdjfopsiqucpoiupcoisuosiurpoq\r\nqe\r\n\r\n\r\nf\r\nf\r\nf\r\nf\r\nf\r\nf\r\nf\r\nf\r\n\r\nff\r\n\r\nf\r\nf', '0', '2017-01-30 11:53:56', 0, 1),
+(144, 10, 12, 'Vraiment sympa ERB, mdrr', '0', '2017-01-31 00:16:03', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -203,10 +220,12 @@ CREATE TABLE `posts` (
   `author` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL,
   `datecreation` varchar(255) NOT NULL,
-  `views` int(11) NOT NULL,
+  `views` int(11) NOT NULL DEFAULT '0',
   `title` varchar(255) NOT NULL,
-  `points` int(11) NOT NULL,
+  `points` int(11) NOT NULL DEFAULT '0',
   `video` varchar(255) NOT NULL DEFAULT '',
+  `image` varchar(255) NOT NULL DEFAULT '',
+  `categorie` varchar(255) NOT NULL DEFAULT 'unclassed',
   `likes` int(11) NOT NULL DEFAULT '0',
   `dislikes` int(11) NOT NULL DEFAULT '0',
   `uniq_views` int(11) NOT NULL DEFAULT '0',
@@ -217,14 +236,18 @@ CREATE TABLE `posts` (
 -- Contenu de la table `posts`
 --
 
-INSERT INTO `posts` (`ID`, `author`, `message`, `datecreation`, `views`, `title`, `points`, `video`, `likes`, `dislikes`, `uniq_views`, `total_views`) VALUES
-(1, 'azertyu', 'sfqvtvqervtertvert', 'eqrtvertvqertv', 453, 'titre1', 5345, 'qsdqsdqsd', 0, 0, 0, 0),
-(2, 'sdfqstvqert', 'ertvqrt', 'rtvqerteqrtv', 453453, 'titre2', 453, 'https://www.youtube.com/watch?v=v6yhwF9_gG0', 0, 0, 0, 0),
-(3, 'gfgdsf', 'qsfvazertytrez', 'sdfghfdsdfg', 5446, 'titre5', 886, '', 1, 0, 0, 0),
-(4, 'sdtvrevtert', 'drtvdrtvdrtv', 'drtvrtdrtvdrt', 54343, 'titre3', 56365356, 'https://www.youtube.com/watch?v=v6yhwF9_gG0', 0, 0, 0, 0),
-(5, 'oiuytre', 'dfghertyhgfdertyhgfdsghg', 'sdfsdfsdf', 453, 'titre4', 4534, 'https://www.youtube.com/watch?v=UoFMVg9XeKQ', 0, 0, 0, 0),
-(6, 'toto', 'Ceci est un message super cool pour permettre à Wistaro de travailler sur les posts utilisateurs! blablabkqsjdiqhldiuynliducyIUYINFUYQNLIUYNLIUYRLNYNRLIQUYEZRNLICUQYZELIURYLNCUIQLZUERLNCQIZUYENCRLIQZUEYNRLCIUQZYENLCRIUYQZNELICRUYNQLZIEUYNC', '19/06/1997', 10654654, 'Ceci est le titre du post', 0, 'qsd', 2, 0, 0, 0),
-(7, 'toto', 'fsdpofkspdofkpsodk', 'podkfspdofkpok', 99999999, 'spdofkspodkfpsok', 1654, 'sdfsdf', 0, 1, 1, 1);
+INSERT INTO `posts` (`ID`, `author`, `message`, `datecreation`, `views`, `title`, `points`, `video`, `image`, `categorie`, `likes`, `dislikes`, `uniq_views`, `total_views`) VALUES
+(1, '12', 'Publication de test', 'Today', 0, 'Titre random', 0, '', '', 'Technology', 0, 1, 1, 0),
+(2, '12', 'Publication de test avec image', 'Today', 0, 'Titre random', 0, '', 'acb4b0f9de9a2d18115fd7f472763b76.png', 'Technology', 0, 1, 1, 14),
+(3, '12', 'kknkjnkjnkjnkjnkn', 'Today', 0, 'Titre random', 0, '', '', 'Technology', 1, 0, 0, 0),
+(4, '12', 'kjnknkjnkjnknkn', 'Today', 0, 'Titre random', 0, 'kjnkjn', '', 'Technology', 0, 0, 0, 0),
+(5, '12', 'bjhbjhbjhbjhbjhbj', 'Today', 0, 'Titre random', 0, '', '60a9b83e5e5fd8f32be65cc938d350b2.png', 'Technology', 0, 0, 0, 0),
+(6, '12', 'URL youtube test', 'Today', 0, 'Titre random', 0, 'https://www.youtube.com/watch?v=4o47hMn2Kb4&amp;ab_channel=Machinimasound', '', 'Technology', 1, 1, 1, 2),
+(7, '12', 'Regardez cette vidÃ©o de BFA c\'est trop cool OMG', 'Today', 0, 'Titre random', 0, 'https://www.youtube.com/watch?v=QtE9zUDriWk&amp;ab_channel=BFA', '', 'Technology', 0, 1, 0, 1),
+(8, '12', 'Oupss mauvaise url de vidÃ©o youtube', 'Today', 0, 'Titre random', 0, 'https://www.youtube.com/watch?v=QtE9zUwwwwWk&amp;ab_channel=BFA', '', 'Technology', 0, 0, 1, 0),
+(9, '12', 'J\'ai mis ici un url wtf', 'Today', 0, 'Titre random', 0, 'azertyuiopqsdfghjkl', '', 'Technology', 0, 1, 1, 3),
+(10, '12', 'Regardez ma nouvelle vidÃ©o, qu\'en pensez-vous? Laissez un LIKE!!!!!', 'Today', 0, 'Titre random', 0, 'https://www.youtube.com/watch?v=99-n42Xb6NQ', '', 'Technology', 1, 0, 1, 12),
+(11, '12', 'dfsdfsdfqsdfdbngfdsertyhjgfdrtyhgfde', 'Today', 0, 'Titre random', 0, '', 'ae542621a38a892b62d1f1acad13cbc7.png', 'Technology', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -246,10 +269,11 @@ INSERT INTO `subs` (`ID`, `abonne`, `abonnement`) VALUES
 (8, '10', '3'),
 (7, '1', '8'),
 (6, '2', '8'),
-(141, '12', '1'),
+(276, '12', '11'),
 (9, '10', '4'),
 (32, '10', '1'),
-(118, '1', '4');
+(118, '1', '4'),
+(277, '12', '3');
 
 -- --------------------------------------------------------
 
@@ -287,8 +311,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `pseudo`, `Nom`, `password`, `email`, `lastvisit`, `grade`, `abonnes`, `abonnements`, `points`) VALUES
-(1, 'toto', '', '202cb962ac59075b964b07152d234b70', 'abc@hotmail.fr', '0100-01-01 00:00:00', 0, 2, 2, 0),
-(3, 'Paul', 'Leclerc', '2b6feac64c4a99c3432bc346f85ee830', 'paulleclerc@laposte.net', '2016-10-02 15:49:35', 1, 1, 0, 0),
+(1, 'toto', '', '202cb962ac59075b964b07152d234b70', 'abc@hotmail.fr', '0100-01-01 00:00:00', 0, 1, 2, 0),
+(3, 'Paul', 'Leclerc', '2b6feac64c4a99c3432bc346f85ee830', 'paulleclerc@laposte.net', '2016-10-02 15:49:35', 1, 2, 0, 0),
 (4, 'dfsdfs', 'fsdfs', '7682fe272099ea26efe39c890b33675b', 'wistaro@hotmail.fr', '2016-10-24 15:32:53', 1, 2, 0, 0),
 (5, 'titi', 'titi', 'f71dbe52628a3f83a77ab494817525c6', 'toto@hotmail.fr', '2016-12-06 20:38:15', 1, 0, 0, 0),
 (6, 'toto', 'toto', 'f71dbe52628a3f83a77ab494817525c6', 'toto@hotmail.fr', '2016-12-06 20:46:22', 1, 0, 0, 0),
@@ -297,7 +321,8 @@ INSERT INTO `users` (`ID`, `pseudo`, `Nom`, `password`, `email`, `lastvisit`, `g
 (9, 'tutu', 'tutu', 'bdb8c008fa551ba75f8481963f2201da', 'tutu@toto.fr', '2016-12-06 20:48:26', 1, 0, 0, 0),
 (11, 'root', 'root', '63a9f0ea7bb98050796b649e85481845', 'root@toto.fr', '2017-01-11 17:35:09', 1, 0, 0, 0),
 (10, 'Wistaro', 'William', '202cb962ac59075b964b07152d234b70', 'wistaro@hotmail.fr', '2016-12-18 17:07:52', 1, 0, 3, 0),
-(12, 'willy', 'william', '88ddcc8eca1a3a544391fefef54ce9df0483d1ab545eb4dd847cbe1d3028e48361e8bc0349d45d361e60d3ca8e1b53d1b7267b8e5a0be3e7b185d961a558553e', 'wistaro@hotmail.fr', '2017-01-11 18:45:28', 1, 0, 1, 0);
+(12, 'willy', 'william', '88ddcc8eca1a3a544391fefef54ce9df0483d1ab545eb4dd847cbe1d3028e48361e8bc0349d45d361e60d3ca8e1b53d1b7267b8e5a0be3e7b185d961a558553e', 'wistaro@hotmail.fr', '2017-01-11 18:45:28', 1, 0, 2, 0),
+(13, 'tata', 'tata', '7759c425e452e4e809d194084601097168236325736c3911badb429d34a962af9ce681a43e719b7a5d70144dfafbd7bb1402a55aee734000b83ea1a14c7459d3', 'toto@hotmail.fr', '2017-01-18 15:06:47', 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -317,7 +342,15 @@ CREATE TABLE `views_posts` (
 --
 
 INSERT INTO `views_posts` (`ID`, `ip`, `id_post`, `nb_visites`) VALUES
-(41, '::1', 7, 2);
+(47, '::1', 9, 17),
+(46, '::1', 6, 20),
+(45, '::1', 2, 33),
+(44, '::1', 1, 33),
+(43, '::1', 16, 39),
+(42, '::1', 13, 41),
+(41, '::1', 7, 49),
+(48, '::1', 8, 14),
+(49, '::1', 10, 13);
 
 -- --------------------------------------------------------
 
@@ -339,10 +372,14 @@ CREATE TABLE `vote` (
 INSERT INTO `vote` (`ID`, `vote`, `votant`, `id_post`) VALUES
 (30, '2', '1', 46),
 (35, '1', '1', 6),
-(285, '2', '12', 7),
-(284, '1', '12', 6),
-(250, '2', '12', 1),
-(263, '1', '12', 3);
+(286, '2', '12', 7),
+(299, '2', '12', 6),
+(250, '1', '12', 1),
+(263, '1', '12', 3),
+(287, '2', '12', 9),
+(293, '2', '12', 16),
+(317, '1', '12', 10),
+(301, '2', '12', 2);
 
 -- --------------------------------------------------------
 
@@ -362,6 +399,10 @@ CREATE TABLE `votecomments` (
 --
 
 INSERT INTO `votecomments` (`ID`, `vote`, `votant`, `id_com`) VALUES
+(126, '2', '12', 138),
+(125, '2', '12', 140),
+(124, '2', '12', 142),
+(121, '2', '12', 126),
 (89, '2', '12', 79),
 (14, '1', '12', 106),
 (88, '2', '12', 82),
@@ -369,7 +410,7 @@ INSERT INTO `votecomments` (`ID`, `vote`, `votant`, `id_com`) VALUES
 (22, '1', '12', 106),
 (23, '2', '12', 103),
 (24, '2', '12', 98),
-(79, '2', '12', 123),
+(123, '2', '12', 143),
 (86, '2', '12', 85),
 (40, '1', '12', 106),
 (83, '1', '12', 100),
@@ -385,11 +426,12 @@ INSERT INTO `votecomments` (`ID`, `vote`, `votant`, `id_com`) VALUES
 (53, '2', '12', 80),
 (54, '2', '12', 77),
 (55, '2', '12', 77),
+(120, '1', '12', 127),
 (84, '2', '12', 124),
 (60, '1', '12', 106),
 (61, '2', '12', 105),
 (119, '1', '12', 75),
-(74, '2', '12', 120),
+(122, '2', '12', 130),
 (71, '1', '12', 121);
 
 -- --------------------------------------------------------
@@ -495,7 +537,7 @@ ALTER TABLE `votecomments`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 --
 -- AUTO_INCREMENT pour la table `commentslikes`
 --
@@ -510,12 +552,12 @@ ALTER TABLE `note`
 -- AUTO_INCREMENT pour la table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `subs`
 --
 ALTER TABLE `subs`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
 --
 -- AUTO_INCREMENT pour la table `tc_tuto_rating`
 --
@@ -525,22 +567,22 @@ ALTER TABLE `tc_tuto_rating`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `views_posts`
 --
 ALTER TABLE `views_posts`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT pour la table `vote`
 --
 ALTER TABLE `vote`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=286;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=318;
 --
 -- AUTO_INCREMENT pour la table `votecomments`
 --
 ALTER TABLE `votecomments`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

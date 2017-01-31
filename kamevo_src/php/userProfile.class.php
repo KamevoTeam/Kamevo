@@ -218,8 +218,8 @@
 				<?php if(!empty($resp['image'])) { //affichage dans le cas d'une image ?>
 
 					<div class="img" id="145">
-						<img src="userDataUpload/picPost/<?=$resp['image']; ?>" alt="" id="" class="image">
-						<img src="img/error.png" alt="close" class="errbut">
+						<a href="details.php?idpost=<?=$resp['ID'] ?>"><img src="userDataUpload/picPost/<?=$resp['image']; ?>" alt="" id="" class="image"></a>
+						
 					</div> 
 
 				<?php }
@@ -249,15 +249,15 @@
 
 				 	if($mode == 'uniq'){ //mode "voir plus": affichage du lecteur ?>
 
-					<div class="video">
-					  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
-					</div>
+						<div class="video">
+						  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
+						</div>
 					<?php } 
 
 				
 					if($mode == 'profile'){ //mode affichage multiple  = miniature only ?>
 					<div class="img">
-						<a href="#lskflkj"><img src="<?=$thumbnailsYt; ?>" alt="" id="" class="image" /></a>
+						<a href="details.php?idpost=<?=$resp['ID'] ?>"><img src="<?=$thumbnailsYt; ?>" alt="" id="" class="image" /></a>
 						
 					</div> 
 
