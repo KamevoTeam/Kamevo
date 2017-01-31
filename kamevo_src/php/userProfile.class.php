@@ -207,7 +207,7 @@
 					<img class="block-img" src="img/user.png" alt="William">
 	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> |</strong></h6>
 					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
-					 <h6 class="block-points" style="padding-left: 58%;"><img src='img/view.png' alt='Views' height="26px" style="padding-top:7px;"> <strong> <?=$resp['uniq_views']; ?></strong></h6>
+					 <h6 class="block-views"><strong> <?=$resp['uniq_views']; ?></strong> &nbsp;<img src='img/view.png' alt='Views' class="eyes-css"></h6>
 						<p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
 
 
@@ -265,11 +265,11 @@
 					
 					
 
-			<br/><div class="line-separator6"></div>
+			<br/>
 
 	 			<div class="abouts">
-	  				<img onclick="userVote(1,<?=$resp['ID'] ?>)" src="img/poucevert.jpg" alt="like" height="20" weight="20" class="like"/> <?=$resp['likes']; ?>
-	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.jpg" alt="like" height="20" weight="20" class="like"/> <?=$resp['dislikes']; ?> <span class="infoLike"><meter min="0" max="100" value="<?=$calculPourcent; ?>"></meter></span>
+	  				<img onclick="userVote(1,<?=$resp['ID'] ?>)" src="img/poucevert.png" alt="like" height="20" weight="20" class="like"/> <?=$resp['likes']; ?>
+	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.png" alt="like" height="20" weight="20" class="like"/> <?=$resp['dislikes']; ?> <span class="infoLike"><progress id="avancement" value="<?=$calculPourcent; ?>" max="100"></progress></span>
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
  	 				 <?php if($mode=='profile'){?><a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a><?php } ?>
