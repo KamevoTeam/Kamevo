@@ -1,0 +1,96 @@
+.error-image{
+  width: 680px;
+  margin: 10px;
+  margin-top: 0;
+}
+.end-comment{
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: -5px;
+}
+.abouts{
+	border-top: 1px solid silver;
+  min-height: 36px;
+}
+.eyes-css{
+	float: right;
+	margin-right: 15px;
+	height: 25px;
+}
+.block-views{
+	float: right;
+	margin-top: 17px;
+	color: #2c3e50;
+	display: inline-block;
+}
+.like:hover{
+	cursor: pointer;
+}
+.block-z{
+  margin:10px;
+  transition-duration: 1s;
+  width: 700px;
+  background: rgba(255,255,255, 0.75);
+  border: solid 1px silver;
+  padding:0;
+  margin-left: calc((100% - 840px)/2);
+  -webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    margin-top: -8px;
+    z-index: 1;
+}
+progress {
+  display: block;
+  width: 580px;
+  height: 15px;
+  border: 3px solid white;
+  border-radius: 5px;
+  background-color: red;
+  margin-bottom: -2px;
+}
+
+@-webkit-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+@-moz-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+@keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+progress::-webkit-progress-bar {
+  border-radius: 5px;
+  background-color: #ff3333;
+}
+progress::-webkit-progress-value {
+  background-color: #e67e22;
+  background-image: -webkit-linear-gradient(-45deg, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
+  background-image: linear-gradient(-45deg, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
+  background-size: 40px 40px;
+  -webkit-animation: progress 8s linear infinite;
+  animation: progress 8s linear infinite;
+}
+progress::-moz-progress-bar {
+  border-radius: 5px;
+  background-color: #a5d62f;
+  background-image: linear-gradient(-45deg, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
+  background-size: 40px 40px;
+  -moz-animation: progress 8s linear infinite;
+  animation: progress 8s linear infinite;
+}

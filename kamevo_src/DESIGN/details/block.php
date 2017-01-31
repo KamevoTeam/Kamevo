@@ -6,15 +6,14 @@
 	<p class="block-date">Dernière activité : <strong>26/09/2016 à 16:49</strong></p>
 	 </div>
 	<p class="block-bio">Salut tout le monde , je m'appelle William , ou Wistaro pour les gamers , je joues à Minecraft et je développe en Php !</p>
-	 <div class="line-separator6"></div>
 	<div class="video">
 	  <iframe class="iframe"  src="https://www.youtube.com/embed/QtE9zUDriWk" frameborder="0" allowfullscreen></iframe>
 	</div>
-	  <div class="line-separator6"></div><br/>
 	 <div class="abouts">
-	   <a href="" class="like">Je n'aime pas ( - )</a>
-	   <a href="" class="like">J'aime ( 12 )</a>
-  </div>
+	  	<img  src="../../img/poucevert.png" alt="like" height="20" weight="20" class="like"/> 1 
+	  	<img  src="../../img/poucerouge.png" alt="like" height="20" weight="20" class="like"/> 0 <span class="infoLike"><progress id="avancement" value="50" max="100"></progress></span>
+	  	<div id="votemessage<?=$resp['ID'] ?>" class="" style="display:none;"></div>
+   </div>
   <div class="comments">
   	<div class="forms">
   		<form method="post" class="comment-form">

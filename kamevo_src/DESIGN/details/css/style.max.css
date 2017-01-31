@@ -9,6 +9,7 @@ body{
 	border-top: solid 1px #cfd1d3;
 	padding: 10px;
 	padding-top: 0px;
+	margin-top: -5px;
 }
 .comment-content{
 	padding-left: 45px;
@@ -16,6 +17,7 @@ body{
 	margin-top: -10px;
 	font-size: 10px;
 	color: #2c3e50;
+	margin-bottom: 0;
 }
 .comment-date{
 	font-size:11px;
@@ -35,6 +37,10 @@ body{
 }
 .comment-like:hover{
 	
+}
+.comment-name{
+	color: #333333;
+	margin-bottom: -10px;
 }
 .back{
 	position: fixed;
@@ -73,20 +79,19 @@ body{
 	padding-bottom: 8px;
 }
 .comment-input{
-	margin-left:45px;
 	margin-top: -10px;
-	width: 600px;
+	width: 675px;
 	height: 100px;
 	border:solid silver 1px;
+	padding: 5px;
 }
 .post-btn{
 	text-transform: uppercase;
-	margin-left:45px;
 	margin-top: -10px;
 	background-color: white;
 	border: solid silver 1px;
 	color: rgba(0,0,0,0.7);
-	width: 600px; 
+	width: 675px;
 	transition: all ease 0.5s;
 }
 .post-btn:hover{

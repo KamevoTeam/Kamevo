@@ -235,11 +235,13 @@
 					if(isset($matches[1])){
 
 						$id_vid_yt = $matches[1];
+						$ytconfirmed = 1;
 						$iframeYt = 'https://www.youtube.com/embed/'.$id_vid_yt.'" frameborder="0" allowfullscreen>'; 
 						$thumbnailsYt = 'http://i.ytimg.com/vi/'.$id_vid_yt.'/hqdefault.jpg';
 
 					}else{
 						/* Vidéo inconnue! */
+						$ytconfirmed = 0;
 						$iframeYt = 'img/unknowVid.png';
 						$thumbnailsYt = 'img/unknowVid.png';
 
@@ -249,9 +251,14 @@
 
 				 	if($mode == 'uniq'){ //mode "voir plus": affichage du lecteur ?>
 
-					<div class="video">
+					
+					 <?php if($ytconfirmed == 1){ ?>
+					 <div class="video">
 					  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
 					</div>
+					  <?php }else{ ?>
+						<img src="<?= $iframeYt; ?>" alt="unknow" class="error-image">
+					  <?php	} ?>
 					<?php } 
 
 				
@@ -273,7 +280,8 @@
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
  	 				 <?php if($mode=='profile'){?><a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a><?php } ?>
-  				</div>
+  				  </div>
+  				 </div>
 
   				<?php
   				if($mode == 'profile') echo "</div>"; //si on affiche pas de commentaires, on ferme la div, sinon on la ferme après les commentaires

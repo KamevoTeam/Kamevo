@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/line-separator.css">
+	<link rel="stylesheet" href="../../css/likes-details.css">
 	<link rel="stylesheet" href="css/block.css">
 	<link rel="stylesheet" href="css/style.max.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">

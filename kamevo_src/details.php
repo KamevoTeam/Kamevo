@@ -27,7 +27,7 @@
 	<title>Publication de William</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="DESIGN/user/css/menu.css">
-	<link rel="stylesheet" href="css/likes.css">
+	<link rel="stylesheet" href="css/likes-details.css">
 	<link rel="stylesheet" href="DESIGN/details/css/line-separator.css">
 	<link rel="stylesheet" href="DESIGN/details/css/block.css">
 	<link rel="stylesheet" href="DESIGN/details/css/progressBar.css">
@@ -49,7 +49,7 @@
 		});
 
 		ias.extension(new IASSpinnerExtension());
-		ias.extension(new IASNoneLeftExtension({text: "Fin des commmentaires"}));
+		ias.extension(new IASNoneLeftExtension({text: '<h6 class="end-comment">Fin des commentaires</h6>'}));
 
 		ias.extension(new IASTriggerExtension({
 

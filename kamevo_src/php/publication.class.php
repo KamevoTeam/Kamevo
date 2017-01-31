@@ -42,14 +42,14 @@
 				
 			require('co_pdo.php');	
 			if(isset($_POST['submit']) AND !empty($_POST['comment'])) $this->sendComment(); ?>
-
+			<div class="block-z">
 			<div class="comments" id="startComment">
 			
 				<!-- Post comment form --> 
 				<div class="forms">
   					<form method="post" class="comment-form" action="#startComment">
-	  					<h6 class="block-name"><strong>William - Gaming </strong></h6><br/>
-  						<textarea class="comment-input" name="comment" placeholder="Mon commentaire ..."></textarea>
+	  					<h6 class="comment-name"><strong>William - Gaming </strong></h6><br/>
+  						<textarea class="comment-input" name="comment" placeholder="Mon commentaire ..."></textarea><br/>
   						<input type="submit" name="submit" class="post-btn" value="publier mon commentaire">
   					</form>
   					<span class="respComSend" id="resComSend" style="color:red;background:yellow;"><?=$this->errorMessage; ?></span>
@@ -108,13 +108,13 @@
 
 			
   				<!-- Only one comment -->
-  				<div class="oneComment" id="comment<?=$dataCom['ID']; ?>" style="padding-top: 50px;">
+  				<div class="oneComment" id="comment<?=$dataCom['ID']; ?>">
 	  	 			<div class="block-comment com">
 						<img class="block-img" src="img/user.png" alt="William">
 		 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($dataCom['poster']); ?> </strong> | <span class="comment-date"><?=$dataCom['date']; ?></span></h6>
 						<p class="comment-content">
 							 <?=$dataCom['comment']; ?>
-		  				 <br/><a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(1,<?=$dataCom['ID']; ?>)">J'aime ( <?=$dataCom['likes']; ?> )</a>
+		  				 <br/><br/><a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(1,<?=$dataCom['ID']; ?>)">J'aime ( <?=$dataCom['likes']; ?> )</a>
 		  				<a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(2,<?=$dataCom['ID']; ?>)">Je n'aime pas ( <?=$dataCom['dislikes']; ?> )</a>
 		 					<br/></p><span id="ErrorcommentId<?=$dataCom['ID']; ?>" class="ErrorcommentId<?=$dataCom['ID']; ?>"></span>
 					</div>
@@ -122,8 +122,7 @@
 				<?php } ?>
 				</div>
 
-
-		</div>
+			</div>
 			<?php
 		}
 
