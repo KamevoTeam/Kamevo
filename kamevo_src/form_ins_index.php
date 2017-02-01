@@ -38,10 +38,10 @@
          <input type="email" class="input-text" name="mail_ins_confirm" id="input6" placeholder="Confirmation" />
         <label class="label-helper" for="input3">Confirmation de votre Adresse E-Mail</label>
       </div>
-       <input type="submit" name="go_ins" class="leto" value="S'inscire">
+       <input type="submit" name="go_ins" class="leto" value="S'inscrire">
       <div class="checkall">
       	<input type="checkbox" name="cgu_ins" id="checks" class="checks">
-        J'ai lu et j'accepte les <a href="#">conditions d'utilisations</a> de Kamevo.com .
+        <label for="checks">J'ai lu et j'accepte les <a href="#">conditions d'utilisations</a> de Kamevo.com .</label>
       </div>
       <?php echo $respIns;
           /*echo '<pre>';

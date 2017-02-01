@@ -1,6 +1,11 @@
 .abouts{
 	border-top: 1px solid silver;
 }
+.error-image{
+  width: 580px;
+  margin: 10px;
+  margin-top: 0;
+}
 .eyes-css{
 	float: right;
 	margin-right: 15px;

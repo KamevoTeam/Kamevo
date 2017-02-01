@@ -1,3 +1,8 @@
+	<a href="post.php">
+	 <div class="post-btn">
+		Publier ...
+	  </div>
+	 </a>
 	<div class="groups">
 		<h4>GROUPES</h4>
 		<div class="line-separator5"></div>

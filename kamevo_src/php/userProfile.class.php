@@ -242,8 +242,8 @@
 					}else{
 						/* Vidéo inconnue! */
 						$ytconfirmed = 0;
-						$iframeYt = 'img/unknowVid.png';
-						$thumbnailsYt = 'img/unknowVid.png';
+						$iframeYt = 'img/novideo.jpg';
+						$thumbnailsYt = 'img/novideo.jpg';
 
 					}	
 		
@@ -276,7 +276,7 @@
 	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.png" alt="like" height="20" weight="20" class="like"/> <span class="nbdislikesid<?=$resp['ID'] ?>" id="nbdislikesid<?=$resp['ID'] ?>"><?=$resp['dislikes']; ?></span> <span class="infoLike"><progress id="avancement" value="<?=$calculPourcent; ?>" max="100"></progress></span>
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
- 	 				 <?php if($mode=='profile'){?><a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a><?php } ?>
+ 	 				 <a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
   				  </div>
   				 </div>
 
