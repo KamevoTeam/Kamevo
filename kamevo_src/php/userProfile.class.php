@@ -248,30 +248,21 @@
 					}	
 		
 				/*Fin de la conversion*/
-
+				 $mode = 'uniq';
 				 	if($mode == 'uniq'){ //mode "voir plus": affichage du lecteur ?>
-
-<<<<<<< HEAD
-					
-					 <?php if($ytconfirmed == 1){ ?>
+					<?php if($ytconfirmed == 1){ ?>
 					 <div class="video">
 					  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
 					</div>
 					  <?php }else{ ?>
 						<img src="<?= $iframeYt; ?>" alt="unknow" class="error-image">
 					  <?php	} ?>
-=======
-						<div class="video">
-						  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
-						</div>
->>>>>>> c0985ebe48736bcd6db5da7b1e524ecd98fb1c9a
-					<?php } 
+					<?php }
 
 				
 					if($mode == 'profile'){ //mode affichage multiple  = miniature only ?>
 					<div class="img">
 						<a href="details.php?idpost=<?=$resp['ID'] ?>"><img src="<?=$thumbnailsYt; ?>" alt="" id="" class="image" /></a>
-						
 					</div> 
 
 				<?php } }?>
@@ -296,8 +287,7 @@
 				} //end of fetching datas
 		}//end of if
 
-		echo '</div>';
-	} //end of function
+			} //end of function
 
 	public function updateLikes($idPost){
 

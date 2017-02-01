@@ -38,7 +38,7 @@
 		 //require("posts_user.php");
 	$userPage->printUserPosts('profile');
 
-	  echo '</div>';
+	 
 	}else{
 
 		include('userNotExist.php');

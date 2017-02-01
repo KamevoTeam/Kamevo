@@ -1,0 +1,115 @@
+.menu{
+    display: inline-block;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#e67e22,#cf6d17);
+    background: -o-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);
+    height: 55px;
+    margin: 0;
+    margin-bottom: 120px;
+    -webkit-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
+}
+.logo{
+    
+    margin-right: 15px;
+    color: #f1c40f;
+    display: inline-block;
+    font-size:35px;
+    margin-top: -14px;
+    float: left;
+}
+.title{
+    color: white;
+    display: inline-block;
+    float: left;
+    margin-top: -14px;
+    font-size:35px;
+}
+.link{
+    color:white;
+    display: inline-block;
+    float: right;
+    font-size:17px;
+    padding: 17px;
+    margin-top:-18px;
+    transition-duration: 0.3s;
+    border-bottom: solid 0px #e67e22;
+}
+.link-look{
+    color:white;
+    display: inline-block;
+    float: right;
+    font-size:17px;
+    padding: 25px;
+    margin-top:-32px;
+}
+.link:hover{
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#f39c12,#da8b0b);
+    background: -o-linear-gradient(#f39c12,#da8b0b);
+    background: -moz-linear-gradient(#f39c12,#da8b0b);
+    padding-bottom: 17px;
+    border-bottom: solid 3px #e67e22;
+}
+.logo{
+    
+    margin-right: 15px;
+    color: #f1c40f;
+    display: inline-block;
+    font-size:35px;
+    margin-top: -14px;
+    float: left;
+}
+.title{
+    color: white;
+    display: inline-block;
+    float: left;
+    margin-top: -14px;
+    font-size:35px;
+}
+.form{
+	display: inline-block;
+}
+.f-input{
+	display: inline-block;
+	transition-duration: 1s;
+	width: 210px;
+	padding: 5px;
+}
+.f-input:focus{
+	transition-duration: 1s;
+	width: 400px;
+}
+.looking{
+	color: #2c3e50;
+	margin-left: -28px;
+}/*----------------------------------*\
+              PLACEHOLDER 
+\*----------------------------------*/
+.f-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #2c3e50;
+}
+.f-input::-moz-placeholder { /* Firefox 19+ */
+  color: #2c3e50;
+}
+.f-input:-ms-input-placeholder { /* IE 10+ */
+  color: #2c3e50;
+}
+.f-input:-moz-placeholder { /* Firefox 18- */
+  color: #2c3e50;
+}
+/*----------------------------------*\
+             RESPONSIVE-MENU   
+\*----------------------------------*/
+@media only screen and (max-width : 1350px){
+    .f-input:focus{
+        width: 210px;
+    }
+}

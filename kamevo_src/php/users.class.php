@@ -71,7 +71,7 @@ class users{
 
 				$_SESSION['ID'] = $response['ID'];
 				$_SESSION['pseudo'] = htmlspecialchars($pseudo);
-				return 'Félicitations! Vous êtes maintenant connecté! <img src="img/loader2.gif" alt="" />';
+				return 'Félicitations! Vous êtes maintenant connecté!';
 
 
 			}else{
