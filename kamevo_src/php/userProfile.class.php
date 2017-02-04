@@ -209,7 +209,7 @@
 					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
 					 <h6 class="block-views"><strong> <?=$resp['uniq_views']; ?></strong> &nbsp;<img src='img/view.png' alt='Views' class="eyes-css"></h6>
 						<p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
-
+						
 
 	 			</div>
 
@@ -273,7 +273,7 @@
 
 	 			<div class="abouts">
 	  				<img onclick="userVote(1,<?=$resp['ID'] ?>)" src="img/poucevert.png" alt="like" height="20" weight="20" class="like"/> <span class="nblikesid<?=$resp['ID'] ?>" id="nblikesid<?=$resp['ID'] ?>"><?=$resp['likes']; ?></span>
-	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.png" alt="like" height="20" weight="20" class="like"/> <span class="nbdislikesid<?=$resp['ID'] ?>" id="nbdislikesid<?=$resp['ID'] ?>"><?=$resp['dislikes']; ?></span> <span class="infoLike"><progress id="avancement" value="<?=$calculPourcent; ?>" max="100"></progress></span>
+	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.png" alt="like" height="20" weight="20" class="like"/> <span class="nbdislikesid<?=$resp['ID'] ?>" id="nbdislikesid<?=$resp['ID'] ?>"><?=$resp['dislikes']; ?></span> <span class="infoLike"><progress id="avancement" class="avancementid<?=$resp['ID'] ?>" value="<?=$calculPourcent; ?>" max="100"></progress></span>
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
  	 				 <a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>

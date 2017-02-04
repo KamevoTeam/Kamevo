@@ -21,13 +21,13 @@ if(isset($_SESSION['ID'])){
 
 				$reqDelVote = $bdd->prepare('DELETE FROM vote WHERE votant = ? AND id_post = ?');
 				$reqDelVote->execute(array($_SESSION['ID'],$_POST['post']));
-				echo $_POST['post'].'votepVote annulé';
+				echo $_POST['post'].'votepVote annuléOld='. $userVoteYet[1];
 
 			}else{
 
 				$reqUpdateVote = $bdd->prepare('UPDATE vote SET vote = ? WHERE id_post = ? AND votant = ?');
 				$reqUpdateVote->execute(array($newvote,$_POST['post'],$_SESSION['ID']));
-				echo $_POST['post'].'votepVote mis à jour';
+				echo $_POST['post'].'votepVote mis à jourNw='.$newvote.'andOd='.$userVoteYet[1];
 
 			}
 
@@ -38,8 +38,8 @@ if(isset($_SESSION['ID'])){
 
 		$req = $bdd->prepare('INSERT INTO vote(vote,votant,id_post) VALUES (?,?,?)');
 		$req->execute(array(htmlspecialchars($_POST['result']), $_SESSION['ID'], $_POST['post']));
-		if($_POST['result'] == 1) echo $_POST['post'].'votepTu aimes cette publication ';
-		if($_POST['result'] == 2) echo $_POST['post'].'votepTu n\'aimes pas cette publication';
+		if($_POST['result'] == 1) echo $_POST['post'].'votepTu aimes cette publicationNew=1';
+		if($_POST['result'] == 2) echo $_POST['post'].'votepTu n\'aimes pas cette publicationNew=2';
 
 		}
 		

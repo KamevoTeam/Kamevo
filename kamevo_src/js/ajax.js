@@ -63,10 +63,15 @@
 
                   /*  retour ajax vote   */
 
+                  /*test updating progress 
+                  */
+
+
                   var whereVoteIs = getFromPhp.indexOf('votep');
                   var infoIdComment = getFromPhp .substr(0,whereVoteIs);
                   
-
+                  var responPhp = getFromPhp;
+                  
                   getFromPhp = getFromPhp.substr(5+whereVoteIs);
 
 
@@ -86,15 +91,119 @@
                    var valLikeBefore = document.getElementById('nblikesid'+infoIdComment).innerHTML;
                    var valDislikeBefore = document.getElementById('nbdislikesid'+infoIdComment).innerHTML;
 
-                  var newLike = parseInt(valLikeBefore)+1;
-                  var newDislike = parseInt(valDislikeBefore)+1;
+                  
+                   /*updating progress bar*/
+
+                   //var before = $('#avancement').prop('value');
+                  
                    
+                   
+                   if(responPhp.indexOf('New=1') >= 0){
 
-                   $(containerLike).empty();
-                   $(containerDislike).empty();
+                      var newLike = parseInt(valLikeBefore)+1;
+                      $(containerLike).empty();
+                      $(containerLike).append(newLike);
+                
 
-                   $(containerLike).append(newLike);
-                   $(containerDislike).append(newDislike);
+                   }
+
+                   if(responPhp.indexOf('New=2') >= 0){
+
+                      var newDislike = parseInt(valDislikeBefore)+1;
+                      $(containerDislike).empty();
+                      $(containerDislike).append(newDislike);
+                      
+                    
+                   }
+                   if(responPhp.indexOf('Old=1') >= 0){
+
+                      var newLike = parseInt(valLikeBefore)-1;
+                      $(containerLike).empty();
+                      $(containerLike).append(newLike);
+                      
+                    
+                   }
+                   if(responPhp.indexOf('Old=2') >= 0 ){
+
+                      var newDislike = parseInt(valDislikeBefore)-1;
+                      $(containerDislike).empty();
+                      $(containerDislike).append(newDislike);
+                     
+                    
+                   }
+                   if(responPhp.indexOf('Nw=1andOd=2') >= 0 ){
+
+                      /* Add a new like */ 
+                      var newLike = parseInt(valLikeBefore)+1;
+                      $(containerLike).empty();
+                      $(containerLike).append(newLike);
+
+                      /* remove the old dislike */
+
+                      var newDislike = parseInt(valDislikeBefore)-1;
+                      $(containerDislike).empty();
+                      $(containerDislike).append(newDislike);
+
+
+                      
+                    
+                   }
+                   if(responPhp.indexOf('Nw=2andOd=1') >= 0 ){
+
+                      /* Add a new dislike */ 
+
+                       var newDislike = parseInt(valDislikeBefore)+1;
+                      $(containerDislike).empty();
+                      $(containerDislike).append(newDislike);
+
+                      /* remove the old like */
+
+                      var newLike = parseInt(valLikeBefore)-1;
+                      $(containerLike).empty();
+                      $(containerLike).append(newLike);
+        
+
+                   }
+
+                   var newVal = 0;
+                   var valLikeNew = parseInt(document.getElementById('nblikesid'+infoIdComment).innerHTML);
+                   var valDislikeNew = parseInt(document.getElementById('nbdislikesid'+infoIdComment).innerHTML);
+
+                   if(valDislikeNew + valLikeNew == 0){
+
+                      newVal = 50;
+
+                   }else{
+
+                      newVal = 100*(valLikeNew/(valLikeNew + valDislikeNew));
+
+                   }
+
+             
+                /*some animated thing :D */
+                //alert(infoIdComment);
+                var targetDiv = '.avancementid'+infoIdComment;
+
+               $( targetDiv ).animate({
+                  opacity: 0.50,
+                  
+                }, 50, function() {
+                  
+
+                    $( targetDiv).animate({
+                        opacity: 1,
+                        value: newVal
+
+                      }, 1000, function() {
+                        //animation terminée xD
+                      });
+
+                });
+
+
+
+                  
+
                 }
                 if(getFromPhp.indexOf("votec") >= 0 ){ 
 
