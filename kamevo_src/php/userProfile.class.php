@@ -15,7 +15,7 @@
 	function __construct($id_user){
 
 				$this->user_id = $id_user;
-				$this->user_nb_posts = 0;
+				
 	}
 
 	static public function ifUserExist($id_user){
@@ -126,7 +126,7 @@
 
 	}
 
-	public function printUserPosts($mode){
+	public function printPosts($mode){
 
 		include('co_pdo.php');
 		echo '<div id="totalPost" class="totalPost">';
@@ -138,6 +138,52 @@
 			$getPosts = $bdd->prepare($req);
 			$getPosts->execute(array($this->current_post_id));
 			$nbposts = $getPosts->rowCount();
+
+		}
+
+		if($mode == 'home'){
+
+			/*begenning of Home*/
+
+			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
+			$req = $this->conditionsString;
+			$PostsPerPage = 5;
+			$nbTotalPostsReq = $bdd->prepare($req);
+			$nbTotalPostsReq->execute();
+			
+
+			$nbTotalPosts = $nbTotalPostsReq->rowCount();
+
+			$totalPages = ceil($nbTotalPosts/$PostsPerPage);
+
+			if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
+   					 $currentPage = (int)$_GET['page'];
+				} else {
+   					$currentPage = 1;
+			}
+
+			$start = ($currentPage-1)*$PostsPerPage;
+
+				echo '<div class="pageCount" id="pageCount" style="visibility:hidden;">';
+  				for($i=1;$i<=$totalPages;$i++) {
+         			if($i == $currentPage) {
+            			echo $i.' ';
+         			}elseif ($i == $currentPage+1) {
+         				echo '<a href="user.php?id='.$this->user_id.'&page='.$i.'" class="nextPage">'.$i.'</a> ';
+         			} else {
+            			echo '<a href="user.php?id='.$this->user_id.'&page='.$i.'">'.$i.'</a> ';
+         			}
+      			} 
+      			echo '</div>';
+
+      			/*CHARGEMENT DE LA REQUETE*/
+      			$reqDisp = $this->conditionsString.' ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
+      			$getPosts = $bdd->prepare($reqDisp);
+				$getPosts->execute();
+				$nbposts = $getPosts->rowCount(); 
+
+
+			/*END OF HOME*/
 
 		}
 
@@ -183,14 +229,26 @@
 
 		
 
-		 if($nbposts == 0 AND $mode == 'profile'){ ?>
+		 if($nbposts == 0 AND ($mode == 'profile' OR $mode == 'home')){ 
 
-			<div class="block">
+		 	if($mode == 'profile') { ?>
+			</div><div class="block">
   				<div class="block-title">
 	 			 	<h6 class="block-name"><strong>Aucun post</strong></h6>
 	 			</div>
 					<p class="block-bio"><?=$this->user_psd; ?> n'a pas encore posté de message! <br /></p>
 			</div>
+			<?php }
+			if($mode == 'home') { ?>
+
+				<div class="block">
+  					<div class="block-title">
+	 			 		<h6 class="block-name"><strong>Vos abonnements n'ont rien posté! Allez découvrir de nouvelles chaînes :)</strong></h6>
+	 				</div>
+					<p class="block-bio"> <br /></p>
+				</div>
+
+				<?php } ?>
 
 		<?php }else{ 
 
@@ -250,6 +308,7 @@
 				/*Fin de la conversion*/
 				 $mode = 'uniq';
 				 	if($mode == 'uniq'){ //mode "voir plus": affichage du lecteur ?>
+
 					<?php if($ytconfirmed == 1){ ?>
 					 <div class="video">
 					  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>

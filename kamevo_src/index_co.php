@@ -4,7 +4,14 @@
 	<?php
 		//changer en head2.php pour utiliser les frameworks en local (actuellement non-fonctionnels)
 		require ("head.php");
-		require('php/func_posts.php');
+		include('php/userProfile.class.php');
+		include('php/userHome.class.php');
+	
+
+		$home = new userHome(htmlspecialchars($_SESSION['ID']));
+		$home->initializeHome();
+
+
 	?>
 </head>
 <body>
@@ -15,11 +22,12 @@
       <div class="content">
 		<?php include('social.php'); ?>
 		  <?php
-		  //if(!isset($_SESSION['ID'])){ getPosts('homeNoConnect'); }else{ getPosts('homeConnect'); } 
-		  //if(!isset($_SESSION['ID'])){ getPosts('homeNoConnect'); }else{ getPosts('homeNoConnect'); } 
-		  	require("post-examples.php");
+		  
+		  	$home->printPosts('home');
+		  	//require("post-examples.php");
 			require ("pub.php");
-		  ?>	
+		  ?>
+		  </div>	
 		</div>
 		<?php
 			//require ("displaypost.php");

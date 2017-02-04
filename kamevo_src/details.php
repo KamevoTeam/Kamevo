@@ -80,7 +80,7 @@
 
 
 
-		$current_post->printUserPosts('uniq',1);
+		$current_post->printPosts('uniq',1);
 		$current_post->loadComments();
 	?>	
 	</div>
