@@ -34,26 +34,16 @@
 				$indB++;
 			}
 
+			
+			
+			
+
+
 			userHome::generateRequestString();
+			
 			
 
 		}
-
-		/*private function testGetPosts(){ //get posts from user followed 
-
-			include('co_pdo.php');
-
-			$this->generateRequestString();
-			$getPU = $bdd->prepare($this->conditionsString);
-			$getPU->execute();
-
-			while ($testt = $getPU->fetch()) {
-
-				echo $testt['message'].'<br />';
-				
-			}
-
-		}*/
 
 		private function generateRequestString(){
 
@@ -67,6 +57,8 @@
 
 
 			}
+
+			$this->conditionsString = $this->conditionsString.' OR author='.$this->user_id;
 
 			//echo $this->conditionsString;
 
