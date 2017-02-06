@@ -52,15 +52,16 @@ class Post{
 							$this->video = htmlspecialchars($this->dataForm['video']);
 							$this->catego = htmlspecialchars($this->dataForm['categorie']);
 
+
 							//$this->errorReturn = '<h5 class="error-text">DataOK</h5>';
 
 							$result = $this->checkFile(); //Vérifions le fichier envoyé
 							if($result){
 
 								$this->errorReturn = '<h5 class="error-textOK">Post publié!</h5>';
-								//die();
 
 								$this->saveDataInDb(); //on enregistre dans la base de donnée
+
 							}
 
 							
@@ -183,11 +184,15 @@ class Post{
 
 		require('co_pdo.php');
 
+		$mess = $this->text;
+
+		date_default_timezone_set ( 'Europe/Paris' );
+		$dateCre = date('d m Y H:i');
+
 		$reqSd = $bdd->prepare('INSERT INTO posts(author,message,datecreation,title,video,image,categorie) VALUES(?,?,?,?,?,?,?)');
-		$reqSd->execute(array($this->author, $this->text,'Today','Titre random',$this->video,$this->idImg,$this->catego)) or die(print_r($reqSd->errorInfo(), TRUE));;
+		$reqSd->execute(array($this->author, $mess,$dateCre,'No title',$this->video,$this->idImg,$this->catego)) or die('FATAL ERROR: '.print_r($reqSd->errorInfo(), TRUE));;
 		$reqSd->closeCursor();
 		return;
-		//$req->execute(array($_GET['id_possesseur'], $_GET['prix_max'])) or die(print_r($req->errorInfo(), TRUE));
 
 
 	}

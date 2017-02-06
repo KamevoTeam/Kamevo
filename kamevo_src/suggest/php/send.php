@@ -16,4 +16,5 @@ $header.= "Content-Type: multipart/mixed;".$passage_ligne;
   mail($mail,$sujet,$message,$header);
  }
 }
+}
 ?>
