@@ -207,25 +207,111 @@
                 }
                 if(getFromPhp.indexOf("votec") >= 0 ){ 
 
-                  /*  retour ajax vote commentaire  */
-                  var whereVoteIs = getFromPhp.indexOf('votec');
-                  var infoIdComment = getFromPhp .substr(0,whereVoteIs);
+
+                      /*  retour ajax vote commentaire  */
+                        var whereVoteIs = getFromPhp.indexOf('votec');
+
+                        var responPhp = getFromPhp;
+
+                        var infoIdComment = getFromPhp .substr(0,whereVoteIs);
+                          
+
+                        getFromPhp = getFromPhp.substr(5+whereVoteIs);
+
+
+                       var containerLikeCom = '.nblikescomid'+infoIdComment;
+                       var containerDislikeCom = '.nbdislikescomid'+infoIdComment;
+
+
+                       var valLikeBeforeCom = document.getElementById('nblikescomid'+infoIdComment).innerHTML;
+                       var valDislikeBeforeCom = document.getElementById('nbdislikescomid'+infoIdComment).innerHTML;
+
+                        /*start*/
+
+                    if(responPhp.indexOf('New=2') >= 0){
+
+                      var newLike = parseInt(valLikeBeforeCom)+1;
+                      $(containerLikeCom).empty();
+                      $(containerLikeCom).append(newLike);
+                
+
+                   }
+
+                   if(responPhp.indexOf('New=1') >= 0){
+
+                      var newDislike = parseInt(valDislikeBeforeCom)+1;
+                      $(containerDislikeCom).empty();
+                      $(containerDislikeCom).append(newDislike);
+                      
                     
+                   }
+                   if(responPhp.indexOf('Old=2') >= 0){
 
-                  getFromPhp = getFromPhp.substr(5+whereVoteIs);
+                      var newLike = parseInt(valLikeBeforeCom)-1;
+                      $(containerLikeCom).empty();
+                      $(containerLikeCom).append(newLike);
+                      
+                    
+                   }
+                   if(responPhp.indexOf('Old=1') >= 0 ){
 
-                  
+                      var newDislike = parseInt(valDislikeBeforeCom)-1;
+                      $(containerDislikeCom).empty();
+                      $(containerDislikeCom).append(newDislike);
+                     
+                    
+                   }
+                   if(responPhp.indexOf('Nw=2andOd=1') >= 0 ){
+
+                      /* Add a new like */ 
+                      var newLike = parseInt(valLikeBeforeCom)+1;
+                      $(containerLikeCom).empty();
+                      $(containerLikeCom).append(newLike);
+
+                      /* remove the old dislike */
+
+                      var newDislike = parseInt(valDislikeBeforeCom)-1;
+                      $(containerDislikeCom).empty();
+                      $(containerDislikeCom).append(newDislike);
 
 
-                  var nameOfdiv = 'ErrorcommentId'+infoIdComment;
-                  var div_vote = document.getElementById(nameOfdiv);
-                  div_vote.style.display = "block"; //on affiche la div
-                  div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
+                      
+                    
+                   }
+                   if(responPhp.indexOf('Nw=1andOd=2') >= 0 ){
 
-                  $(document).ready(function(){
-                         setTimeout(function(){$('.'+nameOfdiv).fadeOut('slow');}, 2000);
-                  });
+                      /* Add a new dislike */ 
 
+                       var newDislike = parseInt(valDislikeBeforeCom)+1;
+                      $(containerDislikeCom).empty();
+                      $(containerDislikeCom).append(newDislike);
+
+                      /* remove the old like */
+
+                      var newLike = parseInt(valLikeBeforeCom)-1;
+                      $(containerLikeCom).empty();
+                      $(containerLikeCom).append(newLike);
+        
+
+                   }
+
+
+
+
+
+
+                        /*stop*/
+
+
+                        /*var nameOfdiv = 'ErrorcommentId'+infoIdComment;
+                        var div_vote = document.getElementById(nameOfdiv);
+                        div_vote.style.display = "block"; //on affiche la div
+                        div_vote.innerHTML = getFromPhp; //on affiche le message. Faudra faire une div plus propre quand-même xD
+
+                        $(document).ready(function(){
+                               setTimeout(function(){$('.'+nameOfdiv).fadeOut('slow');}, 2000);
+                        });
+                    */
                   
                  
                 }

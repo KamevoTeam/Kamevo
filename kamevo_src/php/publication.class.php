@@ -51,7 +51,7 @@
 				<!-- Post comment form --> 
 				<div class="forms">
   					<form method="post" class="comment-form" action="#startComment">
-	  					<h6 class="comment-name"><strong>William - Gaming </strong></h6><br/>
+	  					<h6 class="comment-name"><strong><?=$this->getPsdFromId($_SESSION['ID']); ?> </strong></h6><br/>
   						<textarea class="comment-input" name="comment" placeholder="Mon commentaire ..."></textarea><br/>
   						<input type="submit" name="submit" class="post-btn" value="publier mon commentaire">
   					</form>
@@ -118,8 +118,8 @@
 						<p class="comment-content">
 							 <?=$dataCom['comment']; ?>
 		  				 <br/><br/>
-		  				<a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(2,<?=$dataCom['ID']; ?>)">Je n'aime pas ( <?=$dataCom['dislikes']; ?> )</a>
-		  				<a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(1,<?=$dataCom['ID']; ?>)">J'aime ( <?=$dataCom['likes']; ?> )</a>
+		  				<a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(2,<?=$dataCom['ID']; ?>)">Je n'aime pas ( <span class="nblikescomid<?=$dataCom['ID']; ?>" id="nblikescomid<?=$dataCom['ID']; ?>"><?=$dataCom['dislikes']; ?></span> )</a>
+		  				<a href="#comment<?=$dataCom['ID']; ?>" class="comment-like" onclick="userVoteComment(1,<?=$dataCom['ID']; ?>)">J'aime ( <span class="nbdislikescomid<?=$dataCom['ID']; ?>" id="nbdislikescomid<?=$dataCom['ID']; ?>"><?=$dataCom['likes']; ?></span> )</a>
 		 					<br/></p><span id="ErrorcommentId<?=$dataCom['ID']; ?>" class="ErrorcommentId<?=$dataCom['ID']; ?>"></span>
 					</div>
 				</div>

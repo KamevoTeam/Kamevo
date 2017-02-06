@@ -21,13 +21,13 @@ if(isset($_SESSION['ID'])){
 
 				$reqDelVote = $bdd->prepare('DELETE FROM votecomments WHERE votant = ? AND id_com = ?');
 				$reqDelVote->execute(array($_SESSION['ID'],$_POST['comment']));
-				echo $_POST['comment'].'votecVote annulé';
+				echo $_POST['comment'].'votecVote annuléOld='. $userVoteYet[1];
 
 			}else{
 
 				$reqUpdateVote = $bdd->prepare('UPDATE votecomments SET vote = ? WHERE id_com = ? AND votant = ?');
 				$reqUpdateVote->execute(array($newvote,$_POST['comment'],$_SESSION['ID']));
-				echo $_POST['comment'].'votecVote mis à jour';
+				echo $_POST['comment'].'votecVote mis à jourNw='.$newvote.'andOd='.$userVoteYet[1];
 
 			}
 
@@ -38,8 +38,8 @@ if(isset($_SESSION['ID'])){
 
 		$req = $bdd->prepare('INSERT INTO votecomments(vote,votant,id_com) VALUES (?,?,?)');
 		$req->execute(array(htmlspecialchars($_POST['result']), $_SESSION['ID'], $_POST['comment']));
-		if($_POST['result'] == 1) echo $_POST['comment'].'votecTu aimes ce commentaire ';
-		if($_POST['result'] == 2) echo $_POST['comment'].'votecTu n\'aimes pas ce commentaire';
+		if($_POST['result'] == 1) echo $_POST['comment'].'votecTu aimes ce commentaireNew=1';
+		if($_POST['result'] == 2) echo $_POST['comment'].'votecTu n\'aimes pas ce commentaireNew=2';
 
 		}
 		
