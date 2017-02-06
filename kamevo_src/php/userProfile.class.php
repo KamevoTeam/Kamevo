@@ -129,6 +129,7 @@
 	public function printPosts($mode){
 
 		include('co_pdo.php');
+
 		echo '<div id="totalPost" class="totalPost">';
 
 		if($mode == 'uniq'){
@@ -262,14 +263,12 @@
 
 			<div class="block">
   				<div class="block-title">
-					<img class="block-img" src="img/user.png" alt="William">
+					 <img class="block-img" src="img/user.png" alt="William">
 	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> |</strong></h6>
 					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
 					 <h6 class="block-views"><strong> <?=$resp['uniq_views']; ?></strong> &nbsp;<img src='img/view.png' alt='Views' class="eyes-css"></h6>
-						<p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
-						
-
-	 			</div>
+					 <p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
+				</div>
 
 				<p class="block-bio"><?=$resp['message']; ?></p>
 
@@ -307,21 +306,25 @@
 		
 				/*Fin de la conversion*/
 				 $mode = 'uniq';
+
 				 	if($mode == 'uniq'){ //mode "voir plus": affichage du lecteur ?>
 
-					<?php if($ytconfirmed == 1){ ?>
-					 <div class="video">
-					  <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
-					</div>
-					  <?php }else{ ?>
-						<img src="<?= $iframeYt; ?>" alt="unknow" class="error-image">
-					  <?php	} ?>
+						<?php if($ytconfirmed == 1){ ?>
+
+							 <div class="video">
+							 	 <iframe class="iframe"  src="<?=$iframeYt; ?>" frameborder="0" allowfullscreen></iframe>
+							</div>
+
+						  <?php }else{ ?>
+							<img src="<?= $iframeYt; ?>" alt="unknow" class="error-image">
+						  <?php	} ?>
 					<?php }
 
 				
 					if($mode == 'profile'){ //mode affichage multiple  = miniature only ?>
 					<div class="img">
 						<a href="details.php?idpost=<?=$resp['ID'] ?>"><img src="<?=$thumbnailsYt; ?>" alt="" id="" class="image" /></a>
+
 					</div> 
 
 				<?php } }?>
@@ -340,10 +343,11 @@
   				 </div>
 
   				<?php
-  				if($mode == 'profile') echo "</div>"; //si on affiche pas de commentaires, on ferme la div, sinon on la ferme après les commentaires
+  				//if($mode == 'profile') echo "</div>"; //si on affiche pas de commentaires, on ferme la div, sinon on la ferme après les commentaires
 
 			
 				} //end of fetching datas
+
 		}//end of if
 
 			} //end of function
