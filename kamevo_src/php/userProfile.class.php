@@ -245,9 +245,9 @@
 
 				<div class="block">
   					<div class="block-title">
-	 			 		<h6 class="block-name"><strong>Vos abonnements n'ont rien posté! Allez découvrir de nouvelles chaînes :)</strong></h6>
+	 			 		<h6 class="block-name"><strong></strong></h6>
 	 				</div>
-					<p class="block-bio"> <br /></p>
+					<p class="block-bio">Vos abonnements n'ont rien posté! Allez découvrir de nouvelles chaînes :)</p>
 				</div>
 
 				<?php } ?>
@@ -354,7 +354,9 @@
 	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.png" alt="like" height="20" weight="20" class="like"/> <span class="nbdislikesid<?=$resp['ID'] ?>" id="nbdislikesid<?=$resp['ID'] ?>"><?=$resp['dislikes']; ?></span> <span class="infoLike"><progress id="avancement" class="avancementid<?=$resp['ID'] ?>" value="<?=$calculPourcent; ?>" max="100"></progress></span>
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
+ 	 				 <?php if($mode != 'uniq'){ ?>
  	 				 <a href="details.php?idpost=<?=$resp['ID'] ?>" class="block-more">En savoir plus <i class="fa fa-caret-right" aria-hidden="true"></i></a>
+ 	 				 <?php }else{} ?>
   				  </div>
   				 </div>
 
