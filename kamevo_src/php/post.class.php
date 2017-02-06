@@ -187,7 +187,7 @@ class Post{
 		$mess = $this->text;
 
 		date_default_timezone_set ( 'Europe/Paris' );
-		$dateCre = date('d m Y H:i');
+		$dateCre = date('d/m/Y à H:i');
 
 		$reqSd = $bdd->prepare('INSERT INTO posts(author,message,datecreation,title,video,image,categorie) VALUES(?,?,?,?,?,?,?)');
 		$reqSd->execute(array($this->author, $mess,$dateCre,'No title',$this->video,$this->idImg,$this->catego)) or die('FATAL ERROR: '.print_r($reqSd->errorInfo(), TRUE));;

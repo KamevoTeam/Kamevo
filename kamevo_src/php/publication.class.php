@@ -24,9 +24,12 @@
 			$id_post_to_send = $this->current_post_id;
 			$id_sender_of_comment = $_SESSION['ID'];
 
+			date_default_timezone_set ( 'Europe/Paris' );
+			$dateCrea = date('d/m/Y à H:i 	s\s');
+
 			//for ($i=0; $i < 100 ; $i++) { 
-				$sendCom = $bdd->prepare('INSERT INTO comments(id_post,poster,comment,note) VALUES (?,?,?,?)');
-				$sendCom->execute(array($id_post_to_send,$id_sender_of_comment,$textComment,'0'));
+				$sendCom = $bdd->prepare('INSERT INTO comments(id_post,poster,comment,note,date) VALUES (?,?,?,?,?)');
+				$sendCom->execute(array($id_post_to_send,$id_sender_of_comment,$textComment,'0',$dateCrea));
 
 			//}
 			

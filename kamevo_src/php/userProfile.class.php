@@ -276,7 +276,7 @@
 
 				if(strlen($resp['message']) > 250 && $mode != 'uniq'){
 
-					echo substr($resp['message'], 0,250).'<br />...';
+					echo substr($resp['message'], 0,250).'...';
 
 				}else{
 
