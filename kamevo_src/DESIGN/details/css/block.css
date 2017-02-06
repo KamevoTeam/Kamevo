@@ -119,7 +119,8 @@ textarea:focus{
 	color: #2c3e50;
 }
 .block-bio{
-	padding: 15px; 
+	padding: 15px;
+	word-wrap: break-word;
 }
 .block-date{
 	padding-left: 45px;
