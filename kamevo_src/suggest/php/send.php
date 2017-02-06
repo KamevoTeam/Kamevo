@@ -11,8 +11,9 @@ $header.= "Reply-to: \"kamevo_website\" <suggest@kamevo.com>".$passage_ligne;
 $header.= "MIME-Version: 1.0".$passage_ligne;
 $header.= "Content-Type: multipart/mixed;".$passage_ligne;
 
-$message = $_POST['suggest'];
+  $message = $_POST['suggest'];
 
-mail($mail,$sujet,$message,$header);
+  mail($mail,$sujet,$message,$header);
+ }
 }
 ?>

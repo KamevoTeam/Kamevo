@@ -1,5 +1,5 @@
 .settings{
-	margin-top: 100px;
+	padding-top: 100px;
 }
 .header-separation{
     margin: 0;
@@ -17,9 +17,6 @@
 	display: inline-block;
 	position: absolute;
 	margin-top: 6px;
-}
-.inline{
-	display: inline-block;
 }
 .options-title{
 	margin-left: 10px;
@@ -108,6 +105,9 @@
     background: -o-linear-gradient(#cf6d17,#e67e22);
     background: -moz-linear-gradient(#cf6d17,#e67e22);
 }
+.line-set{
+	display: inline-block;
+}
 .input-info{
 	float: right;
 	padding: 8px;
@@ -115,14 +115,11 @@
 	margin-bottom: 10px;
 	width: 200px;
 	margin-left: 800px;
-    display: block;
-}
-.infos{
-	margin-bottom: 70px;
+    display: inline-block;
 }
 .info-label{
 	margin: 0;
-	line-height: 15px;
-	margin-top: 5px;
-	display: block;
+	float: left;
+	position: absolute;
+	display: inline-block;
 }

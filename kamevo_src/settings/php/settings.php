@@ -5,10 +5,10 @@
 	</div>
 	 <div class="informations">
  	  <form action="" class="infos" method="post">
- 	  <h5 class="info-label">Nom : </h5>
- 	   <input type="text" value="Zelkyo" id="info-input" class="inline input-info">
- 	  <h5 class="info-label">Nom : </h5>
- 	   <input type="text" value="Zelkyo" id="info-input" class="inline input-info">
+ 	  <div class="line-set">
+      <h5 class="info-label">Nom : </h5>
+     <input type="text" value="Zelkyo" id="info-input" class="inline input-info">
+    </div>
  	  </form>
  	 </div>
 	<div class="basics">
