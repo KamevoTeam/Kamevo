@@ -115,10 +115,12 @@
 	margin-bottom: 10px;
 	width: 200px;
 	margin-left: 800px;
+	margin-top: 14px;
     display: inline-block;
 }
 .info-label{
 	margin: 0;
+	padding-top: 9px;
 	float: left;
 	position: absolute;
 	display: inline-block;
