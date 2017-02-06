@@ -271,7 +271,22 @@
 					 <p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
 				</div>
 
-				<p class="block-bio"><?=$resp['message']; ?></p>
+				<p class="block-bio"><?php
+
+
+				if(strlen($resp['message']) > 250 && $mode != 'uniq'){
+
+					echo substr($resp['message'], 0,250).'<br />...';
+
+				}else{
+
+					echo $resp['message'];
+				}
+
+				?>
+					
+
+				</p>
 
 				<?php if(!empty($resp['image'])) { //affichage dans le cas d'une image ?>
 
