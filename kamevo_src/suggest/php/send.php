@@ -15,4 +15,5 @@ $message = $_POST['suggest'];
 
 mail($mail,$sujet,$message,$header);
 }
+}
 ?>

@@ -306,7 +306,7 @@
 					}	
 		
 				/*Fin de la conversion*/
-				 $mode = 'uniq';
+				 //$mode = 'uniq';
 
 				 	if($mode == 'uniq'){ //mode "voir plus": affichage du lecteur ?>
 
