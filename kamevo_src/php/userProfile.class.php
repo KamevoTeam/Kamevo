@@ -148,7 +148,7 @@
 
 			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
 			$req = $this->conditionsString;
-			$PostsPerPage = 5;
+			$PostsPerPage = 6;
 			$nbTotalPostsReq = $bdd->prepare($req);
 			$nbTotalPostsReq->execute();
 			
@@ -165,17 +165,18 @@
 
 			$start = ($currentPage-1)*$PostsPerPage;
 
-				echo '<div class="pageCount" id="pageCount" style="visibility:hidden;">';
+				echo '<div class="pageCountHome" id="pageCountHome" style="visibility:hidden;">';
   				for($i=1;$i<=$totalPages;$i++) {
          			if($i == $currentPage) {
             			echo $i.' ';
          			}elseif ($i == $currentPage+1) {
-         				echo '<a href="user.php?id='.$this->user_id.'&page='.$i.'" class="nextPage">'.$i.'</a> ';
+         				echo '<a href="index.php?page='.$i.'" class="nextPage">'.$i.'</a> ';
          			} else {
-            			echo '<a href="user.php?id='.$this->user_id.'&page='.$i.'">'.$i.'</a> ';
+            			echo '<a href="index.php?page='.$i.'">'.$i.'</a> ';
          			}
       			} 
       			echo '</div>';
+
 
       			/*CHARGEMENT DE LA REQUETE*/
       			$reqDisp = $this->conditionsString.' ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
@@ -264,7 +265,7 @@
 			<div class="block">
   				<div class="block-title">
 					 <img class="block-img" src="img/user.png" alt="William">
-	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> |</strong></h6>
+	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> | </strong></h6>
 					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
 					 <h6 class="block-views"><strong> <?=$resp['uniq_views']; ?></strong> &nbsp;<img src='img/view.png' alt='Views' class="eyes-css"></h6>
 					 <p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>

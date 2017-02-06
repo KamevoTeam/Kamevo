@@ -30,7 +30,7 @@
     	var ias = jQuery.ias({
   			container:  '#totalPost',
   			item:       '.block',
-  			pagination: '#pageCount',
+  			pagination: '#pageCountHome',
   			next:       '.nextPage'
 		});
 
@@ -40,7 +40,7 @@
 		ias.extension(new IASTriggerExtension({
 
 			text: 'Afficher plus de publications', 
-			offset: 2
+			offset: 4
 
 		}));
 
