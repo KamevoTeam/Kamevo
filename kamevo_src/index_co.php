@@ -37,5 +37,6 @@
 	</div>
 <?php require ("javascript.php"); ?>
 <script src="js/explore.js"></script>
+<script src="js/groups.js"></script>
 </body>
 </html>

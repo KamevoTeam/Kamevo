@@ -1,0 +1,10 @@
+(function($){
+    $('.group-create').click(function(e){
+	    e.preventDefault();
+	    $('.group-creator').toggleClass('showed');
+	})
+	$('.closer-group').click(function(e){
+		e.preventDefault();
+	    $('.group-creator').toggleClass('showed');
+	})
+})(jQuery);

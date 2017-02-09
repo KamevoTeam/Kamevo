@@ -1,0 +1,51 @@
+.infos{
+	position: fixed;
+	background-color: white;
+	padding: 15px;
+	width: 170px;
+	padding-top: 0;
+	top: 330px;
+	border: solid silver 1px;
+    -webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+}
+.infos-title{
+	text-align: center;
+}
+.info{
+	margin: 5px;
+	margin-left: -5px;
+}
+.info-var{
+	color: #e67e22;
+	word-wrap: break-word;
+}
+.group-btn{
+    position: fixed;
+    text-align: center;
+    width: 190px;
+    right: calc((100vw - 1030px)/2);
+    top: 330px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#e67e22,#cf6d17);
+    background: -o-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);
+    -webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    transition: all ease 1s;
+}
+.group-btn:hover{
+    background-color: #cf6d17;
+    background: -webkit-linear-gradient(#cf6d17,#e67e22);
+    background: -o-linear-gradient(#cf6d17,#e67e22);
+    background: -moz-linear-gradient(#cf6d17,#e67e22);
+}
+.publics{
+	margin-left: -60px;
+	margin-top: 275px;
+}

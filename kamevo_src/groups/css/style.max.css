@@ -1,0 +1,30 @@
+body{
+	background-color: #ededed;
+}
+.container{
+	width: 1000px;
+	margin-left: calc((100vw - 1000px)/2);
+	margin-right: calc((100vw - 1000px)/2);
+	padding-top: 55px;
+}
+.group-header{
+	width: 1000px;
+	position: fixed;
+	background-color: #ededed;
+	z-index: 999;
+}
+.name{
+	text-transform: uppercase;
+	text-align: center;
+	border-bottom: solid 1px black;
+}
+.group-img{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+}
+.group-cover-img{
+	width: 1000px;
+	height: 200px;
+	border-bottom: solid 1px black;
+}
