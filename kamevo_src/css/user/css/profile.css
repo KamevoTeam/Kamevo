@@ -35,3 +35,25 @@
     -moz-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
 }
+.status{
+	position: absolute;
+	font-size: 12px;
+	color: white;
+	border-radius: 5px;
+	padding: 3px;
+	float: right;
+	margin-top: 10px;
+	right: 10px;
+}
+.beta{
+	background-color: #e67e22;
+	border: 1px solid #e67e22;
+}
+.premium{
+	background-color: green;
+	border: 1px solid green;
+}
+.gold{
+	background-color: gold;
+	border: 1px solid gold;
+}

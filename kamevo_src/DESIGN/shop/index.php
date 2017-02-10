@@ -26,16 +26,16 @@
 	      <select class="select">
 	       <option>Choisir une offre</option>
 	        <option>URL personnalisée - 1€</option>
-	       <option>Membre prenium - 5€</option>
+	       <option>Membre premium - 5€</option>
 	     </select>
 	     	<button class="pay-btn choosen">J'ai choisi</button><br/>
 	     	 <h3>Nos différents offres :</h3><ul>
 	     	 <li>URL personnalisée ; pour que les utilisateurs vous trouvent <br/> plus facilement :<br/>
 	     	  <h4>Exemple</h4> <img src="example.png" class="example"></li>
-	     	 <li>Membre Prenium ; vous obtenez alors le statut de membre Prenium <br />ce qui vous donne : <br/> <ol>
+	     	 <li>Membre Premium ; vous obtenez alors le statut de membre Premium <br />ce qui vous donne : <br/> <ol>
 	     	  <li>La possiblité de créer une URL personnalisée</li>
-	     	   <li>Une étiquette Prenium à côté de votre nom</li>
-	     	  <li>La possiblité de créer un tchat de groupe</li>
+	     	   <li>Une étiquette Premium à côté de votre nom</li>
+	     	  <li>La possiblité de créer un chat de groupe</li>
 	     	 <li>Le droit de modifier le fond d'écran de votre page de profil </li>
 	     	</ol></li></ul></div>
 	      <div class="pay invisible">
@@ -46,7 +46,7 @@
 	       <option>Bitcoins</option>
 	     </select>
 	     	<button class="pay-btn">Payer</button><!-- PHP : first verify if user has already paied . Else , simply reload page -->
-	     	 <h6>Aucune possibilité de remboursement . Toutes nos offres sont <br />garranties à vie . Tous les fonds récoltés sont utilisés à améliorer Kamevo . <br />
+	     	 <h6>Aucune possibilité de remboursement . Toutes nos offres sont <br />garranties à vie . Tous les fonds récoltés servent à améliorer Kamevo . <br />
 	     	<b>Merci d'avance !</b></h6>
 	      </div>
 		</div>

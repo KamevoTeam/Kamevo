@@ -22,14 +22,36 @@
 }
 progress {
   display: block;
-  width: 355px;
   height: 15px;
   border: 3px solid white;
   border-radius: 5px;
   background-color: red;
   margin-bottom: -2px;
 }
-
+.progress-one{
+  width: 355px;
+}
+.progress-two{
+  width: 345px;
+}
+.progress-three{
+  width: 335px;
+}
+.progress-four{
+  width: 325px;
+}
+.progress-five{
+  width: 315px;
+}
+.progress-six{
+  width: 305px;
+}
+.progress-seven{
+  width: 295px;
+}
+.progress-height{
+  width: 285px;
+}
 @-webkit-keyframes progress {
   from {
     background-position: 0 0;
