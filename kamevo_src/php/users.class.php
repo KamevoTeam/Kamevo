@@ -12,6 +12,8 @@ class users{
 	public $abonnes;
 	public $abonnements;
 	public $lastvisit;
+	public $avatar;
+	public $banner;
 
 	public function __construct($ID){
 
@@ -51,6 +53,8 @@ class users{
 		$this->abonnes = $rep['abonnes'];
 		$this->abonnements = $rep['abonnements'];
 		$this->points = $rep['points'];
+		$this->avatar = $rep['avatar'];
+		$this->banner = $rep['banner'];
 
 	}
 

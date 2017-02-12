@@ -5,9 +5,11 @@ $sendSettings->checkData();
 
 ?>
 <div class="settings">
-<?=print_r($_POST);?>
-<?=var_dump($sendSettings->errorReturn);?>
-<?=var_dump($sendSettings->debug);?>
+<?php
+echo '<pre>';
+print_r($_FILES);
+echo '</pre>  ';
+?>
 	<div class="header">
 		<h3 class="header-tilte">Modifier mes informations personelles :</h3>
 		<div class="header-separation"></div>
@@ -37,11 +39,11 @@ $sendSettings->checkData();
     <div class="header-separation"></div>
 	<div class="basics">
  	  <h5 class="file-label">Modifier ma photo de profil : </h5>
- 	   <input class="inline input-file" id="my-file" type="file" name="profile">
-      <label for="my-file" class="input-file-trigger" tabindex="0">Choisir un fichier ...</label>
+ 	   <input name="profile" class="inline input-file" id="my-file1" type="file" >
+      <label for="my-file1" class="input-file-trigger" tabindex="0">Choisir un fichier ...</label>
        <br/><h5 class="file-label">Modifier ma photo de couverture : </h5>
- 	    <input class="inline input-file" id="my-file" type="file" name="cover">
-      <label for="my-file" class="input-file-trigger" tabindex="0">Choisir un fichier ...</label>
+ 	    <input name="cover" class="inline input-file" id="my-file2" type="file">
+      <label for="my-file2" class="input-file-trigger" tabindex="0">Choisir un fichier ...</label>
  	 </div>
     <div class="text">
     <h3 class="header-tilte">Ajouter une biographie à mon profil :</h3>

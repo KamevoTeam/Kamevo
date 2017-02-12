@@ -10,6 +10,8 @@
 	public $user_subscriptions;
 	public $user_nb_posts;
 	public $current_post_id = 0;
+	private $avatarID;
+	private $bannerID;
 
 
 	function __construct($id_user){
@@ -55,6 +57,8 @@
 		$this->user_pts = $rep['points'];
 		$this->user_subscribers = $rep['abonnes'];
 		$this->user_subscriptions = $rep['abonnements'];
+		$this->avatarID = $rep['avatar'];
+		$this->bannerID = $rep['banner'];
 		$req->closeCursor();
 
 		
@@ -69,7 +73,15 @@
 
 		//a completer
 
-		return 'DESIGN/user/img/ban_default.png';
+		return 'userDataUpload/picCover/'.$this->bannerID;
+
+
+	}
+	public function getUrlAvatar(){
+
+		//a completer
+
+		return 'userDataUpload/picProfile/'.$this->avatarID;
 
 
 	}
