@@ -279,7 +279,7 @@
 
 			<div class="block">
   				<div class="block-title">
-					 <img class="block-img" src="img/user.png" alt="William">
+					 <img class="block-img" src="img/Ionic.png" alt="William">
 	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> | </strong></h6>
 					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
 					 <h6 class="block-views"><strong> <?=$resp['uniq_views']; ?></strong> &nbsp;<img src='img/view.png' alt='Views' class="eyes-css"></h6>

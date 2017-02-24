@@ -241,7 +241,7 @@
 
 						}else{
 
-							$this->errorReturn = $this->errorReturn.'<h5 class="error-text">Le fichier contient des erreurs!</h5>';
+							$this->errorReturn = $this->errorReturn.'<h5 class="error-text">La bannière contient des erreurs !'.$this->fileForm['cover']['error'].'</h5>';
 
 						}
 					} //end of profile cover

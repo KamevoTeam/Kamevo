@@ -75,10 +75,13 @@ textarea:focus{
 }
 .block-img{
 	width: 35px;
-	padding-top: 18px;
+	height: 35px;
+	border: solid 1px white;
+	border-radius: 50%;
+	margin-top: 18px;
+	margin-left: 4px;
 	position: absolute;
 	z-index: 1;
-	height: auto;
 }
 .abouts{
 	display: inline-block;
@@ -178,8 +181,9 @@ margin: 0;
 	margin-top: 25px;
 }
 .image{
-	width: 90%;
-	margin-left: 5%;
+	width: 95%;
+	max-height: 700px;
+	margin-left: 2.5%;
 	cursor: pointer;
 }
 .image-op{
