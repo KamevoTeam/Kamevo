@@ -10,6 +10,7 @@
 	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+	word-wrap: break-word;
 }
 .groups h4{
 	text-align: center;
@@ -69,6 +70,9 @@
 .p-count{
 	font-weight: bold;
 	color: #e67e22;
+}
+.bio-bio{
+	text-align: center;
 }
 /*----------------------------------*\
               BUTTON 

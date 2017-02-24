@@ -36,7 +36,7 @@ $sendSettings->checkData();
  	  <h5 class="file-label">Modifier ma photo de profil : </h5>
  	   <input name="profile" class="inline input-file" id="my-file1" type="file" >
       <label for="my-file1" class="input-file-trigger" tabindex="0">Choisir un fichier ...</label>
-       <br/><h5 class="file-label">Modifier ma photo de couverture : </h5>
+       <br/><h5 class="file-label">Modifier ma photo de couverture : ( Taille optimale : 1000 x 300 )</h5>
  	    <input name="cover" class="inline input-file" id="my-file2" type="file">
       <label for="my-file2" class="input-file-trigger" tabindex="0">Choisir un fichier ...</label>
  	 </div>

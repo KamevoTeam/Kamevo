@@ -5,6 +5,7 @@
 ?><div class="groups">
 	<div class="points">
 	 <h4>INFOS</h4>	
+	  <h6 class="bio-bio">Voici ma super biographie de type géniale que j'aime trop !</h6>
 		<div class="line-separator5"></div>
 	   	<h6 class="inf-t">Points : <span class="p-count"><?=$userPage->user_pts; ?></span></h6>
 	   </div>

@@ -39,6 +39,61 @@
 	 </div>
 	  </nav>
 	 </header>
+	 <div class="results">
+
+	 <!-- Begining of results -->
+	  <a href="#">
+	   <div class="result">
+	    <img src="img/Ionic.png" alt="" class="result-img">
+		 <div class="result-about">
+	      <p class="r-about"><strong> Zelkyo - Points :</strong> 985 </p>
+		</div>
+	  </div>
+	  </a>
+	  <a href="#">
+	   <div class="result">
+	    <img src="img/Ionic.png" alt="" class="result-img">
+		 <div class="result-about">
+	      <p class="r-about"><strong> Zelkyo - Points :</strong> 985 </p>
+		</div>
+	  </div>
+	  </a>
+	  <a href="#">
+	   <div class="result">
+	    <img src="img/Ionic.png" alt="" class="result-img">
+		 <div class="result-about">
+	      <p class="r-about"><strong> Zelkyo - Points :</strong> 985 </p>
+		</div>
+	  </div>
+	  </a>
+	  <a href="#">
+	   <div class="result">
+	    <img src="img/Ionic.png" alt="" class="result-img">
+		 <div class="result-about">
+	      <p class="r-about"><strong> Zelkyo - Points :</strong> 985 </p>
+		</div>
+	  </div>
+	  </a>
+	  <a href="#">
+	   <div class="result">
+	    <img src="img/Ionic.png" alt="" class="result-img">
+		 <div class="result-about">
+	      <p class="r-about"><strong> Zelkyo - Points :</strong> 985 </p>
+		</div>
+	  </div>
+	  </a>
+	  <a href="#">
+	   <div class="result">
+	    <img src="img/Ionic.png" alt="" class="result-img">
+		 <div class="result-about">
+	      <p class="r-about"><strong> Zelkyo - Points :</strong> 985 </p>
+		</div>
+	  </div>
+	  </a>
+
+
+	  <!-- End of results -->
+	 </div>
 	<div class="popup-content">
 	 <div class="fade-popup"></div>
 	  <div class="popup">
@@ -60,3 +115,4 @@
 	  </div></a>
 	</div>
 	 </div>
+	 <script src="js/search.js" type="text/javascript"></script>
