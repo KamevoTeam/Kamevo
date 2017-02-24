@@ -22,8 +22,13 @@
 		<div class="sub-div">
 		<?php if($iduseri == $id){ ?>
 		<button class="subscribe-btn" onclick="location.href='settings.php'">Paramètres</button>
-		<?php }else{ ?>
-		<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">S'abonner</button>	
+		<?php }else{ 
+
+				if($userPage->ifUserSubs() == 0){ ?>
+					<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">S'abonner</button>	
+				<?php }else{ ?>
+					<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">Se désabonner</button>	
+					<?php } ?>
 		<?php } ?>
 		<div id="submessage" class="submessage" style="display:none;"></div>
 	   </form>

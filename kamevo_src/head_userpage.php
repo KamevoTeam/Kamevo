@@ -5,7 +5,7 @@
 		$id = (int)($_GET['id']);
 		if(isset($id) AND $id>0){
 			if(userProfile::ifUserExist($id) == 'yes'){
-					$userPage = new userProfile($id);
+					$userPage = new userProfile($id,$user);
 					$userPage->updateProfile();
 					$pseudo = $userPage->user_psd;
 			}else{

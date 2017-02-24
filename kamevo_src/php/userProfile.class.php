@@ -13,11 +13,14 @@
 	private $avatarID;
 	private $bannerID;
 	private $bio;
+	private $userConnected;
 
 
-	function __construct($id_user){
+
+	function __construct($id_user,$userConnected){
 
 				$this->user_id = $id_user;
+				$this->userConnected = $userConnected;
 				
 	}
 
@@ -36,6 +39,19 @@
 			return $userExist;
 
 			
+	}
+	public function ifUserSubs(){
+
+	//$isSub = false;
+	include('co_pdo.php');
+	$tryer = $this->userConnected->idUser;
+	$sub = $this->user_id;
+
+	$req2 = $bdd->prepare('SELECT * FROM subs WHERE abonne=:abo AND abonnement=:abonemnt');
+	$req2->execute(array('abo' => $tryer, 'abonemnt' => $sub));
+	$nb = $req2->rowCount();
+	return $nb;
+
 	}
 
 
@@ -138,6 +154,19 @@
 		if($nb2 > 0) $userSub = TRUE;
 
 		return $userSub;
+
+	}
+
+	private function getAvatarUser($userIDAv){
+
+
+		include('co_pdo.php');
+
+		$req = $bdd->prepare('SELECT avatar FROM users WHERE ID = ?');
+		$req->execute(array($userIDAv));
+		$rep = $req->fetch();
+
+		return $rep['avatar'];
 
 	}
 
@@ -279,7 +308,7 @@
 
 			<div class="block">
   				<div class="block-title">
-					 <img class="block-img" src="img/Ionic.png" alt="William">
+					 <img class="block-img" src="userDataUpload/picProfile/<?=$this->getAvatarUser($resp['author']); ?>" alt="William">
 	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> | </strong></h6>
 					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
 					 <h6 class="block-views"><strong> <?=$resp['uniq_views']; ?></strong> &nbsp;<img src='img/view.png' alt='Views' class="eyes-css"></h6>
