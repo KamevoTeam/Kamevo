@@ -186,11 +186,10 @@ class users{
 
 			if(isset($data['pseudo'],$data['password']) AND !empty($data['pseudo']) AND !empty($data['password'])){
 
-				$id_connection = str_replace('@', $data['pseudo'], '^!a');
-				if ($id_connection == $data['pseudo']) {
-					$rep = users::checkuser($data['pseudo'], $data['password'], false);
-				} else {
+				if (filter_var($data['pseudo'], FILTER_VALIDATE_EMAIL)) {
 					$rep = users::checkuser($data['pseudo'], $data['password'], true);
+				} else {
+					$rep = users::checkuser($data['pseudo'], $data['password'], false);
 				}
 				
 				return $rep;
