@@ -5,12 +5,7 @@ $sendSettings->checkData();
 
 ?>
 <div class="settings">
-<?php
-echo '<pre>';
-print_r($_FILES);
-echo '</pre>  ';
-?>
-	<div class="header">
+<div class="header">
 		<h3 class="header-tilte">Modifier mes informations personelles :</h3>
 		<div class="header-separation"></div>
 	</div>
@@ -49,7 +44,7 @@ echo '</pre>  ';
     <h3 class="header-tilte">Ajouter une biographie à mon profil :</h3>
 		<div class="header-separation"></div>
      
-  	  <textarea name="bio" class="text-area" placeholder="Votre message ..."></textarea>
+  	  <textarea name="bio" class="text-area"><?=$sendSettings->bio_user; ?></textarea>
   	  *Votre biographie ne peut contenir que 80 caractères maximum
      
     </div>

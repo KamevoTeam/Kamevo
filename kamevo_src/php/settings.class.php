@@ -15,6 +15,8 @@
 		private $id_avatar;
 		private $id_banner;
 
+		public $bio_user;
+
 
 		function __construct($author,$dataForm,$fileForm = array()){
 
@@ -26,6 +28,7 @@
 			$this->authorObject = $author;
 
 			$this->numberOfError = 0;
+			$this->bio_user = $this->authorObject->bio;
 
 		}else{
 
@@ -43,6 +46,7 @@
 		if($this->errorReturn == ''){
 
 			if(isset($this->dataForm['submit']) &&  ($this->dataForm['submit'] == 'Enregistrer')){
+
 
 				if(isset($this->dataForm['prenom']) && !empty($this->dataForm['prenom'])){
 
@@ -71,6 +75,34 @@
 
 						$this->errorReturn = $this->errorReturn.'<h5 class="error-text">Le prénom est identique	</h5>';
 						
+
+					}
+
+
+				}
+
+				if(isset($this->dataForm['bio']) && !empty($this->dataForm['bio'])){
+
+					if(htmlspecialchars($this->dataForm['bio']) != $this->authorObject->bio){
+
+						if(strlen(htmlspecialchars($this->dataForm['bio'])) < 80) {
+
+
+								$majPre = $bdd->prepare('UPDATE users SET bio = ? WHERE ID = ?');
+								$majPre->execute(array(htmlspecialchars($this->dataForm['bio']),$this->authorObject->idUser));
+								$majPre->closeCursor();
+
+								$this->errorReturn = $this->errorReturn.'<h5 class="error-textOK">Biographie mis à jour avec succès! </h5>';
+
+								
+
+						}else{
+
+							$this->errorReturn = $this->errorReturn.'<h5 class="error-text">La biographie est trop grande (max = 80) </h5>';
+							
+
+						}
+
 
 					}
 
@@ -140,7 +172,7 @@
 										$movePic = move_uploaded_file($_FILES['profile']['tmp_name'],$finalNameFile);
 
 										if($this->authorObject->avatar != 'defaultAvatar.png') unlink($pathOfPic.$this->authorObject->avatar);
-										
+											
 										$majAv = $bdd->prepare('UPDATE users SET avatar = ? WHERE ID = ?');
 										$majAv->execute(array($this->id_avatar,$this->authorObject->idUser));
 										$majAv->closeCursor();
@@ -223,7 +255,11 @@
 	} //end of checkData
 
 
+	public function getBioUser(){
 
+		//return $this->authorObject->pseudo;*
+		return 'toto';
+	}
 
 
 } //end of class

@@ -14,6 +14,7 @@ class users{
 	public $lastvisit;
 	public $avatar;
 	public $banner;
+	public $bio;
 
 	public function __construct($ID){
 
@@ -55,6 +56,7 @@ class users{
 		$this->points = $rep['points'];
 		$this->avatar = $rep['avatar'];
 		$this->banner = $rep['banner'];
+		$this->bio = $rep['bio'];
 
 	}
 

@@ -12,6 +12,7 @@
 	public $current_post_id = 0;
 	private $avatarID;
 	private $bannerID;
+	private $bio;
 
 
 	function __construct($id_user){
@@ -59,6 +60,8 @@
 		$this->user_subscriptions = $rep['abonnements'];
 		$this->avatarID = $rep['avatar'];
 		$this->bannerID = $rep['banner'];
+		$this->bio = $rep['bio'];
+
 		$req->closeCursor();
 
 		
