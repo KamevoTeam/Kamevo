@@ -20,11 +20,11 @@
 	</div>
 	<div class="infos">
 		<div class="sub-div">
-		<?php //if($userPage->ifUserSub($iduseri) == FALSE) { ?>
-		<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">S'abonner</button>
-		<?php //}else{ ?>
-		
-		<?php //} ?>
+		<?php if($iduseri == $id){ ?>
+		<button class="subscribe-btn" onclick="location.href='settings.php'">Paramètres</button>
+		<?php }else{ ?>
+		<button class="subscribe-btn" onclick="sub('<?=$userPage->getId(); ?>')">S'abonner</button>	
+		<?php } ?>
 		<div id="submessage" class="submessage" style="display:none;"></div>
 	   </form>
 	  </div>
