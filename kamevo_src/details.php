@@ -26,7 +26,7 @@
 <head>
 	<title>Publication de William</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="DESIGN/user/css/menu.css">
+	<link rel="stylesheet" href="css/menu_co.css">
 	<link rel="stylesheet" href="css/likes-details.css">
 	<link rel="stylesheet" href="DESIGN/details/css/line-separator.css">
 	<link rel="stylesheet" href="DESIGN/details/css/block.css">
@@ -34,6 +34,7 @@
 	<link rel="stylesheet" href="DESIGN/details/css/style.max.css">
 	<link rel="stylesheet" href="post/css/popup.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/createHttpObject.js"></script>

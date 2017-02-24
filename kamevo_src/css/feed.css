@@ -3,7 +3,7 @@
 \*----------------------------------*/
 .groups{
 	position: fixed;
-	top: 165px;
+	top: 175px;
 	margin-left: calc((100% - 1165px) / 2);
 	width: 200px;
 	padding: 15px; 
@@ -55,10 +55,15 @@
 .post-btn{
     position: fixed;
 	width: 200px;
-    background-color: white;
+	height: 60px;
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#e67e22,#cf6d17);
+    background: -o-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);
 	text-align: center;
-	color: #333333;
+	color: #fff;
 	padding: 15px;
+	padding-top: 20px;
 	top: 100px;
 	margin-left: calc((100% - 1165px) / 2);
 	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
@@ -72,10 +77,6 @@
 	text-decoration: none;
 }
 .post-btn:hover{
-    background-color: #e67e22;
-    background: -webkit-linear-gradient(#e67e22,#cf6d17);
-    background: -o-linear-gradient(#e67e22,#cf6d17);
-    background: -moz-linear-gradient(#e67e22,#cf6d17);
     color: white;
 }
 .group-creator{

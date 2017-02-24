@@ -16,6 +16,10 @@
     -moz-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
 }
+.menu-box-gl{
+  max-width: 1215px;
+  margin-left: calc((100vw - 1255px)/2);
+}
 .logo{
     
     margin-right: 15px;
@@ -38,9 +42,108 @@
     float: right;
     font-size:17px;
     padding: 17px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -15px;
     margin-top:-18px;
-    transition-duration: 0.3s;
+    transition:all ease 0.3s;
     border-bottom: solid 0px #e67e22;
+  transform: scale(0.8);
+}
+.linkz{
+    color:white;
+    display: inline-block;
+    float: right;
+    font-size:17px;
+    padding: 17px;
+    margin-top:-18px;
+    border-bottom: solid 0px #e67e22;
+    margin-left: -55px;
+}
+.notes{
+  height: 60px;
+  position: fixed;
+  left:  calc(((100% - 1150px) / 2) + 860px);
+  z-index: 99999;
+  top: 100px;
+  display: inline-block;
+  -webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#e67e22,#cf6d17);
+    background: -o-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);
+}
+.notes-block{
+  margin-left: 35px;
+}
+.note{
+  display: inline-block;
+  width: 50px;
+  transition: all ease 0.4s;
+}
+.profile-note{
+  width: 40px;
+  height: 40px;
+  margin-top: -3.5px;
+  margin-left: -5px;
+  border: solid transparent 1px;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: all ease 0.5s;
+}
+.profile-note:hover{
+  opacity: 1;
+}
+.note:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.not-value{
+  display: inline-block;
+  position: absolute;
+  color: white;
+  font-family: Baloo;
+  font-size: 18px;
+  margin-left: 1px;
+  margin-top: -8px;
+  animation: alert infinite 1s;
+}
+.mes-value{
+  display: inline-block;
+  position: absolute;
+  color: white;
+  font-family: Baloo;
+  font-size: 18px;
+  margin-left: 1px;
+  margin-top: -10px;
+  animation: alert infinite 1s;
+}
+.set-value{
+  display: inline-block;
+  position: absolute;
+  color: white;
+  font-family: Baloo;
+  font-size: 18px;
+  margin-left: 29px;
+  margin-top: -38px;
+  animation: alert infinite 1s;
+}
+@keyframes alert{
+  0%{ transform: rotate(0deg); }
+  33%{ transform: rotate(20deg); }
+  66%{ transform: rotate(-20deg); }
+}
+.note-img{
+  width: 30px;
+  display: inline-block;
+}
+.note-details{
+  z-index: 99999999999;
+  background-color: red;
+  color: white;
+  width: 500px;
 }
 .link-look{
     color:white;
@@ -51,12 +154,7 @@
     margin-top:-32px;
 }
 .link:hover{
-    background-color: #e67e22;
-    background: -webkit-linear-gradient(#f39c12,#da8b0b);
-    background: -o-linear-gradient(#f39c12,#da8b0b);
-    background: -moz-linear-gradient(#f39c12,#da8b0b);
-    padding-bottom: 17px;
-    border-bottom: solid 3px #e67e22;
+  transform: scale(1);
 }
 .container-left{
     display: inline-block;
@@ -115,16 +213,16 @@
 }
 .f-input{
   display: inline-block;
-  transition-duration: 1s;
-    border : solid 1px #e67e22;
+  transition-duration: 0.3s;
+  border : solid 1px #e67e22;
   width: 228px;
-    margin-top: -3px;
+  margin-top: -3px;
   padding: 9px;
 }
 .f-input:focus{
-  transition-duration: 1s;
+  transition-duration: 0.3s;
   width: 400px;
-    outline: none;
+  outline: none;
 }
 .looking{
   color: #e67e22;

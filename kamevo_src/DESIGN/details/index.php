@@ -3,12 +3,13 @@
 <head>
 	<title>Publication de William</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="../../css/menu_co.css">
 	<link rel="stylesheet" href="css/line-separator.css">
 	<link rel="stylesheet" href="../../css/likes-details.css">
 	<link rel="stylesheet" href="css/block.css">
 	<link rel="stylesheet" href="css/style.max.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 </head>
 <body>

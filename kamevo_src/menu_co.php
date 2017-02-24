@@ -1,24 +1,42 @@
 	<header class="header">
 	 <nav class="menu" id="top">
+	 <div class="menu-box-gl">
 	  <ul>
 	    <a href="index.php" class="log" id="icon"></a>
 	     <a href="index.php"><li class="logo"> K </li></a><div class="line-separator"></div>
 	    <a href="index.php"><li class="title"> KAMEVO</li></a>
 
 	     <div class="mme">
-
-
- 			<a class="js" href="deco.php"><li class="link"><i class="fa fa-sign-in" id="icon"></i> Déconnexion</li></a>
-	         <a class="js" href="user.php?id=<?php echo $_SESSION['ID']; ?>"><li class="link"><i class="fa fa-user" id="icon"></i> <?php echo $_SESSION['pseudo']; ?></li></a>
-
-	         <a class="js popopen" href="#" rel="popup_name"><li class="link"><i class="fa fa-compass" id="icon"></i> Explorer</li></a>
-	        <a class="js" href="."><li class="link"><i class="fa fa-home" id="icon"></i> Accueil</li></a>
+	         <a class="js" href="deco.php"><li class="link"><i class="fa fa-sign-out" id="icon"></i> Déconnexion</li></a>
+	         <a class="js popopen" href="#"><li class="link"><i class="fa fa-compass" id="icon"></i> Explorer</li></a>
+			  <a class="" href="user.php?id=<?php echo $_SESSION['ID']; ?>"><li class="linkz"><div class="notes-block">
+				 <div class="profile-note">
+				 <img src="img/Ionic.png" alt="profile" class="profile-note">
+				 </div>
+				</div>
+			  </div></li></a>
+	        <a class="" href="#"><li class="linkz"><div class="notes-block">
+				<div class="note">
+				 <div class="notif">
+				  <img src="img/alarm.png" alt="notif" class="note-img">
+				  <span class="not-value">5</span>
+				 </div>
+				</div>
+				<div class="note">
+				 <div class="message">
+				  <img src="img/message.png" alt="message" class="note-img">
+				  <span class="mes-value">1</span>
+				 </div>
+				</div>
+			  </div></li></a>
 	     </div>
 	     <li class="link-look"><form class="form" action="" method="post">
 	       <input type="search" class="f-input" name="search" placeholder=" Rechercher un profil">
 	       <i class="looking fa fa-search" id="icon"></i></form>
 	    </li>
 	   </ul>
+	 	
+	 </div>
 	  </nav>
 	 </header>
 	<div class="popup-content">
