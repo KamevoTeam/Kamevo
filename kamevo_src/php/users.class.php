@@ -60,14 +60,18 @@ class users{
 
 	}
 
-	static public function checkuser($pseudo,$mdp){
+	static public function checkuser($identifiant,$mdp, $isMail){
 
 		require('co_pdo.php');
 
 		unset($_SESSION['ID']); //cleaning the session
 
-		$reqCheckExist = $bdd->prepare('SELECT * FROM users WHERE pseudo = ?');
-		$reqCheckExist->execute(array($pseudo));
+		if ($isMail == true) {
+			$reqCheckExist = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+		} else {
+			$reqCheckExist = $bdd->prepare('SELECT * FROM users WHERE pseudo = ?');
+		}
+		$reqCheckExist->execute(array($identifiant));
 		$value = $reqCheckExist->rowCount();
 
 		if($value > 0){
@@ -76,7 +80,7 @@ class users{
 			if($response['password'] == hash('sha512', $mdp)){
 
 				$_SESSION['ID'] = $response['ID'];
-				$_SESSION['pseudo'] = htmlspecialchars($pseudo);
+				$_SESSION['pseudo'] = $response['pseudo'];
 				return 'Félicitations! Vous êtes maintenant connecté!';
 
 
@@ -125,6 +129,8 @@ class users{
 												'mail' => $data['mail_ins'],
 												'grade' => 1));
 
+										require('mailInsc.php');
+										mail($data['mail_ins'], $subject, $message);
 									return 'Inscription validée! Vous pouvez vous connecter!';
 
 
@@ -180,7 +186,12 @@ class users{
 
 			if(isset($data['pseudo'],$data['password']) AND !empty($data['pseudo']) AND !empty($data['password'])){
 
-				$rep = users::checkuser($data['pseudo'], $data['password']);
+				$id_connection = str_replace('@', $data['pseudo'], '^!a');
+				if ($id_connection == $data['pseudo']) {
+					$rep = users::checkuser($data['pseudo'], $data['password'], false);
+				} else {
+					$rep = users::checkuser($data['pseudo'], $data['password'], true);
+				}
 				
 				return $rep;
 
