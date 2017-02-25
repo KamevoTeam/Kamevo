@@ -113,7 +113,7 @@
   				<!-- Only one comment -->
   				<div class="oneComment" id="comment<?=$dataCom['ID']; ?>">
 	  	 			<div class="block-comment com">
-						<img class="block-img" src="img/user.png" alt="William">
+						<img class="block-img" src="<?=$this->getAvatarFromId($dataCom['poster']); ?>" alt="William">
 		 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($dataCom['poster']); ?> </strong> | <span class="comment-date"><?=$dataCom['date']; ?></span></h6>
 						<p class="comment-content">
 							 <?=$dataCom['comment']; ?>
@@ -179,7 +179,16 @@
 
 
 		
+	public function getAvatarFromId($userIdSearch){
 
+			include('co_pdo.php');
+			$req = $bdd->prepare('SELECT avatar FROM users WHERE ID = ?');
+			$req->execute(array($userIdSearch));
+			$rep = $req->fetch();
+			return 'userDataUpload/picProfile/'.$rep['avatar'];
+
+
+     }
 
 
 
