@@ -1,0 +1,12 @@
+diff a/kamevo_src/DESIGN/details/css/style.max.css b/kamevo_src/DESIGN/details/css/style.max.css	(rejected hunks)
+@@ -36,10 +36,6 @@
+ .comment-like:hover{
+ 	
+ }
+-.comment-name{
+-	color: #333333;
+-	margin-bottom: -10px;
+-}
+ .back{
+ 	position: fixed;
+ 	left:30px;
