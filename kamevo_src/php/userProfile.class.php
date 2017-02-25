@@ -3,7 +3,7 @@
 	class userProfile{
 
 	
-	private $user_id;
+	public $user_id;
 	public $user_psd;
 	public $user_pts;
 	public $user_subscribers;
@@ -233,6 +233,53 @@
 
 		}
 
+		if($mode == 'group'){
+
+			/*begenning of Home*/
+
+			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
+			$req = 'SELECT * FROM groups WHERE ID = 0';
+			$PostsPerPage = 6;
+			$nbTotalPostsReq = $bdd->prepare($req);
+			$nbTotalPostsReq->execute();
+			
+
+			$nbTotalPosts = $nbTotalPostsReq->rowCount();
+
+			$totalPages = ceil($nbTotalPosts/$PostsPerPage);
+
+			if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
+   					 $currentPage = (int)$_GET['page'];
+				} else {
+   					$currentPage = 1;
+			}
+
+			$start = ($currentPage-1)*$PostsPerPage;
+
+				echo '<div class="pageCountHome" id="pageCountHome" style="visibility:hidden;">';
+  				for($i=1;$i<=$totalPages;$i++) {
+         			if($i == $currentPage) {
+            			echo $i.' ';
+         			}elseif ($i == $currentPage+1) {
+         				echo '<a href="index.php?page='.$i.'" class="nextPage">'.$i.'</a> ';
+         			} else {
+            			echo '<a href="index.php?page='.$i.'">'.$i.'</a> ';
+         			}
+      			} 
+      			echo '</div>';
+
+
+      			/*CHARGEMENT DE LA REQUETE*/
+      			$reqDisp = 'SELECT * FROM groups WHERE ID = 0 ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
+      			$getPosts = $bdd->prepare($reqDisp);
+				$getPosts->execute();
+				$nbposts = $getPosts->rowCount(); 
+
+
+			/*END OF HOME*/
+
+		}
+
 		if($mode == 'profile'){
 			
 			
@@ -275,7 +322,7 @@
 
 		
 
-		 if($nbposts == 0 AND ($mode == 'profile' OR $mode == 'home')){ 
+		 if($nbposts == 0 AND ($mode == 'profile' OR $mode == 'home' OR $mode == 'group')){ 
 
 		 	if($mode == 'profile') { ?>
 			</div><div class="block">
@@ -283,6 +330,14 @@
 	 			 	<h6 class="block-name"><strong>Aucun post</strong></h6>
 	 			</div>
 					<p class="block-bio"><?=$this->user_psd; ?> n'a pas encore posté de message! <br /></p>
+			</div>
+			<?php }
+			if($mode == 'group') { ?>
+			</div><div class="block">
+  				<div class="block-title">
+	 			 	<h6 class="block-name"><strong>Aucun post</strong></h6>
+	 			</div>
+					<p class="block-bio">Il n'y a aucune publication dans ce groupe!<br /></p>
 			</div>
 			<?php }
 			if($mode == 'home') { ?>
@@ -444,6 +499,7 @@
 
 
      }
+     
      private function getThumbnailFromUrl($video){
 
 			return $video;

@@ -6,8 +6,9 @@
 		require ("head.php");
 		include('php/userProfile.class.php');
 		include('php/userHome.class.php');
+		include('php/users.class.php');
 	
-
+		$user = new users($_SESSION['ID']);
 		$home = new userHome(htmlspecialchars($_SESSION['ID']));
 		$home->initializeHome();
 
