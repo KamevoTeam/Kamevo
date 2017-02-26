@@ -58,7 +58,7 @@
 
 			}
 
-			$this->conditionsString = $this->conditionsString.' OR author='.$this->user_id;
+			$this->conditionsString = $this->conditionsString.' OR author='.$this->user_id.' AND groupId = 0';
 
 			//echo $this->conditionsString;
 

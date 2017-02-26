@@ -252,7 +252,7 @@
 
 			$start = ($currentPage-1)*$PostsPerPage;
 
-				echo '<div class="pageCount" id="pageCount" style="visibility:visible;">';
+				echo '<div class="pageCount" id="pageCount" style="visibility:hidden;">';
   				for($i=1;$i<=$totalPages;$i++) {
          			if($i == $currentPage) {
             			echo $i.' ';
@@ -277,7 +277,7 @@
 			
 
 			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
-			$req = "SELECT * FROM posts WHERE author = ? ORDER BY ID DESC";
+			$req = "SELECT * FROM posts WHERE author = ? AND groupId = 0 ORDER BY ID DESC";
 			$PostsPerPage = 5;
 			$nbTotalPostsReq = $bdd->prepare($req);
 			$nbTotalPostsReq->execute(array($this->user_id));
@@ -306,7 +306,7 @@
       			echo '</div>';
 
       			/*CHARGEMENT DE LA REQUETE*/
-      			$reqDisp = 'SELECT * FROM posts WHERE author = ? ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
+      			$reqDisp = 'SELECT * FROM posts WHERE author = ? AND groupId = 0 ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
       			$getPosts = $bdd->prepare($reqDisp);
 				$getPosts->execute(array($this->user_id));
 				$nbposts = $getPosts->rowCount(); 

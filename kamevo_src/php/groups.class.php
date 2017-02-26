@@ -65,6 +65,7 @@
 			$req->closeCursor();
 
 			self::getNumberOfMember();
+			self::getNumberOfPubli();
 
 
 		}
@@ -126,6 +127,27 @@
 
 
 		}
+		private function getNumberOfPubli(){
+
+			include 'php/co_pdo.php';
+
+			/* update class properties  */
+			$req = $bdd->prepare('SELECT ID FROM posts WHERE groupId = ?');
+			$req->execute(array($this->groupeId));
+			$this->numberOfPubli = $req->rowCount();
+			$req->closeCursor();
+
+			/* update bdd for further processing  */
+			$req2 = $bdd->prepare('UPDATE groups SET nb_publi = ? WHERE ID = ?');
+			$req2->execute(array($this->numberOfPubli, $this->groupeId));
+
+			$req2->closeCursor();
+
+
+
+
+		}
+
 
 		public function createNewGroup($author, $dataForm,$fileForm = array()){
 
