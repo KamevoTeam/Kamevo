@@ -50,15 +50,21 @@
 			$this->conditionsString = 'SELECT * FROM posts WHERE';
 			
 			for ($i=0; $i < sizeof($this->userIdFollow); $i++) { 
-					
-				if($i < (sizeof($this->userIdFollow))-1)$this->conditionsString = $this->conditionsString.' author='.$this->userIdFollow[$i].' OR';
+		
+				if($i < (sizeof($this->userIdFollow))-1) $this->conditionsString = $this->conditionsString.' author='.$this->userIdFollow[$i].' OR';
 
-				if($i == (sizeof($this->userIdFollow))-1)$this->conditionsString = $this->conditionsString.' author='.$this->userIdFollow[$i];
+				if($i == (sizeof($this->userIdFollow))-1) $this->conditionsString = $this->conditionsString.' author='.$this->userIdFollow[$i];
 
 
 			}
 
-			$this->conditionsString = $this->conditionsString.' OR author='.$this->user_id.' AND groupId = 0';
+			if(sizeof($this->userIdFollow) > 0) { //correctif: sur certaines version de MariaDb bug (?)
+				$this->conditionsString = $this->conditionsString.' OR author='.$this->user_id.' AND groupId = 0';
+			}else{
+				$this->conditionsString = $this->conditionsString.' author='.$this->user_id.' AND groupId = 0';
+			}
+
+			
 
 			//echo $this->conditionsString;
 
