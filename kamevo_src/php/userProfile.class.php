@@ -189,7 +189,7 @@
 		if($mode == 'home'){
 
 			/*begenning of Home*/
-
+			
 			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
 			$req = $this->conditionsString;
 			$PostsPerPage = 6;
