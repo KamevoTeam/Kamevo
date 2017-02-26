@@ -12,7 +12,7 @@
 	public $current_post_id = 0;
 	private $avatarID;
 	private $bannerID;
-	private $bio;
+	public $bio;
 	private $userConnected;
 
 
@@ -235,15 +235,11 @@
 
 		if($mode == 'group'){
 
-			/*begenning of Home*/
-
 			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
-			$req = 'SELECT * FROM groups WHERE ID = 0';
-			$PostsPerPage = 6;
+			$req = "SELECT * FROM posts WHERE groupId = ? ORDER BY ID DESC";
+			$PostsPerPage = 5;
 			$nbTotalPostsReq = $bdd->prepare($req);
-			$nbTotalPostsReq->execute();
-			
-
+			$nbTotalPostsReq->execute(array($this->groupeId));
 			$nbTotalPosts = $nbTotalPostsReq->rowCount();
 
 			$totalPages = ceil($nbTotalPosts/$PostsPerPage);
@@ -256,27 +252,23 @@
 
 			$start = ($currentPage-1)*$PostsPerPage;
 
-				echo '<div class="pageCountHome" id="pageCountHome" style="visibility:hidden;">';
+				echo '<div class="pageCount" id="pageCount" style="visibility:visible;">';
   				for($i=1;$i<=$totalPages;$i++) {
          			if($i == $currentPage) {
             			echo $i.' ';
          			}elseif ($i == $currentPage+1) {
-         				echo '<a href="index.php?page='.$i.'" class="nextPage">'.$i.'</a> ';
+         				echo '<a href="group.php?groupId='.$this->groupeId.'&page='.$i.'" class="nextPage">'.$i.'</a> ';
          			} else {
-            			echo '<a href="index.php?page='.$i.'">'.$i.'</a> ';
+            			echo '<a href="group.php?groupId='.$this->groupeId.'&page='.$i.'">'.$i.'</a> ';
          			}
       			} 
       			echo '</div>';
 
-
       			/*CHARGEMENT DE LA REQUETE*/
-      			$reqDisp = 'SELECT * FROM groups WHERE ID = 0 ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
+      			$reqDisp = 'SELECT * FROM posts WHERE groupId = ? ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
       			$getPosts = $bdd->prepare($reqDisp);
-				$getPosts->execute();
+				$getPosts->execute(array($this->groupeId));
 				$nbposts = $getPosts->rowCount(); 
-
-
-			/*END OF HOME*/
 
 		}
 

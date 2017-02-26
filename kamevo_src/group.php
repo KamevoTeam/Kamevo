@@ -38,6 +38,30 @@
     <link rel="stylesheet" href="groups/css/group.css">
    <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">
   <script type="text/javascript" src="frameworks/jquery.min.js"></script>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/createHttpObject.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/jquery-ias.min.js"></script> <!-- infinite scroll lib for better stuff :)  --> 
+    <script type="text/javascript">
+      /*  Infinite scroll pour charger les commentaires   */
+      var ias = jQuery.ias({
+        container:  '#totalPost',
+        item:       '.block',
+        pagination: '#pageCount',
+        next:       '.nextPage'
+    });
+
+    ias.extension(new IASSpinnerExtension());
+    ias.extension(new IASNoneLeftExtension({text: "Fin des publications"}));
+
+    ias.extension(new IASTriggerExtension({
+
+      text: 'Afficher plus de publications', 
+      offset: 2
+
+    }));
+
+    </script>
  <title>Kamevo - Groupe</title>
 </head>
 <body>

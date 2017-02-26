@@ -3,7 +3,7 @@
 	$sendPost  = new Post(htmlspecialchars($_SESSION['ID']),$_POST,$_FILES);
 	$sendPost->checkData();
 	//if(!empty($sendPost->errorReturn)) $sendPost->errorReturn = '<h5 class="error-text">'.$sendPost->errorReturn.'</h5>';
-	//print_r($_POST);
+	print_r($_POST);
 ?>
 
 
@@ -40,12 +40,20 @@
  	   	<option value="other">Autre ...</option>
  	   </select>
  	 </div><br/>
+
  	 <div class="video">
  	  <h5 class="video-label">Ajouter une vidéo à votre message : </h5>
- 	   <form action="" method="post">
+ 	   
  	 	<input type="text" class="video-input" name="video" placeholder="URL de votre vidéo - Ex : https://www.youtube.com/watch?v=u9Dg-g7t2l4">
- 	  </form>
- 	 </div>
+ 	  
+ 	 </div><br />
+   <div class="video">
+      <h5 class="video-label">Publier dans un groupe : </h5>
+      <select class="select" name="group">
+        <?php displayChoiceGroup(); ?>
+     </select>
+
+   </div>
  	 <div class="error">
  	 	<!-- Si vous devez afficher un message d'erreur -->
  	 	<?=$sendPost->errorReturn; ?>
@@ -80,3 +88,41 @@ $("#subform").click(function(){
 
 
 </script>
+<?php
+  function displayChoiceGroup(){
+
+    include 'php/co_pdo.php';
+    
+    $req = $bdd->prepare('SELECT groupId FROM groups_members WHERE user = ?');
+    $req->execute(array((int)$_SESSION['ID']));
+
+    if($req->rowCount() > 0){
+
+      echo '<option value="0">Aucun</option>';
+
+      while ($gr = $req->fetch()) {
+
+          $grId = $gr['groupId'];
+          $grName = $bdd->prepare('SELECT name FROM groups WHERE ID = ?');
+          $grName->execute(array($grId));
+          $rep = $grName->fetch();
+          $nameGroup = $rep['name'];
+          $grName->closeCursor();
+
+
+       echo '<option value="'.$grId.'">'.$nameGroup.'</option>';
+      }
+    }else{
+
+       echo '<option value="0" disabled="disabled">Vous n\'êtes dans aucun groupe</option>';
+
+
+  }
+
+
+
+}
+
+
+
+?>

@@ -189,8 +189,17 @@ class Post{
 		date_default_timezone_set ( 'Europe/Paris' );
 		$dateCre = date('d/m/Y à H:i');
 
-		$reqSd = $bdd->prepare('INSERT INTO posts(author,message,datecreation,title,video,image,categorie) VALUES(?,?,?,?,?,?,?)');
-		$reqSd->execute(array($this->author, $mess,$dateCre,'No title',$this->video,$this->idImg,$this->catego)) or die('FATAL ERROR: '.print_r($reqSd->errorInfo(), TRUE));;
+		if(!isset($this->dataForm['group'])){
+
+			$groupToBdd = 0;
+
+		}else{
+
+			$groupToBdd = (int)$this->dataForm['group'];
+		}
+
+		$reqSd = $bdd->prepare('INSERT INTO posts(author,message,datecreation,title,video,image,categorie,groupId) VALUES(?,?,?,?,?,?,?,?)');
+		$reqSd->execute(array($this->author, $mess,$dateCre,'No title',$this->video,$this->idImg,$this->catego, $groupToBdd)) or die('FATAL ERROR: '.print_r($reqSd->errorInfo(), TRUE));;
 		$reqSd->closeCursor();
 		return;
 
