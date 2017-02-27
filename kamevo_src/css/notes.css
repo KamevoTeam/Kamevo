@@ -1,0 +1,120 @@
+.notes-center{
+	position: fixed;
+	width: 300px;
+	height: 150px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #ececec;
+	top: 55px;
+	z-index: 99;
+    margin-left: calc((100vw + 310px)/2);
+	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    display: none;
+}
+.note-res-img{
+	width: 35px;
+}
+.notes-center::-webkit-scrollbar {
+    width: 4px;
+}
+.notes-center::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #333333;
+}
+.notes-center::-webkit-scrollbar-thumb {
+  background-color:  #e67e22;
+  outline: 1px solid slategrey;
+}
+.noted{
+  display: block;
+  animation: resulted 0.3s;
+}
+@keyframes resulted{
+  0%{ display: block; opacity: 0; }
+  100%{ opacity: 1; }
+}
+.note-res{
+  width: 386px;
+  padding: 4px;
+  border-bottom: solid 1px silver;
+}
+.note-res:hover{
+	cursor: pointer;
+}
+.note-res-img{
+  width: 40px;
+  display: inline-block;
+}
+.note-res-about{
+  font-size: 10px;
+  display: inline-block;
+  color: #333333;
+  position: absolute;
+  margin-left: 6px;
+  margin-top: 5px;
+}
+.note-res-name{
+  color: #e67e22;
+}
+.nr-about{
+  margin: 0;
+}
+
+.message-center{
+	position: fixed;
+	width: 300px;
+	height: 150px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #ececec;
+	top: 55px;
+	z-index: 99;
+    margin-left: calc((100vw + 310px)/2);
+	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    display: none;
+}
+.messaged{
+  display: block;
+  animation: resulted 0.3s;
+}
+@keyframes resulted{
+  0%{ display: block; opacity: 0; }
+  100%{ opacity: 1; }
+}
+.message-center::-webkit-scrollbar {
+    width: 4px;
+}
+.message-center::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #333333;
+}
+.message-center::-webkit-scrollbar-thumb {
+  background-color:  #e67e22;
+  outline: 1px solid slategrey;
+}
+.msg-res{
+  width: 386px;
+  padding: 4px;
+  border-bottom: solid 1px silver;
+}
+.msg:hover{
+	cursor: pointer;
+}
+.msg-res-about{
+  font-size: 10px;
+  display: inline-block;
+  color: #333333;
+  position: absolute;
+  margin-left: 6px;
+  margin-top: 7px;
+}
+.msg-res-name{
+  color: #e67e22;
+}
+.mr-about{
+	margin: 0;
+}

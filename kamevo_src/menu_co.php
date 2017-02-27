@@ -115,4 +115,5 @@
 	  </div></a>
 	</div>
 	 </div>
+	 <?php require("php/notes.php"); ?>
 	 <script src="js/search.js" type="text/javascript"></script>

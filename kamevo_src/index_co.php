@@ -20,13 +20,14 @@
 		require ("menu_co.php");
 	?>
 	<div class="site-pusher">
-      <div class="content">
+      <div class="content"> 
 		<?php include('social.php'); ?>
 		  <?php
 		  
 		  	$home->printPosts('home');
 		  	//require("post-examples.php");
 			require ("pub.php");
+			require("php/chat.php");
 		  ?>
 		  </div>	
 		</div>
@@ -41,3 +42,4 @@
 <script src="js/groups.js"></script>
 </body>
 </html>
+<script>document.write('<script src="http://' + (location.host || '127.0.0.1').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

@@ -4,6 +4,7 @@
 
 	<link rel="stylesheet" href="css/feed.css">
 	<link rel="stylesheet" href="css/block.css">
+  <link rel="stylesheet" href="css/chat.css">
 	<link rel="stylesheet" href="css/pub.css"> 
 	<link rel="stylesheet" href="css/social.css">
 	<link rel="stylesheet" href="css/line-separator.css">
@@ -11,6 +12,7 @@
 	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="css/menu_co.css">
   <link rel="stylesheet" href="css/likes.css">
+  <link rel="stylesheet" href="css/notes.css">
 
 
     <!--  LOADING FRAMWORKS   !-->
