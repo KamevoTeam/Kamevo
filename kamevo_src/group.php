@@ -33,6 +33,7 @@
    <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="css/block.css">
      <link rel="stylesheet" href="css/likes.css">
+     <link rel="stylesheet" href="css/notes.css">
   <link rel="stylesheet" href="groups/css/style.max.css">
   <link rel="stylesheet" href="frameworks/w3.css">
     <link rel="stylesheet" href="groups/css/group.css">
@@ -41,6 +42,8 @@
    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="js/createHttpObject.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/message.js"></script>
+    <script type="text/javascript" src="js/notes.js"></script>
     <script type="text/javascript" src="js/jquery-ias.min.js"></script> <!-- infinite scroll lib for better stuff :)  --> 
     <script type="text/javascript">
       /*  Infinite scroll pour charger les commentaires   */
