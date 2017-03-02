@@ -19,6 +19,7 @@
 		private $authorOfGroup;
 
 		private $nameOfGroup;
+		public $perm;
 
 
 
@@ -39,6 +40,101 @@
 
 		}
 
+		static public function printGroupFollowed($idOfUser){
+
+			$idOfUser = (int)$idOfUser;
+
+			include 'co_pdo.php';
+
+			$req = $bdd->prepare('SELECT groupId FROM groups_members WHERE user = ?');
+			$req->execute(array($idOfUser));
+
+			$nb = $req->rowCount();
+
+			while($rep = $req->fetch()){
+
+				$req2 = $bdd->prepare('SELECT * FROM groups WHERE ID = ?');
+				$req2->execute(array($rep['groupId']));
+				$rep2 = $req2->fetch();
+				?>
+
+				<a href="group.php?groupId=<?=$rep['groupId'] ?>" class="nodeco">
+					<div class="group">
+						<img class="group-img" src="userDataUpload/picProfileGroup/<?=$rep2['avatar'] ?>" alt="William">
+						<h6 class="group-name"><?=$rep2['name'] ?></h6>
+					</div>
+				</a>
+
+
+
+			<?php  $req2->closeCursor(); }
+
+			$req->closeCursor();
+		}
+
+		public function drawButton(){
+
+		
+			if(self::ifUserInGroup($_SESSION['ID'], $this->groupeId) <> 'no'){
+
+				echo '<a href="leaveGroup.php?group='.$this->groupeId.'" class="group-btn">Quitter le groupe</a>';
+
+			}else{
+
+				echo '<a href="joinGroup.php?group='.$this->groupeId.'" class="group-btn">Rejoindre le groupe</a>';
+
+			}
+
+
+
+
+		}
+
+		private function getPerm(){
+
+
+			if(self::ifUserInGroup($_SESSION['ID'], $this->groupeId) <> 'no'){
+
+				$this->perm = self::ifUserInGroup($_SESSION['ID'], $this->groupeId);
+
+
+			}else{
+
+
+				$this->perm = 'Non-Membre';
+
+			}
+
+
+
+		}
+
+		static public function ifUserInGroup($userIdSearch, $idOfGroup){
+
+			include('co_pdo.php');
+			
+
+			$userIdConnected = (int)$userIdSearch;
+
+			$req = $bdd->prepare('SELECT ID,perm FROM groups_members WHERE user = ? AND groupId = ?');
+			$req->execute(array($userIdConnected, $idOfGroup));
+
+			$nb = $req->rowCount();
+
+			$rep = $req->fetch();
+
+			$req->closeCursor();
+			if($nb == 0){
+
+				return 'no';
+
+			}else{
+
+				return $rep['perm'];
+			}
+
+
+		}
 
 
 		private function initializeGroup(){
@@ -66,6 +162,7 @@
 
 			self::getNumberOfMember();
 			self::getNumberOfPubli();
+			self::getPerm();
 
 
 		}
@@ -297,10 +394,10 @@
 						$currentDate = date('d/m/Y - H:i 	s\s');
 
 						$req = $bdd->prepare('INSERT INTO groups_members(user, groupId, date, perm) VALUES (?,?,?,?)');
-						$req->execute(array($this->authorObject->idUser, $id_groupe, $currentDate,'owner'));
+						$req->execute(array($this->authorObject->idUser, $id_groupe, $currentDate,'Créateur'));
 						$req->closeCursor();
 						
-						echo '<SCRIPT LANGUAGE="JavaScript">document.location.href="group.php?groupId='.$id_groupe.'"</SCRIPT>';
+						echo '<SCRIPT LANGUAGE="JavaScript">document.location.href="group.php?groupId='.$id_groupe.'&user='.$this->authorObject->idUser.'"</SCRIPT>';
 
 
 							}else{

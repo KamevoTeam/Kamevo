@@ -13,18 +13,12 @@
 	<div class="groups">
 		<h4>GROUPES</h4>
 		<div class="line-separator5"></div>
-		<a href="groups/" class="nodeco"><div class="group">
-			<img class="group-img" src="img/team.png" alt="William">
-		<h6 class="group-name">Kamevo</h6>
-		</div></a>
-		<a href="" class="nodeco"><div class="group">
-			<img class="group-img" src="img/team.png" alt="William">
-		<h6 class="group-name">Minecraft</h6>
-		</div></a>
-		<a href="" class="nodeco"><div class="group">
-			<img class="group-img" src="img/team.png" alt="William">
-		<h6 class="group-name">EnjoyPhoenix</h6>
-		</div></a>
+
+		<?php 
+			group::printGroupFollowed($_SESSION['ID']);
+		?>
+		
+		
 		<!-- Keep everything below -->
 		
 		<a href="" class="nodeco"><div class="group">

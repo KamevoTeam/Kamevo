@@ -13,14 +13,14 @@
  		Inscrits : <strong><span class="info-var"><?=$currentGroup->getNbMemberGroup(); ?></span></strong><br/>
  	</div>
  	<div class="info">
- 		Statut : <strong><span class="info-var">Abonné</span></strong><br/>
+ 		Statut : <strong><span class="info-var"><?=$currentGroup->perm; ?></span></strong><br/>
  	</div>
  	<div class="info">
  		Publications : <strong><span class="info-var"><?=$currentGroup->getNbPubliGroup(); ?></span></strong><br/>
  	</div>
  </div>
  <div class="join">
- 	<a href="leaveGroup?group=<?=$groupId ?>" class="group-btn">Quitter le groupe</a>
+ 	<?php $currentGroup->drawButton(); ?>
  	<!-- Remplacer par "Rejoindre le groupe si la personne est déjà dedans" -->
  </div>
  <div class="publics">

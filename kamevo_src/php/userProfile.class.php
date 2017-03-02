@@ -235,41 +235,56 @@
 
 		if($mode == 'group'){
 
-			/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
-			$req = "SELECT * FROM posts WHERE groupId = ? ORDER BY ID DESC";
-			$PostsPerPage = 5;
-			$nbTotalPostsReq = $bdd->prepare($req);
-			$nbTotalPostsReq->execute(array($this->groupeId));
-			$nbTotalPosts = $nbTotalPostsReq->rowCount();
+			$userTest = group::ifUserInGroup($_SESSION['ID'], $this->groupeId);
 
-			$totalPages = ceil($nbTotalPosts/$PostsPerPage);
+			if($userTest <> 'no'){
 
-			if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
-   					 $currentPage = (int)$_GET['page'];
-				} else {
-   					$currentPage = 1;
-			}
+					/* PAGINATION DES POSTS AVEC AUTOSCROLL*/
+					$req = "SELECT * FROM posts WHERE groupId = ? ORDER BY ID DESC";
+					$PostsPerPage = 5;
+					$nbTotalPostsReq = $bdd->prepare($req);
+					$nbTotalPostsReq->execute(array($this->groupeId));
+					$nbTotalPosts = $nbTotalPostsReq->rowCount();
 
-			$start = ($currentPage-1)*$PostsPerPage;
+					$totalPages = ceil($nbTotalPosts/$PostsPerPage);
 
-				echo '<div class="pageCount" id="pageCount" style="visibility:hidden;">';
-  				for($i=1;$i<=$totalPages;$i++) {
-         			if($i == $currentPage) {
-            			echo $i.' ';
-         			}elseif ($i == $currentPage+1) {
-         				echo '<a href="group.php?groupId='.$this->groupeId.'&page='.$i.'" class="nextPage">'.$i.'</a> ';
-         			} else {
-            			echo '<a href="group.php?groupId='.$this->groupeId.'&page='.$i.'">'.$i.'</a> ';
-         			}
-      			} 
-      			echo '</div>';
+					if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
+		   					 $currentPage = (int)$_GET['page'];
+						} else {
+		   					$currentPage = 1;
+					}
 
-      			/*CHARGEMENT DE LA REQUETE*/
-      			$reqDisp = 'SELECT * FROM posts WHERE groupId = ? ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
-      			$getPosts = $bdd->prepare($reqDisp);
-				$getPosts->execute(array($this->groupeId));
-				$nbposts = $getPosts->rowCount(); 
+					$start = ($currentPage-1)*$PostsPerPage;
 
+						echo '<div class="pageCount" id="pageCount" style="visibility:hidden;">';
+		  				for($i=1;$i<=$totalPages;$i++) {
+		         			if($i == $currentPage) {
+		            			echo $i.' ';
+		         			}elseif ($i == $currentPage+1) {
+		         				echo '<a href="group.php?groupId='.$this->groupeId.'&page='.$i.'" class="nextPage">'.$i.'</a> ';
+		         			} else {
+		            			echo '<a href="group.php?groupId='.$this->groupeId.'&page='.$i.'">'.$i.'</a> ';
+		         			}
+		      			} 
+		      			echo '</div>';
+
+		      			/*CHARGEMENT DE LA REQUETE*/
+		      			$reqDisp = 'SELECT * FROM posts WHERE groupId = ? ORDER BY ID DESC LIMIT '.$start.','.$PostsPerPage;
+		      			$getPosts = $bdd->prepare($reqDisp);
+						$getPosts->execute(array($this->groupeId));
+						$nbposts = $getPosts->rowCount(); 
+			}else{?>
+
+					</div><div class="block">
+  				<div class="block-title">
+	 			 	<h6 class="block-name"><strong>Non-Membre</strong></h6>
+	 			</div>
+					<p class="block-bio">Vous devez vous inscrire au groupe pour voir les publications.<br /></p>
+			</div>
+
+
+
+			<?php return; }
 		}
 
 		if($mode == 'profile'){
