@@ -6,7 +6,18 @@
        			 {
               var getFromPhp = http.responseText; //je stocke la valeur de retour http danq une variable
               var infoReturn = 0;
-  
+          
+              
+             
+
+              if(getFromPhp.indexOf("result") >= 0 ){
+
+                $('.results').fadeOut(50,2);
+                $('.results').empty();
+
+                $('.results').append(getFromPhp);
+              }
+
 
               if(getFromPhp.indexOf("sub") >= 0 ){
                 /*   Retour ajax: abonnement   */
@@ -351,4 +362,13 @@
           http.onreadystatechange = handleAJAXReturn;
           http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           http.send('result='+vote+'&comment='+idComment);
+        }
+
+ function getContentFromSearch(keyword){
+
+          http = createRequestObject();
+          http.open('POST', 'php/search.php', true);
+          http.onreadystatechange = handleAJAXReturn;
+          http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          http.send('keyword='+keyword);
         }
