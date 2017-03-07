@@ -15,10 +15,75 @@ class users{
 	public $avatar;
 	public $banner;
 	public $bio;
+	public $nbNotifs = ''; //define as a string to be empty in case of non-notif
+
 
 	public function __construct($ID){
 
 		$this->initialize($ID);
+	}
+
+	public function getNbNotifs(){
+
+		include('co_pdo.php');
+
+		$req = $bdd->prepare('SELECT * FROM notifs WHERE destinataire = ? AND ack = "unread" ');
+		$req->execute(array($this->idUser));
+		$nb = $req->rowCount();
+
+		$req->closeCursor();
+
+		if($nb == 0){
+
+			$this->nbNotifs = '';
+			return '';
+
+		}else{
+
+			$this->nbNotifs = $nb;
+			return $nb;
+		}
+
+	}
+
+
+	public function printNotifs(){
+
+		include('co_pdo.php');
+
+		$req = $bdd->prepare('SELECT * FROM notifs WHERE destinataire = ? AND ack = "unread" ');
+		$req->execute(array($this->idUser));
+		$nb = $req->rowCount();
+
+		
+
+		if($nb == 0){ ?>
+
+			  <div class="note-res">
+			  	<img src="img/Ionic.png" alt="note-img" class="note-res-img" style="visibility:hidden;">
+			  	 <div class="note-res-about" onclick="alert('toto')">
+				   <a href=""><p class="nr-about"><strong><span class="note-res-name">Aucune</span> notification!</strong></p>
+				 </div>
+  			</div>
+			
+
+		<?php }else{ 
+
+			while($noti = $req->fetch()){ ?>
+
+
+			  <div class="note-res" id="<?=$noti['ID']; ?>">
+			  	<img src="img/Ionic.png" alt="note-img" class="note-res-img">
+			  	 <div class="note-res-about">
+				   <p class="nr-about"><strong><span class="note-res-name"><?=$noti['message']; ?></span> fezrzefeztizej</strong><span id="<?=$noti['ID']; ?>" class="delNotif"> [Lu]</span></p>
+				 </div>
+ 			 </div>
+
+			<?php }
+
+
+		 }
+
 	}
 
 	static private function ifUserExist($pseudo){

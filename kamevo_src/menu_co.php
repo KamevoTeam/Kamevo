@@ -19,7 +19,7 @@
 				<div class="note">
 				 <div class="notif">
 				  <img src="img/alarm.png" alt="notif" class="note-img">
-				  <span class="not-value">5</span>
+				  <span class="not-value"><?=$user->getNbNotifs(); ?></span>
 				 </div>
 				</div>
 				<div class="note">
@@ -69,3 +69,20 @@
 	 <?php require("php/notes.php"); ?>
 	 <script src="js/ajax.js" type="text/javascript"></script>
 	 <script src="js/search.js" type="text/javascript"></script>
+	 <script type="text/javascript">
+	 	
+	 	$('.delNotif').click(function(e){
+
+	 		var idOfNotif = $(this).attr('id');
+	 		
+	 		$('#'+idOfNotif).fadeOut(500);
+
+	 		$.ajax({
+       			url : 'php/notif.php', 
+      			type : 'POST',
+       			data : 'mode=delete&id='+idOfNotif
+    		});
+
+
+	 	});
+	 </script>

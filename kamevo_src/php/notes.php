@@ -1,45 +1,17 @@
+<!--  STARTING OF  NOTIFICATIONS !-->
 <div class="notes-center">
  <div class="center-res">
-  <div class="note-res">
-  	<img src="img/Ionic.png" alt="note-img" class="note-res-img">
-  	 <div class="note-res-about">
-	   <p class="nr-about"><strong><span class="note-res-name">Zelkyo</span> vous a mentionné dans une de ses publications !</strong></p>
-	 </div>
-  </div>
-  <div class="note-res">
-    <img src="img/Ionic.png" alt="note-img" class="note-res-img">
-     <div class="note-res-about">
-     <p class="nr-about"><strong><span class="note-res-name">Zelkyo</span> vous a mentionné dans une de ses publications !</strong></p>
-   </div>
-  </div>
-  <div class="note-res">
-    <img src="img/Ionic.png" alt="note-img" class="note-res-img">
-     <div class="note-res-about">
-     <p class="nr-about"><strong><span class="note-res-name">Zelkyo</span> vous a mentionné dans une de ses publications !</strong></p>
-   </div>
-  </div>
-  <div class="note-res">
-    <img src="img/Ionic.png" alt="note-img" class="note-res-img">
-     <div class="note-res-about">
-     <p class="nr-about"><strong><span class="note-res-name">Zelkyo</span> vous a mentionné dans une de ses publications !</strong></p>
-   </div>
-  </div>
-  <div class="note-res">
-    <img src="img/Ionic.png" alt="note-img" class="note-res-img">
-     <div class="note-res-about">
-     <p class="nr-about"><strong><span class="note-res-name">Zelkyo</span> vous a mentionné dans une de ses publications !</strong></p>
-   </div>
-  </div>
-  <div class="note-res">
-    <img src="img/Ionic.png" alt="note-img" class="note-res-img">
-     <div class="note-res-about">
-     <p class="nr-about"><strong><span class="note-res-name">Zelkyo</span> vous a mentionné dans une de ses publications !</strong></p>
-   </div>
-  </div>
+
+  <?php
+  $user->printNotifs();
+  ?>
+
+
+
  </div>
 </div>
 
-
+<!--  STARTING OF  MESSAGES !-->
 <div class="message-center">
  <div class="center-res">
   <div class="msg-res">
