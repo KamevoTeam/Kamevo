@@ -62,7 +62,7 @@ class users{
 			  <div class="note-res">
 			  	<img src="img/Ionic.png" alt="note-img" class="note-res-img" style="visibility:hidden;">
 			  	 <div class="note-res-about">
-				   <a href=""><p class="nr-about"><strong><span class="note-res-name">Aucune</span> notification!</strong></p>
+				   <p class="nr-about"><strong><span class="note-res-name">Aucune</span> notification!</strong></p>
 				 </div>
   			</div>
 			
