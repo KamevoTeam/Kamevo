@@ -21,6 +21,8 @@
 
 	<title><?=$pseudo; ?> - Kamevo</title>
 	<meta charset="utf-8">
+	  <link rel="stylesheet" href="css/chat.css">
+      <link rel="stylesheet" href="css/notes.css">
 	<link rel="stylesheet" href="css/user/css/profile.css">
 	<link rel="stylesheet" href="css/likes.css">
 	<link rel="stylesheet" href="css/popup.css">

@@ -12,6 +12,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Kamevo - Publier</title>
+	<link rel="stylesheet" href="css/chat.css">
+      <link rel="stylesheet" href="css/notes.css">
 	<link rel="stylesheet" href="post/css/style.max.css">
 	<link rel="stylesheet" href="post/css/post.css">
 	<link rel="stylesheet" href="post/css/popup.css">

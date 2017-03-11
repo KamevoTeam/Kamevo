@@ -184,6 +184,10 @@ class Post{
 
 		require('co_pdo.php');
 
+		
+
+		$this->sendNotifMention();
+
 		$mess = $this->text;
 
 		date_default_timezone_set ( 'Europe/Paris' );
@@ -205,6 +209,60 @@ class Post{
 
 
 	}
+
+	private function sendNotifMention(){
+
+		$mess = $this->text;
+
+
+ 
+		$this->text = preg_replace_callback('#@([A-Za-z0-9]+)#', 'Post::replaceText', $mess); 
+ 	
+ 
+
+
+
+	}
+
+	static public function replaceText($matches) { 
+    
+	    include 'co_pdo.php';
+
+	    $req = $bdd->prepare('SELECT ID FROM users WHERE pseudo = ?'); 
+
+
+	    $req->execute(array($matches[1])); 
+	 
+	    if($req->rowCount() == 1) { 
+
+
+	        $idUtilisateur = $req->fetch()['ID']; 
+
+	        /*get the future ID of the publication
+	
+			
+				May it can be false in case of high amount of posts in the same time :)
+				(Wistaro)s
+	        */
+
+	        $azer = $bdd->query('SELECT ID FROM posts ORDER BY ID desc LIMIT 1');
+	        $rep = $azer->fetch();
+	        $newId = $rep['ID'] + 1;
+	        $azer->closeCursor(); 
+
+
+	        $notif = $bdd->prepare('INSERT INTO notifs(destinataire, message, ack) VALUES (?, ?, ?)');
+	        $notif->execute(array($idUtilisateur, 'Vous avez été mentionné dans <a href="details.php?idpost='.$newId.'">une publication</a>', 'unread'));
+	        $notif->closeCursor();
+
+
+	        return '@<a href="user.php?id='.$idUtilisateur.'">'.$matches[1].'</a>'; 
+	    }
+
+
+
+	    return $matches[0]; 
+	} 
 
 }
 

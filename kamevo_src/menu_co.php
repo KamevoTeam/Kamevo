@@ -75,12 +75,33 @@
 
 	 		var idOfNotif = $(this).attr('id');
 	 		
-	 		$('#'+idOfNotif).fadeOut(500);
 
 	 		$.ajax({
+
        			url : 'php/notif.php', 
       			type : 'POST',
-       			data : 'mode=delete&id='+idOfNotif
+      			dataType : 'html',
+       			data : 'mode=delete&id='+idOfNotif,
+       		
+
+       			 success : function(html_return, statut){ // code_html contient le HTML renvoyé
+
+       			 	$('#'+idOfNotif).fadeOut(500);
+       			 	
+       			 	if(html_return != 'ok'){
+
+       			 		alert(html_return);
+       			 	}
+       			 		
+           
+       			},
+
+       			 error : function(resultat, statut, erreur){
+
+       			 		alert('Une erreur est survenue!');
+
+       			}
+
     		});
 
 

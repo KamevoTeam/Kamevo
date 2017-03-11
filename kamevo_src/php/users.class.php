@@ -51,7 +51,7 @@ class users{
 
 		include('co_pdo.php');
 
-		$req = $bdd->prepare('SELECT * FROM notifs WHERE destinataire = ? AND ack = "unread" ');
+		$req = $bdd->prepare('SELECT * FROM notifs WHERE destinataire = ? AND ack = "unread" ORDER BY ID desc');
 		$req->execute(array($this->idUser));
 		$nb = $req->rowCount();
 
@@ -61,7 +61,7 @@ class users{
 
 			  <div class="note-res">
 			  	<img src="img/Ionic.png" alt="note-img" class="note-res-img" style="visibility:hidden;">
-			  	 <div class="note-res-about" onclick="alert('toto')">
+			  	 <div class="note-res-about">
 				   <a href=""><p class="nr-about"><strong><span class="note-res-name">Aucune</span> notification!</strong></p>
 				 </div>
   			</div>
@@ -75,7 +75,7 @@ class users{
 			  <div class="note-res" id="<?=$noti['ID']; ?>">
 			  	<img src="img/Ionic.png" alt="note-img" class="note-res-img">
 			  	 <div class="note-res-about">
-				   <p class="nr-about"><strong><span class="note-res-name"><?=$noti['message']; ?></span> fezrzefeztizej</strong><span id="<?=$noti['ID']; ?>" class="delNotif"> [Lu]</span></p>
+				   <p class="nr-about"><strong><span class="note-res-name"><?=$noti['message']; ?></span></strong><span id="<?=$noti['ID']; ?>" class="delNotif"> [Lu]</span></p>
 				 </div>
  			 </div>
 

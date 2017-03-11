@@ -26,6 +26,8 @@
 <head>
 	<title>Publication de William</title>
 	<meta charset="utf-8">
+		<link rel="stylesheet" href="css/chat.css">
+      <link rel="stylesheet" href="css/notes.css">
 	<link rel="stylesheet" href="css/menu_co.css">
 	<link rel="stylesheet" href="css/likes-details.css">
 	<link rel="stylesheet" href="DESIGN/details/css/line-separator.css">
