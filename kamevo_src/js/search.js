@@ -6,6 +6,7 @@
 
 
 	    $('.results').removeClass('resulted');
+	    
 
 
 	});
@@ -13,8 +14,9 @@
 
 $('#search').keyup(function() {
 	var keyword = $(this).val();
-	if(keyword.length>0){		
+	if(keyword.length>1){		
 		getContentFromSearch(keyword);
+
 
 	}
 	/* avoid disapearing effect :o (Wist) */

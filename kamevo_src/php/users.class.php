@@ -15,10 +15,75 @@ class users{
 	public $avatar;
 	public $banner;
 	public $bio;
+	public $nbNotifs = ''; //define as a string to be empty in case of non-notif
+
 
 	public function __construct($ID){
 
 		$this->initialize($ID);
+	}
+
+	public function getNbNotifs(){
+
+		include('co_pdo.php');
+
+		$req = $bdd->prepare('SELECT * FROM notifs WHERE destinataire = ? AND ack = "unread" ');
+		$req->execute(array($this->idUser));
+		$nb = $req->rowCount();
+
+		$req->closeCursor();
+
+		if($nb == 0){
+
+			$this->nbNotifs = '';
+			return '';
+
+		}else{
+
+			$this->nbNotifs = $nb;
+			return $nb;
+		}
+
+	}
+
+
+	public function printNotifs(){
+
+		include('co_pdo.php');
+
+		$req = $bdd->prepare('SELECT * FROM notifs WHERE destinataire = ? AND ack = "unread" ORDER BY ID desc');
+		$req->execute(array($this->idUser));
+		$nb = $req->rowCount();
+
+		
+
+		if($nb == 0){ ?>
+
+			  <div class="note-res">
+			  	<img src="img/Ionic.png" alt="note-img" class="note-res-img" style="visibility:hidden;">
+			  	 <div class="note-res-about">
+				   <p class="nr-about"><strong><span class="note-res-name">Aucune</span> notification!</strong></p>
+				 </div>
+  			</div>
+			
+
+		<?php }else{ 
+
+			while($noti = $req->fetch()){ ?>
+
+
+			  <div class="note-res" id="<?=$noti['ID']; ?>">
+			  	<img src="img/Ionic.png" alt="note-img" class="note-res-img">
+			  	 <div class="note-res-about">
+				   <p class="nr-about"><strong><span class="note-res-name"><?=$noti['message']; ?></span></strong><span id="<?=$noti['ID']; ?>" class="delNotif"> [Lu]</span></p>
+				 </div>
+ 			 </div>
+
+			<?php }
+
+
+		 }
+
 	}
 
 	static private function ifUserExist($pseudo){
@@ -34,6 +99,23 @@ class users{
 			if($value>0) $userExist='oui'; 
 
 			return $userExist;
+
+
+	}
+
+	static private function ifMailExist($mail){
+
+			require('co_pdo.php');
+
+
+			$mailExist = 'non';
+
+			$reqUExist = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+			$reqUExist->execute(array($mail));
+			$value = $reqUExist->rowCount();
+			if($value>0) $mailExist='oui'; 
+
+			return $mailExist;
 
 
 	}
@@ -81,8 +163,9 @@ class users{
 
 				$_SESSION['ID'] = $response['ID'];
 				$_SESSION['pseudo'] = $response['pseudo'];
-				return 'Félicitations! Vous êtes maintenant connecté!';
-
+				if ($return == true) {
+					return 'Félicitations! Vous êtes maintenant connecté!';
+				}
 
 			}else{
 
@@ -98,8 +181,6 @@ class users{
 	static public function waitForInputIns($data){
 
 		if(isset($data['go_ins'])){
-
-			print_r($data);
 
 		   if(!empty($data['psd_ins']) AND !empty($data['name_ins']) AND !empty($data['birthdate_ins']) AND !empty($data['pass_ins']) AND !empty($data['pass_ins_confirm']) AND !empty($data['mail_ins']) AND !empty($data['mail_ins_confirm'])){
 
@@ -119,21 +200,28 @@ class users{
 
 
 									if(users::ifUserExist($data['psd_ins']) == 'non'){
-
-										include('co_pdo.php');
-									$req = $bdd->prepare('INSERT INTO `users` (`pseudo`, `password`, `Nom`, `email`, `grade`) VALUES (:pseudo, :password, :nom, :mail, :grade)');
-									$req->execute(array(
-												'pseudo' => $data['psd_ins'],
-												'password' => hash('sha512', $data['pass_ins']),
-												'nom' => $data['name_ins'],
-												'mail' => $data['mail_ins'],
-												'grade' => 1));
-
-										require('mailInsc.php');
-										mail($data['mail_ins'], $subject, $message);
-									return 'Inscription validée! Vous pouvez vous connecter!';
-
-
+										
+										if(users::ifMailExist($data['mail_ins']) == 'non') {
+											
+											include('co_pdo.php');
+											
+											$pass = hash('sha512', $data['pass_ins']);
+												$req = $bdd->prepare('INSERT INTO users (`pseudo`, `password`, `Nom`, `email`, `grade`) VALUES (:pseudo, :password, :nom, :mail, :grade)');
+												$req->execute(array(
+													'pseudo' => $data['psd_ins'],
+													'password' => $pass,
+													'nom' => $data['name_ins'],
+													'mail' => $data['mail_ins'],
+													'grade' => 1));
+											require('mailInsc.php');
+											mail($data['mail_ins'], $subject, $message);
+										
+											return users::checkuser($data['mail_ins'],$data['pass_ins'], true);
+													header('location: ./user.php?id=' . $_SESSION['ID']); // je redirige vers une page random pour que la connexion soit actualisée
+											
+										}else{
+											return 'Ce mail est déjà enregistré!';
+										}
 									}else{
 
 										return 'Ce pseudo existe déjà!';

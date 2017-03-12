@@ -43,7 +43,7 @@
 			   <div class="result">
 			    <img src="img/Ionic.png" alt="" class="result-img" style="visibility:hidden;">
 				 <div class="result-about">
-			      <p class="r-about"><strong> Aucun résultat</strong> 	 </p>
+			      <p class="r-about"><strong> Aucun utilisateur</strong> 	 </p>
 				</div>
 			  </div>
 	  </a>
@@ -62,6 +62,43 @@
 
 
 
+	  	$req2 = $bdd->prepare('SELECT * FROM groups WHERE name LIKE :searchquery');
+	  	$req2->execute(array(':searchquery' => '%' . $keyword . '%'));
+	  	$num = $req2->rowCount();
+
+	  	if($num > 0){
+
+	  		while($rep = $req2->fetch()){?>
+
+	  			<a href="group.php?groupId=<?=$rep['ID']; ?>">
+				   <div class="result">
+				    <img src="userDataUpload/picProfileGroup/<?=$rep['avatar']; ?>" alt="" class="result-img">
+					 <div class="result-about">
+				      <p class="r-about">Groupe: <strong>  <?=$rep['name']; ?></strong> </p>
+					</div>
+				  </div>
+	  </a>
+
+
+	  		<?php }
+
+
+
+	  	}else{?>
+
+	  		<a href="#">
+			   <div class="result">
+			    <img src="img/Ionic.png" alt="" class="result-img" style="visibility:hidden;">
+				 <div class="result-about">
+			      <p class="r-about"><strong> Aucun groupe</strong> 	 </p>
+				</div>
+			  </div>
+	  </a>
+	  		
+
+	  	<?php }
+
+
 
 
 
@@ -73,3 +110,15 @@
 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+

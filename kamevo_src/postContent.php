@@ -3,7 +3,6 @@
 	$sendPost  = new Post(htmlspecialchars($_SESSION['ID']),$_POST,$_FILES);
 	$sendPost->checkData();
 	//if(!empty($sendPost->errorReturn)) $sendPost->errorReturn = '<h5 class="error-text">'.$sendPost->errorReturn.'</h5>';
-	print_r($_POST);
 ?>
 
 

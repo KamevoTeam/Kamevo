@@ -75,6 +75,3 @@
 </div>
 <script src="js/chatter.js" type="text/javascript"></script>
 
-
-
-<script>document.write('<script src="http://' + (location.host || '127.0.0.1').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

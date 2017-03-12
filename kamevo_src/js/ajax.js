@@ -7,10 +7,12 @@
               var getFromPhp = http.responseText; //je stocke la valeur de retour http danq une variable
               var infoReturn = 0;
           
-              
+       
              
 
               if(getFromPhp.indexOf("result") >= 0 ){
+
+
 
                 $('.results').fadeOut(50,2);
                 $('.results').empty();

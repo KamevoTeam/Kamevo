@@ -4,6 +4,7 @@
 
 		public $title_of_publi;
 		private $errorMessage;
+		private $textComment;
 
 
 
@@ -20,7 +21,9 @@
 
 			require('co_pdo.php');
 
-			$textComment =  htmlspecialchars($_POST['comment']);
+			$this->textComment =  htmlspecialchars($_POST['comment']);
+			$this->sendNotifMentionC();
+
 			$id_post_to_send = $this->current_post_id;
 			$id_sender_of_comment = $_SESSION['ID'];
 
@@ -29,7 +32,7 @@
 
 			//for ($i=0; $i < 100 ; $i++) { 
 				$sendCom = $bdd->prepare('INSERT INTO comments(id_post,poster,comment,note,date) VALUES (?,?,?,?,?)');
-				$sendCom->execute(array($id_post_to_send,$id_sender_of_comment,$textComment,'0',$dateCrea));
+				$sendCom->execute(array($id_post_to_send,$id_sender_of_comment,$this->textComment,'0',$dateCrea));
 
 			//}
 			
@@ -40,6 +43,44 @@
 
 
 		}
+
+		private function sendNotifMentionC(){
+
+			$commentaire = $this->textComment;
+ 
+			$this->textComment = preg_replace_callback('#@([A-Za-z0-9]+)#', 'publication::replaceTextC', $commentaire); 
+ 	
+		}
+		public function replaceTextC($matches) { 
+	    
+		    include 'co_pdo.php';
+
+		    $req = $bdd->prepare('SELECT ID FROM users WHERE pseudo = ?'); 
+
+
+		    $req->execute(array($matches[1])); 
+		 
+		    if($req->rowCount() == 1) { 
+
+
+		        $idUtilisateur = $req->fetch()['ID']; 
+
+
+		        $notif = $bdd->prepare('INSERT INTO notifs(destinataire, message, ack) VALUES (?, ?, ?)');
+		        $notif->execute(array($idUtilisateur, 'Vous avez été mentionné dans <a href="details.php?idpost='.$this->current_post_id.'">un commentaire</a>', 'unread'));
+		        $notif->closeCursor();
+
+
+		        return '@<a href="user.php?id='.$idUtilisateur.'">'.$matches[1].'</a>'; 
+		    }
+
+
+
+		    return $matches[0]; 
+		} 
+
+
+
 
 		public function loadComments(){
 				
