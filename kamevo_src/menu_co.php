@@ -3,7 +3,7 @@
 	 <div class="menu-box-gl">
 	  <ul>
 	    <a href="index.php" class="log" id="icon"></a>
-	     <a href="index.php"><li class="logo"> K </li></a><div class="line-separator"></div>
+	     <a href="index.php"><li class="logo"><img src="img/kamelogo.png" class="kamelogo" alt="logo"></li></a><!-- <div class="line-separator"></div> -->
 	    <a href="index.php"><li class="title"> KAMEVO</li></a>
 
 	     <div class="mme">
@@ -41,7 +41,6 @@
 	 </header>
 
 <div class="results"> 
-
 
 
 </div>

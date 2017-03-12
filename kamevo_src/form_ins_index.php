@@ -11,7 +11,7 @@
 <body>
 <?php require("menu.php") ?>
 	<div class="container-left">
-		<img src="img/coding.png" width="100%" alt='logo' class="wannado">
+		<img src="img/kamelogo.png" width="100%" alt='logo' class="wannado">
 	</div><div class="container-right">
 	<h1 class="main-title">Bienvenue sur Kamevo.com</h1>
 	<h4>Pour continuer votre navigation , veuillez vous créer un compte :</h4><br />
