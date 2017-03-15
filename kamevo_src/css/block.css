@@ -17,6 +17,10 @@
     box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
     z-index: 2;
 }
+.post-mention{
+	color: #e67e22;
+	text-decoration: none;
+}
 .block-post{
 	margin:10px;
 	width: 600px;

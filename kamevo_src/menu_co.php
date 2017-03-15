@@ -3,7 +3,7 @@
 	 <div class="menu-box-gl">
 	  <ul>
 	    <a href="index.php" class="log" id="icon"></a>
-	     <a href="index.php"><li class="logo"><img src="img/kamelogo.png" class="kamelogo" alt="logo"></li></a><!-- <div class="line-separator"></div> -->
+	     <a href="index.php"><li class="logo"><img src="img/Kamevo-logo.png" class="kamelogo" alt="logo"></li></a><!-- <div class="line-separator"></div> -->
 	    <a href="index.php"><li class="title"> KAMEVO</li></a>
 
 	     <div class="mme">
@@ -11,7 +11,7 @@
 	         <a class="js popopen" href="#"><li class="link"><i class="fa fa-compass" id="icon"></i> Explorer</li></a>
 			  <a class="" href="user.php?id=<?php echo $_SESSION['ID']; ?>"><li class="linkz"><div class="notes-block">
 				 <div class="profile-note">
-				 <img src="img/Ionic.png" alt="profile" class="profile-note">
+				 <img src="img/Kamevo-logo.png" alt="profile" class="profile-note">
 				 </div>
 				</div>
 			  </div></li></a>

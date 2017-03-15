@@ -40,6 +40,7 @@
    <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">
   <script type="text/javascript" src="frameworks/jquery.min.js"></script>
    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
     <script type="text/javascript" src="js/createHttpObject.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
     <script type="text/javascript" src="js/message.js"></script>

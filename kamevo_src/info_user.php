@@ -22,7 +22,7 @@
 	<div class="infos">
 		<div class="sub-div">
 		<?php if($iduseri == $id){ ?>
-		<button class="subscribe-btn" onclick="location.href='settings.php'">Paramètres</button>
+		<button class="subscribe-btn" onclick="location.href='settings.php'">éditer mon profil</button>
 		<?php }else{ 
 
 			if(!isset($_SESSION['ID'])){ ?>

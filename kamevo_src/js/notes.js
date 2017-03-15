@@ -2,5 +2,10 @@ $(document).ready(function(){
 	$('.notif').click(function(e){
 	    $('.notes-center').toggleClass('noted');
 	    $('.message-center').removeClass('messaged');
+	    e.preventDefault();
+	})
+	$('.notif').blur(function(e){
+	    $('.notes-center').removeClass('noted');
+	    e.preventDefault();
 	})
 });

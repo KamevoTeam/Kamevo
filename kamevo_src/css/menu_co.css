@@ -20,12 +20,14 @@
   max-width: 1215px;
   margin-left: calc((100vw - 1255px)/2);
 }
-.logo{    margin-right: 15px;
+.logo{    
+    margin-right: 15px;
     color: #f1c40f;
     display: inline-block;
     font-size:35px;
     margin-top: -10px;
-    float: left;}
+    float: left;
+}
 .kamelogo{
   width: 45px;
   height: 45px;

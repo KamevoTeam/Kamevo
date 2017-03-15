@@ -32,7 +32,7 @@ $(window).bind('scroll', function () {
 .fixedg2{
     position: fixed;
     right:calc((100% - 1050px) / 2);
-    margin-top: 82px;
+    margin-top: 155px;
     z-index: 9998;
 }
 </style>

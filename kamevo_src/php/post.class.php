@@ -256,7 +256,7 @@ class Post{
 	        $notif->closeCursor();
 
 
-	        return '@<a href="user.php?id='.$idUtilisateur.'">'.$matches[1].'</a>'; 
+	        return '<a href="user.php?id='.$idUtilisateur.'" class="post-mention">@'.$matches[1].'</a>'; 
 	    }
 
 

@@ -80,15 +80,17 @@
 .subscribe-btn{
 	width: 100%;
 	float:right;
-	background-color: #e67e22;
-	border:solid 3px #e67e22;
+    background-color: #e67e22;
+    background: -webkit-linear-gradient(#e67e22,#cf6d17);
+    background: -o-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);  color: #fff;
+    border: none;
 	color:white;
-	padding:10px;
+	padding:15px;
 	text-transform: uppercase;
 	transition: all ease 0.5s;
 }
 .subscribe-btn:hover{
-	padding-left: 31px;
 	cursor: pointer;
 }
 .subscribe-btn:focus{

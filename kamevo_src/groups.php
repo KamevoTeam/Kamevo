@@ -12,7 +12,6 @@
 	 </a>
 	<div class="groups">
 		<h4>GROUPES</h4>
-		<div class="line-separator5"></div>
 
 		<?php 
 			group::printGroupFollowed($_SESSION['ID']);
