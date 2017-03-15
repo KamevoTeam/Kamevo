@@ -3,13 +3,11 @@
 	    $('.results').addClass('resulted');
 	})
 	$( ".f-input" ).blur( function() {
-
-
 	    $('.results').removeClass('resulted');
-	    
-
-
 	});
+	$('.results').click(function(e){
+	    $('.f-input').focus();
+	})
 })(jQuery);
 
 $('#search').keyup(function() {

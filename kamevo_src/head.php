@@ -1,5 +1,6 @@
 	<title>Kamevo - Accueil</title>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<!--  ORGINAL INCLUSIONS  !-->
 
 	<link rel="stylesheet" href="css/feed.css">
@@ -14,6 +15,8 @@
   <link rel="stylesheet" href="css/likes.css">
   <link rel="stylesheet" href="css/notes.css">
 
+    <!-- MOBILE CSS LINKS -->
+    <link rel="stylesheet" href="mobile/css/menu.responsive.css">
 
     <!--  LOADING FRAMWORKS   !-->
     <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">

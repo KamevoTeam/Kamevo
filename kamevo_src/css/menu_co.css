@@ -1,3 +1,8 @@
+/* mobile only */
+.mobile-only{
+  display: none;
+}
+/* Components */
 .menu{
     display: inline-block;
     top: 0;

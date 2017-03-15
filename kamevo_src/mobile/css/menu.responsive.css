@@ -1,0 +1,88 @@
+@media all and (max-width: 1250px){
+    /* Menu ============================================= */
+    .mme{
+      display: none;
+    }
+    .menu-box-gl{
+      margin-left: -30px;
+    }
+    .notes-block{
+      display: block;
+      width: 100%;
+      top: 55px;
+      left: 0;
+      margin-left: 0;
+      text-align: center;
+      background-color: #e67e22;
+      background: -webkit-linear-gradient(#cf6d17,#e67e22);
+      background: -o-linear-gradient(#cf6d17,#e67e22);
+      background: -moz-linear-gradient(#cf6d17,#e67e22);
+      position: fixed;
+      padding: 8px;
+    }
+    .results{
+      display: none;
+    }
+    .form{
+      display: none;
+    }
+    .mobile-only{
+      display: inline-block;
+    }
+        .log{
+        position: relative;
+        display: block;
+        float: right;
+        width: 45px;
+        padding-left:10px;
+        height: 45px;
+        cursor:pointer;
+        margin-right: 15px;
+    }
+    .log:after{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 25px;
+        height: 0;
+        margin-top: -5px;
+        box-shadow: 0 10px 0 1px #FFF,0 18px 0 1px #FFF,0 26px 0 1px #FFF;
+    }
+    .site-pusher{
+      margin-top: 50px;
+    }
+    /* Pub ============================================= */
+    .pub{
+      display: none;
+    }
+    /* Groups ============================================= */
+    .groups{
+      display: none;
+    }
+    /* Social ============================================= */
+    .social{
+      display: none;
+    }
+    /* Messagerie ============================================= */
+    .chat{
+      display: none;
+    }
+    .messager{
+      display: none;
+    }
+    /* Blocks ============================================= */
+    .block{
+      transition-duration: 1s;
+      width: 96vw;
+      background: rgba(255,255,255, 0.75);
+      border: solid 1px silver;
+      padding:0;
+      margin: 0;
+      margin-left: 2vw;
+      z-index: 2;
+    }
+    /* Publier button ============================================= */
+    .post-btn{
+      display: none;
+    }
+}

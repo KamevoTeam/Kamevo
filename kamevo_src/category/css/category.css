@@ -1,0 +1,38 @@
+.category{
+	display: inline-block;
+	width: 950px;
+	margin-left: 220px;
+}
+.c-title{
+	text-transform: uppercase;
+	border-bottom: solid 2px #333333;
+}
+.c-profile{
+	width: 950px;
+	height: 100px;
+	background-color: white;
+	margin-top: 15px;
+	border: solid silver 1px;
+}
+.c-details{
+	padding-top: 1px;
+	margin-left: 110px;
+}
+.c-name{
+	color: #e67e22;
+}
+.c-bio{
+	margin: 0px;
+	margin-top: -15px;
+}
+.c-points{
+	margin-top: 5px;
+}
+.c-avatar{
+	width: 100px;
+	display: inline-block;
+	float: left;
+}
+.cp-link{
+	text-decoration: none;
+}
