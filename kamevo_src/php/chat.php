@@ -1,28 +1,18 @@
+<?php
+
+include('mp.class.php');
+$mpBox = new mpClass($user);
+?>
+
 <div class="chat">
  <div class="chat-header">
   <h4 class="chat-title">Messagerie</h4>	
  </div>
+
   <div class="chatbox">
-   <div class="chatter">
- 	<img src="img/Ionic.png" alt="chatter-img" class="chatter-img">	
- 	 <h5 class="chatter-name">Zelkyo</h5>	
-  </div>
-  <div class="chatter">
- 	<img src="img/Ionic.png" alt="chatter-img" class="chatter-img">	
- 	 <h5 class="chatter-name">Zelkyo</h5>	
-  </div>
-  <div class="chatter">
- 	<img src="img/Ionic.png" alt="chatter-img" class="chatter-img">	
- 	 <h5 class="chatter-name">Zelkyo</h5>	
-  </div>
-  <div class="chatter">
- 	<img src="img/Ionic.png" alt="chatter-img" class="chatter-img">	
- 	 <h5 class="chatter-name">Zelkyo</h5>	
-  </div>
-  <div class="chatter">
- 	<img src="img/Ionic.png" alt="chatter-img" class="chatter-img">	
- 	 <h5 class="chatter-name">Zelkyo</h5>	
-  </div>
+
+  <?php $mpBox->displayUserFollowed(); ?>
+
  </div>
 </div>
 <div class="messager">
