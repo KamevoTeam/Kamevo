@@ -15,7 +15,7 @@ if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the 
 			<script type=\"text/javascript\"> 
 				<!-- 
 				var obj = 'window.location.replace(\"index.php\");'; 
-				setTimeout(obj,3000); 
+				setTimeout(obj,1000); 
 								// --> 
 				</script>";
 
@@ -25,7 +25,7 @@ if(isset($_SESSION['ID'])) $user = new users($_SESSION['ID']); //initialize the 
 	<header class="header">
 	 <nav class="menu" id="top"><ul>
 	    <a href="#" class="log" id="icon"></a>
-	     <a href="#"><li class="logo"> K </li></a><div class="line-separator"></div>
+	     <a href="#"><li class="logo"><img src="img/Kamevo-logo.png" class="kamelogo" alt="logo"></li></a>
 	    <a href="#"><li class="title"> KAMEVO</li></a>
 	    <div class="mme">
 	    <form class="connect" method="post" acion="">

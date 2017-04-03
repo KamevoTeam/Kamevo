@@ -1,9 +1,14 @@
 <div class="c-finder">
  <ul class="c-finder-ul">
- 	<a href="#"><li class="c-link actived">Technologie <span class="c-count">512</span></li></a>
- 	<a href="#"><li class="c-link">Gaming <span class="c-count">51</span></li></a>
- 	<a href="#"><li class="c-link">Beauté <span class="c-count">152</span></li></a>
- 	<a href="#"><li class="c-link">Bricolage <span class="c-count">98</span></li></a>
- 	<a href="#"><li class="c-link">Autre...<span class="c-count">345</span></li></a>
+   <?php 
+    $category = $bdd->query('SELECT * FROM categories');
+
+   	while($finder = $category->fetch()){
+
+   		$results = $bdd->query('SELECT * FROM users WHERE category = "'.$finder['name'].'"');
+   		$num_t = $results->rowCount(); 
+   		echo '<a href="index.php?cat='.$finder['name'].'"><li class="c-link actived">'.$finder['name'].'<span class="c-count">'.$num_t.'</span></li></a>';
+   	}
+   ?>
  </ul>
 </div>

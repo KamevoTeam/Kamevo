@@ -10,26 +10,24 @@
 </head>
 <body>
 <?php require("menu.php") ?>
-	<div class="container-left">
-		<img src="img/kamelogo.png" width="100%" alt='logo' class="wannado">
-	</div><div class="container-right">
-	<h1 class="main-title">Bienvenue sur Kamevo.com</h1>
-	<h4>Pour continuer votre navigation , veuillez vous créer un compte :</h4><br />
+<div class="container">
+  <h1 class="main-title">Bienvenue sur <span class="orange uppercase">Kamevo.com</span></h1>
+   <h6>Pour continuer votre navigation , veuillez vous créer un compte :</h6><br />
       <form class="content" method='post' action=''>
       <div class="form-row">
-        <input type="text" class="input-text" name="psd_ins" id="input" placeholder="Pseudo" />
+        <input type="text" class="input-text i-dib" name="psd_ins" id="input" placeholder="Pseudo" />
          <label class="label-helper" for="input">Pseudo</label>
         </div><div class="form-row" >
-         <input type="text" class="input-text" name="name_ins" id="input2" placeholder="Prénom" />
+         <input type="text" class="input-text i-dib" name="name_ins" id="input2" placeholder="Prénom" />
         <label class="label-helper" for="input2">Prénom</label>
       </div><div class="form-row" >
         <input type="date" class="input-text" name="birthdate_ins" id="input-date" value="2000-06-08" />
          <label class="label-helper" for="input-date">Date de naissance</label>
         </div><div class="form-row" >
-         <input type="password" class="input-text" name="pass_ins" id="input3" placeholder="Mot de passe" />
+         <input type="password" class="input-text i-dib" name="pass_ins" id="input3" placeholder="Mot de passe" />
         <label class="label-helper" for="input3">Mot de passe</label>
       </div><div class="form-row" >
-       <input type="password" class="input-text" name="pass_ins_confirm" id="input4" placeholder="Confirmation" />
+       <input type="password" class="input-text i-dib" name="pass_ins_confirm" id="input4" placeholder="Confirmation" />
         <label class="label-helper" for="input3">Confirmation de votre Mot de passe</label>
         </div><div class="form-row" >
          <input type="email" class="input-text" name="mail_ins" id="input5" placeholder="Adresse E-mail" />
@@ -40,7 +38,7 @@
       </div>
        <input type="submit" name="go_ins" class="leto" value="S'inscrire">
       <div class="checkall">
-      	<input type="checkbox" name="cgu_ins" id="checks" class="checks">
+        <input type="checkbox" name="cgu_ins" id="checks" class="checks">
         <label for="checks">J'ai lu et j'accepte les <a href="#">conditions d'utilisations</a> de Kamevo.com .</label>
       </div>
       <?php echo $respIns;
@@ -48,6 +46,9 @@
             print_r($_POST); 
             echo '</pre>';*/ ?>
       </form> <!-- end of the content -->
-	</div>
+  </div>
+
+</div>
 </body>
 </html>
+<script>document.write('<script src="http://' + (location.host || '127.0.0.1').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
