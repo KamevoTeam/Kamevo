@@ -163,9 +163,8 @@ class users{
 
 				$_SESSION['ID'] = $response['ID'];
 				$_SESSION['pseudo'] = $response['pseudo'];
-				if ($return == true) {
-					return 'Félicitations! Vous êtes maintenant connecté!';
-				}
+				return 'Félicitations! Vous êtes maintenant connecté!';
+
 
 			}else{
 
