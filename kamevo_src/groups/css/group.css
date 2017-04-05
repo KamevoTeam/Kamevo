@@ -4,11 +4,12 @@
 	padding: 15px;
 	width: 170px;
 	padding-top: 0;
-	top: 330px;
-	border: solid silver 1px;
-    -webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+	top: 300px;
+	border: solid rgba(0,0,0,0.1) 1px;
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+    /*-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);*/
 }
 .infos-title{
 	text-align: center;
@@ -26,17 +27,17 @@
     text-align: center;
     width: 190px;
     right: calc((100vw - 1030px)/2);
-    top: 330px;
+    top: 300px;
     padding: 10px;
     text-decoration: none;
     color: white;
     background-color: #e67e22;
     background: -webkit-linear-gradient(#e67e22,#cf6d17);
     background: -o-linear-gradient(#e67e22,#cf6d17);
-    background: -moz-linear-gradient(#e67e22,#cf6d17);
+    background: -moz-linear-gradient(#e67e22,#cf6d17);/*
     -webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);*/
     transition: all ease 1s;
 }
 .group-btn:hover{
@@ -47,5 +48,5 @@
 }
 .publics{
 	margin-left: -60px;
-	margin-top: 275px;
+	margin-top: 245px;
 }

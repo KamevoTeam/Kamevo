@@ -1,14 +1,25 @@
 body{
 	background-color: rgba(236, 240, 241,1.0);
 }
+::selection {
+  background: rgba(230, 126, 34, 0.8); /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: rgba(230, 126, 34, 0.8); /* Gecko Browsers */
+  color: white;
+}
 .content{
 	margin-top: 0px;
 	height: 100vh;
-	padding-top: 100px;
+	padding-top: 80px;
 	width: 1150px;
 	margin-left: calc((100% - 1200px) / 2);
 	margin-right: calc((100% - 1150px) / 2);
 }
 .social{
 	margin-top: 0px;
+}
+.orange{
+	color: #e67e22;
 }

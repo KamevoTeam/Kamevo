@@ -12,6 +12,7 @@ body{
 	position: fixed;
 	background-color: #ededed;
 	z-index: 999;
+	
 }
 .name{
 	text-transform: uppercase;
@@ -29,5 +30,5 @@ body{
 .group-cover-img{
 	width: 1000px;
 	height: 200px;
-	border-bottom: solid 1px black;
+	border-bottom: solid 1px rgba(0,0,0,0.2);
 }

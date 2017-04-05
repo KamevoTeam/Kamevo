@@ -1,7 +1,7 @@
 .pub{
 	position: fixed;
 	left:  calc(((100% - 1150px) / 2) + 860px);
-	top: 100px;
+	top: 80px;
 	width: 300px;
 	z-index: 98;
 	padding: 10px;

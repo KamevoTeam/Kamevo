@@ -1,5 +1,13 @@
 body{
-	background-color: #ededed;
+	background-color: rgba(236, 240, 241,1.0);
+}
+::selection {
+  background: rgba(230, 126, 34, 0.8); /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: rgba(230, 126, 34, 0.8); /* Gecko Browsers */
+  color: white;
 }
 .container{
 	margin-top: 100px;
@@ -67,10 +75,11 @@ body{
 	top: 100px;
 	width: 300px;
 	padding: 10px;
-	background-color: white; 
+	padding-top: 0;
+	background-color: white; /*
 	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);*/
 }
 .pub-image{
 	width: 280px; 
@@ -96,6 +105,6 @@ body{
 	transition: all ease 0.5s;
 }
 .post-btn:hover{
-	background-color:#ededed;
+	background-color: rgba(236, 240, 241,1.0);
 	cursor: pointer;
 }

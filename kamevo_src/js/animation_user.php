@@ -22,17 +22,17 @@ $(window).bind('scroll', function () {
 	margin-top:-47px;
 	z-index:999;
 }
-.fixedom{
+/*.fixedom{
 	margin-top:220px;
-}
+}*/
 .fixedg{
     position: fixed;
-    margin-top: 120px;
+    margin-top: 150px;
 }
 .fixedg2{
     position: fixed;
     right:calc((100% - 1050px) / 2);
-    margin-top: 155px;
+    margin-top: -40px;
     z-index: 9998;
 }
 </style>

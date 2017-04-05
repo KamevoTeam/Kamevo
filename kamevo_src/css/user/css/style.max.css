@@ -1,5 +1,13 @@
 body{
-	background-color: #ededed;	
+	background-color: rgba(236, 240, 241,1.0);	
+}
+::selection {
+  background: rgba(230, 126, 34, 0.8); /* WebKit/Blink Browsers */
+  color: white;
+}
+::-moz-selection {
+  background: rgba(230, 126, 34, 0.8); /* Gecko Browsers */
+  color: white;
 }
 .content{
 	margin-top: 0px;
@@ -12,7 +20,10 @@ body{
 .toTop{
 	position: fixed;
 }
-.fixedal{
+.blockallz{
+	padding-top: 190px;
+}
+/*.fixedal{
     position: fixed;
     width: 1050px;
     margin-top:-47px;
@@ -20,4 +31,4 @@ body{
 }
 .fixedom{
     margin-top:220px;
-}
+}*/

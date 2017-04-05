@@ -11,7 +11,7 @@
 	         <a class="js popopen" href="#"><li class="link"><i class="fa fa-compass" id="icon"></i> Explorer</li></a>
 			  <a class="" href="user.php?id=<?php echo $_SESSION['ID']; ?>"><li class="linkz"><div class="notes-block">
 				 <div class="profile-note">
-				 <img src="img/Kamevo-logo.png" alt="profile" class="profile-note">
+				 <img src="img/Ionic.png" alt="profile" class="profile-note">
 				 </div>
 				</div>
 			  </div></li></a>

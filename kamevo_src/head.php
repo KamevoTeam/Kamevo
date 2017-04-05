@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="css/style.max.css">
 	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="css/menu_co.css">
-  <link rel="stylesheet" href="css/likes.css">
   <link rel="stylesheet" href="css/notes.css">
 
     <!-- MOBILE CSS LINKS -->

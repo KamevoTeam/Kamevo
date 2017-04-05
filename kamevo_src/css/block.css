@@ -88,6 +88,9 @@ textarea:focus{
 	position: absolute;
 	z-index: 1;
 }
+.block-views{
+	margin-right: 15px;
+}
 .abouts{
 	display: inline-block;
 	width: 100%;
@@ -120,11 +123,10 @@ textarea:focus{
 	display: inline-block;
 	padding-top: 3px;
 	padding-left: 45px;
-	color: #333333;
+	color: silver;
 }
 .block-points{
 	display: inline-block;
-	color: #2c3e50;
 }
 .block-bio{
 	padding: 15px; 

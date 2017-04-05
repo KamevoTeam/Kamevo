@@ -371,9 +371,9 @@
 			<div class="block">
   				<div class="block-title">
 					 <img class="block-img" src="userDataUpload/picProfile/<?=$this->getAvatarUser($resp['author']); ?>" alt="William">
-	 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($resp['author']); ?> | </strong></h6>
-					 <h6 class="block-points">Points : <strong> <?=$resp['points']; ?></strong></h6>
-					 <h6 class="block-views"><strong> <?=$resp['uniq_views']; ?></strong> &nbsp;<img src='img/view.png' alt='Views' class="eyes-css"></h6>
+	 				 <h6 class="block-name"><span class="orange"><strong><?=$this->getPsdFromId($resp['author']); ?> - </strong></span></h6>
+					 <h6 class="block-points">Points : <?=$resp['points']; ?></h6>
+					 <h6 class="block-views"><?=$resp['uniq_views']; ?> <!-- <img src='img/view.png' alt='Views' class="eyes-css"> --><i class="fa fa-eye" aria-hidden="true"></i></h6>
 					 <p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
 				</div>
 

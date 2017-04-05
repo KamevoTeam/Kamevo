@@ -3,7 +3,7 @@
 \*----------------------------------*/
 .groups{
 	position: fixed;
-	top: 175px;
+	top: 155px;
 	margin-left: calc((100% - 1165px) / 2);
 	width: 200px;
 	padding: 15px; 
@@ -76,7 +76,7 @@
 	color: #fff;
 	padding: 15px;
 	padding-top: 20px;
-	top: 100px;
+	top: 80px;
 	margin-left: calc((100% - 1165px) / 2);
 	/*
 	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
@@ -215,4 +215,7 @@
 }
 .closer-group:hover{
 	cursor: pointer;
+}
+.g-roulette{
+	color: black;
 }

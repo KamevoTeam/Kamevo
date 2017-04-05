@@ -1,6 +1,6 @@
  <div class="group-header">
  <!-- " - GROUPE" toujours après le nom du groupe -->
-  <h3 class="name">Groupe <?=$currentGroup->getNameGroup(); ?></h3>
+  <!-- <h3 class="name">Groupe <?=$currentGroup->getNameGroup(); ?></h3> --><br/>
    <img class="group-img" src="<?=$currentGroup->getAvatarGroup(); ?>" alt="profile-image">
   <img class="group-cover-img" src="<?=$currentGroup->getCoverGroup(); ?>" alt="cover-image">
  </div>
