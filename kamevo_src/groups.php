@@ -25,6 +25,9 @@
 		<span class="errorGroupCreation"></span>
 		<span class="errorGroupCreation"><?=$createGroup->errorReturn; ?></span>
 		</div></a>
+		<a href="wheel.php" class="nodeco"><div class="group">
+		 <h3 class="g-roulette"> <i class="fblue fa fa-refresh" id="icon"></i> Roulette ( Nouveau ! )</h3>
+		</div>
 		<div class="aboutabout">
 			<i class="fblue fa fa-cog" id="icon"></i> <a href="#" class="param-groups">A propos de Kamevo</a>
 		</div>

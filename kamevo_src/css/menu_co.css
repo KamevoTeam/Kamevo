@@ -16,10 +16,13 @@
     background: -moz-linear-gradient(#e67e22,#cf6d17);
     height: 55px;
     margin: 0;
-    margin-bottom: 120px;
+    margin-bottom: 120px;/*
     -webkit-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);*/
+    -webkit-box-shadow: 2px -5px 34px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px -5px 34px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px -5px 34px 0px rgba(0,0,0,0.75);
 }
 .menu-box-gl{
   max-width: 1215px;

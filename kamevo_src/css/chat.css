@@ -5,13 +5,15 @@
 	left:  calc(((100% - 1150px) / 2) + 860px);
 	top: 390px;
 	right: 0;
+	border: solid 1px rgba(0,0,0,0.1);
+	border-bottom: solid 1px rgba(0,0,0,0.2);/*
 	-webkit-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
-    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 0px rgba(0,0,0,0.75);*/
 }
 .chatbox{
 	height: 200px;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 }
 .chatbox::-webkit-scrollbar {
@@ -42,7 +44,7 @@
 .chatter{
 	width: 300px;
 	padding: 5px;
-	background-color: #ededed;
+	background-color: #fff;
 	display: inline-block;
 	border-bottom: solid 1px silver;
 	transition: all ease 0.3s;
@@ -132,7 +134,7 @@
 	height: 300px;
 	padding-top: 8px;
 	padding-bottom: 80px;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden; 
 }
 .messager-messages::-webkit-scrollbar {

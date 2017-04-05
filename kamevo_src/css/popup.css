@@ -26,12 +26,13 @@
 .popup{
 	z-index: 999999999;
 	position: fixed;
-	background-color: #ededed;
+	background-color: rgba(236, 240, 241,1.0);
 	border: solid silver 1px;
 	width: 600px;
 	margin-left: calc((100% - 700px)/2);
 	top: 200px;
 	padding: 5px;
+	padding-top: 0;
 	border-radius: 5px;
 	animation: fadeIn 0.5s;
 }

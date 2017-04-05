@@ -1,0 +1,38 @@
+body{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #ededed;
+}
+.container{
+	padding-top: 100px;
+	width: 1000px;
+	margin-left: calc((100vw - 1000px)/2);
+}
+.orange{
+	color: #e67e22;
+}
+.uppercase{
+	text-transform: uppercase;
+}
+.r-btn{
+	background-color: #e67e22;
+	padding: 12px;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all ease .5s;
+}
+.noclick{
+	cursor: not-allowed;
+	background-color: rgba(230, 126, 34, 0.7);
+}
+.refresh{
+	color: white;
+	background-color: #e67e22;
+	padding: 8px;
+	width: 150px;
+	margin: auto;
+	text-decoration: none;
+	text-transform: uppercase;
+}
