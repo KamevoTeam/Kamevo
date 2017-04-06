@@ -5,6 +5,7 @@ This class is an extension of users class. Please note that the user objet is no
 class mpClass extends users{ 
 
 	private $userDatas; //contain all all current users infos.
+	private $currentIdConv; //current idConv
 
 
 
@@ -34,9 +35,16 @@ class mpClass extends users{
 
 		<?php }else {
 		
-		while ($foll = $getF->fetch()) {?>
+		while ($foll = $getF->fetch()) 
+
+			//$this->generate_id_conv();
+
+			{?>
+
 
 			 <div class="chatter" id="<?=$foll['abonnement'] ?>">
+			 	<input type="hidden" value="<?=$foll['abonnement']; ?>" class="idDestMess"/>
+
  				<img src="userDataUpload/picProfile/<?=$this->getAvatarUser($foll['abonnement']); ?>" alt="chatter-img" class="chatter-img">	
  			 <h5 class="chatter-name"> <?php echo $this->getPseudoByID($foll['abonnement']); ?></h5>	
   			</div>
@@ -65,13 +73,18 @@ class mpClass extends users{
 
 	}
 
+	private function generate_id_conv(){
+
+		include('co_pdo.php');
+
+		$getIdConv = $bdd->prepare('SELECT * FROM ');
 
 
 
 
 
 
-
+	}
 
 }
 ?>
