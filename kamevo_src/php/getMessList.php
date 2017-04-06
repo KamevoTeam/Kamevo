@@ -12,7 +12,7 @@
 
 	while($dialog = $mpreq->fetch()){
 
-		if($dialog['messFrom'] == $idMe){?>
+		if($dialog['messFrom'] != $idMe){?>
 			<div class="my-message">
    				 <p class="msg-r"><?=$dialog['content']; ?></p>
   			 </div>
@@ -25,11 +25,6 @@
 
   		}
 	}
-  
-  			 
-
-
-	 
 
 	$mpreq->closeCursor();
 
