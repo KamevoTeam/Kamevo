@@ -1,6 +1,6 @@
 .publisher{
 	width: 100%;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	margin-top: 50px;
 	min-height: 100vh;
 	padding: 25px;
@@ -199,4 +199,10 @@
 	border-radius: 8px;
 	background-color: #4caf50;
 	color:white;
+}
+.g-select{
+	float: right;
+	margin-top: 12px;
+	margin-left: -70px;
+	padding: 8px;
 }

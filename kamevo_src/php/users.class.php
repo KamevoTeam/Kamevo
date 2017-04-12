@@ -197,6 +197,7 @@ class users{
 
 								if(!empty($data['cgu_ins'])){
 
+									if($data['category'] != "no"){
 
 									if(users::ifUserExist($data['psd_ins']) == 'non'){
 										
@@ -205,13 +206,14 @@ class users{
 											include('co_pdo.php');
 											
 											$pass = hash('sha512', $data['pass_ins']);
-												$req = $bdd->prepare('INSERT INTO users (`pseudo`, `password`, `Nom`, `email`, `grade`) VALUES (:pseudo, :password, :nom, :mail, :grade)');
+												$req = $bdd->prepare('INSERT INTO users (`pseudo`, `password`, `Nom`, `email`, `grade`, `category`) VALUES (:pseudo, :password, :nom, :mail, :grade, :category)');
 												$req->execute(array(
 													'pseudo' => $data['psd_ins'],
 													'password' => $pass,
 													'nom' => $data['name_ins'],
 													'mail' => $data['mail_ins'],
-													'grade' => 1));
+													'grade' => 1,
+													'category' => $data['category']));
 											require('mailInsc.php');
 											mail($data['mail_ins'], $subject, $message);
 										
@@ -226,7 +228,10 @@ class users{
 										return 'Ce pseudo existe déjà!';
 									}
 
-									
+								  }else{
+								  	 return 'Veuillez choisir une catégorie';
+								  }	
+
 								}else{
 
 									return 'Vous devez accepter les CGU!';

@@ -29,7 +29,7 @@ session_start();
  <div class="roulette">
   <h2 class="r-title">Bienvenue sur la roulette des profils de <span class="orange uppercase">Kamevo.com</span></h2>
    <p class="r-desc">La roulette de <span class="orange">Kamevo</span> vous permet de trouver aléatoirement des profils aux mêmes centres d'intérêt que vous.<br/>Et qui sait , peut être faire de belles rencontres parmi la communauté ...</p>
-   <p class="r-desc">Vous faites partie de la catégorie <span class="orange">Technologie</span> , la roulette va donc rechercher dans ce sens .</p>
+   <p class="r-desc">Vous faites partie de la catégorie <span class="orange"><?php  ?></span> , la roulette va donc rechercher dans ce sens .</p>
      <br/><a href="#" class="r-btn">Faire tourner la roulette</a>
     <div class="slider">
 	 <div class="slides">
@@ -37,12 +37,30 @@ session_start();
 		<!-- Auto-generated images -->
 	  <?php 
 	require("php/co_pdo.php");
-	$slide = $bdd->query("SELECT * FROM users");
+
+
+	$toto = $bdd->prepare('SELECT * FROM users WHERE ID =?');
+ 	$toto->execute(array((int)($_SESSION['ID'])));  
+	$fr = $toto->fetch();
+ 	$toto->closeCursor();
+
+	$slide = $bdd->query('SELECT * FROM users WHERE category = "'.$fr['category'].'"');
 	$max = $slide->rowCount();
 	$mw = $max - 8;
-	$w = 120 * $max;
-	$width = 120 * $mw;
-	$random = rand(1 , $max); // Choosing a random profile
+	$w = 120 * $max; // Style variable
+	$width = 120 * $mw; // Style variable
+
+
+
+	// $random = rand(1 , $max); 
+	// Choosing a random profile
+	$randomise = array();
+		while($randoms = $slide->fetch()){
+			$randomise[] = $randoms['ID'];
+			echo $randomise;
+		}
+
+	$random = array_rand($randomise, 1);
 
 	while($show = $slide->fetch()){
 		echo '<div class="slide"><img src="img/'.$show['avatar'].'" alt="slided-image"></div>';
@@ -114,13 +132,17 @@ session_start();
 	<div class="r-result">
 	<?php 
 
-	$results = $bdd->query("SELECT * FROM users WHERE id = ".$random);
+ 	$results = $bdd->prepare('SELECT * FROM users WHERE ID = ? AND category = ?');
+ 	$results->execute(array($random, $fr['category']));  
+
+	// $results = $bdd->query('SELECT * FROM users WHERE id = '.$random.' AND category = "'.$fr['category'].'"');
 	
 	while($result = $results->fetch()){
 		echo '<h3>Voici le profil de <span class="orange">'.$result['pseudo'].'</span><br/>Nous espèrons qu\'il te plaira !</h3>';
 		echo '<img src="img/'.$result['avatar'].'" alt="slided-image" class="slider-founded"><br/><br/><br/>';
 		echo '<a href="wheel.php" class="refresh"><i class="fblue fa fa-refresh" id="icon"></i> Recommencer </a>';
 	}
+ 	$results->closeCursor();
 	
 	?>
 	</div>

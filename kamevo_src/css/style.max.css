@@ -1,5 +1,5 @@
 body{
-	background-color: rgba(236, 240, 241,1.0);
+	background-color: rgba(236, 240, 241, 0.7);
 }
 ::selection {
   background: rgba(230, 126, 34, 0.8); /* WebKit/Blink Browsers */

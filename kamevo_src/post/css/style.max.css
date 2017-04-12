@@ -1,9 +1,12 @@
 body{
-	background-color: #ededed;
+	background-color: rgba(236, 240, 241,1.0);
 	overflow-x: hidden;
 }
 .container{
 	width: 1000px;
 	margin-left: calc((100% - 1000px)/2);
 	margin-right: calc((100% - 1000px)/2);
+}
+.orange{
+	color: #e67e22;
 }

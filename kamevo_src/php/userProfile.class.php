@@ -276,9 +276,6 @@
 			}else{?>
 
 					</div><div class="block">
-  				<div class="block-title">
-	 			 	<h6 class="block-name"><strong>Non-Membre</strong></h6>
-	 			</div>
 					<p class="block-bio">Vous devez vous inscrire au groupe pour voir les publications.<br /></p>
 			</div>
 
@@ -333,26 +330,17 @@
 
 		 	if($mode == 'profile') { ?>
 			</div><div class="block">
-  				<div class="block-title">
-	 			 	<h6 class="block-name"><strong>Aucun post</strong></h6>
-	 			</div>
 					<p class="block-bio"><?=$this->user_psd; ?> n'a pas encore posté de message! <br /></p>
 			</div>
 			<?php }
 			if($mode == 'group') { ?>
 			</div><div class="block">
-  				<div class="block-title">
-	 			 	<h6 class="block-name"><strong>Aucun post</strong></h6>
-	 			</div>
 					<p class="block-bio">Il n'y a aucune publication dans ce groupe!<br /></p>
 			</div>
 			<?php }
 			if($mode == 'home') { ?>
 
 				<div class="block">
-  					<div class="block-title">
-	 			 		<h6 class="block-name"><strong></strong></h6>
-	 				</div>
 					<p class="block-bio">Vos abonnements n'ont rien posté! Allez découvrir de nouvelles chaînes :)</p>
 				</div>
 

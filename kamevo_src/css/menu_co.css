@@ -218,15 +218,16 @@
   display: inline-block;
   transition-duration: 0.2s;
   border : solid 1px #e67e22;
-  width: 228px;
+  /*width: 228px;*/
+  width: 400px;
   margin-top: -3px;
   padding: 9px;
 }
-.f-input:focus{
+/*.f-input:focus{
   transition-duration: 0.3s;
   width: 400px;
   outline: none;
-}
+}*/
 .looking{
   color: #e67e22;
   margin-left: -32px;
@@ -332,7 +333,7 @@
   border: solid silver 1px;
   border-top: solid 1px #e67e22;
   max-height: 200px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   display: none;
 }

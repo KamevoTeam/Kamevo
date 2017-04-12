@@ -8,7 +8,7 @@
 
  <div class="block-title">
   <img class="block-img" src="img/user.png" alt="William">
-   <h6 class="block-name"><strong><?=$user->pseudo; ?> </strong></h6>
+   <h6 class="block-name"><span class="orange"><strong><?=$user->pseudo; ?> </strong></span></h6>
    <h6 class="block-points">| Points : <strong> <?=$user->points; ?></strong></h6>
   <p class="block-date">Dernière activité : <strong><?=$user->lastvisit; ?></strong></p>
  </div>
@@ -48,7 +48,7 @@
  	 </div><br />
    <div class="video">
       <h5 class="video-label">Publier dans un groupe : </h5>
-      <select class="select" name="group">
+      <select name="group" class="g-select">
         <?php displayChoiceGroup(); ?>
      </select>
 

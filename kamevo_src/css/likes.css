@@ -90,9 +90,17 @@ progress::-webkit-progress-value {
 }
 progress::-moz-progress-bar {
   border-radius: 5px;
-  background-color: #a5d62f;
+  background-color: #e67e22;
   background-image: linear-gradient(-45deg, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
   background-size: 40px 40px;
   -moz-animation: progress 8s linear infinite;
+  animation: progress 8s linear infinite;
+}
+progress::-moz-progress-value {
+  background-color: #e67e22;
+  background-image: -webkit-linear-gradient(-45deg, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
+  background-image: linear-gradient(-45deg, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
+  background-size: 40px 40px;
+  -webkit-animation: progress 8s linear infinite;
   animation: progress 8s linear infinite;
 }

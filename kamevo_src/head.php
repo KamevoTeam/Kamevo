@@ -14,9 +14,6 @@
 	<link rel="stylesheet" href="css/menu_co.css">
   <link rel="stylesheet" href="css/notes.css">
 
-    <!-- MOBILE CSS LINKS -->
-    <link rel="stylesheet" href="mobile/css/menu.responsive.css">
-
     <!--  LOADING FRAMWORKS   !-->
     <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">

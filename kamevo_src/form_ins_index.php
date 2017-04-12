@@ -21,8 +21,19 @@
          <input type="text" class="input-text i-dib" name="name_ins" id="input2" placeholder="Prénom" />
         <label class="label-helper" for="input2">Prénom</label>
       </div><div class="form-row" >
-        <input type="date" class="input-text" name="birthdate_ins" id="input-date" value="2000-06-08" />
+        <input type="date" class="input-text i-dib" name="birthdate_ins" id="input-date" value="2000-06-08" />
          <label class="label-helper" for="input-date">Date de naissance</label>
+        </div><div class="form-row">
+        <select name="category">
+          <option disabled>----------------------------------------------</option>
+          <option value="no" default>Choisir une catégorie</option>
+          <option disabled>----------------------------------------------</option>
+          <option value="technology">Technologie</option>
+          <option value="gaming">Gaming</option>
+          <option value="beauty">Beauté & Lifestyle</option>
+          <option value="make">Bricolage</option>
+          <option value="other">Autre chose ...</option>
+        </select>
         </div><div class="form-row" >
          <input type="password" class="input-text i-dib" name="pass_ins" id="input3" placeholder="Mot de passe" />
         <label class="label-helper" for="input3">Mot de passe</label>
@@ -45,10 +56,8 @@
           /*echo '<pre>';
             print_r($_POST); 
             echo '</pre>';*/ ?>
-      </form> <!-- end of the content -->
+</form>
   </div>
-
-</div>
+ </div>
 </body>
 </html>
-<script>document.write('<script src="http://' + (location.host || '127.0.0.1').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
