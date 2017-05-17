@@ -1,0 +1,10 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #ededed;
+}
+.container{
+	width: 1000px;
+	margin-left: calc((100% - 1000px)/2);
+	margin-right: calc((100% - 1000px)/2);
+}
