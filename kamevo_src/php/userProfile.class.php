@@ -350,7 +350,13 @@
 
 			while($resp = $getPosts->fetch()){
 
-				$this->updateLikes($resp['ID']);
+				/*please not that the update cannot take effect immediatly, you need to reload the page to see what's change. 
+				I done this to avoid long loading time, in case of several publications. 
+				*/
+
+				$this->updateLikes($resp['ID']); //likes update
+				$newPts = $this->updatePubliPoints($resp); //update publication points
+
 				if(($resp['likes'] + $resp['dislikes']) == 0) { $calculPourcent = 50; }else {
 				$calculPourcent = 100*(($resp['likes'])/($resp['likes']+$resp['dislikes'])); }
 			?>
@@ -360,7 +366,7 @@
   				<div class="block-title">
 					 <img class="block-img" src="userDataUpload/picProfile/<?=$this->getAvatarUser($resp['author']); ?>" alt="William">
 	 				 <h6 class="block-name"><span class="orange"><strong><?=$this->getPsdFromId($resp['author']); ?> - </strong></span></h6>
-					 <h6 class="block-points">Points : <?=$resp['points']; ?></h6>
+					 <h6 class="block-points">Points : <?=$newPts; ?></h6>
 					 <h6 class="block-views"><?=$resp['uniq_views']; ?> <!-- <img src='img/view.png' alt='Views' class="eyes-css"> --><i class="fa fa-eye" aria-hidden="true"></i></h6>
 					 <p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
 				</div>
@@ -464,7 +470,7 @@
 
 			} //end of function
 
-	public function updateLikes($idPost){
+	private function updateLikes($idPost){
 
 		require('co_pdo.php');
 
@@ -481,6 +487,32 @@
 		$LDupds->execute(array($nblikes,$nbdislikes,$idPost));
 
 		$LDupds->closeCursor();
+
+	}
+
+	private function updatePubliPoints($dataArray){
+
+		require('co_pdo.php');
+
+		/*Get the like/dislike ratio 
+			Between 0 and 1. 
+			1 is the best, 0 is the worst
+
+		*/
+		if(($dataArray['likes'] + $dataArray['dislikes']) == 0) { $ratioLike= 0.5; }else {
+				$ratioLike = ($dataArray['likes'])/($dataArray['likes']+$dataArray['dislikes']); }
+
+
+		$finalPoints = 20*$ratioLike*(1+round($dataArray['uniq_views']/5,0)) + round($dataArray['total_views']*0.1,0);
+
+
+		$updPts = $bdd->prepare('UPDATE posts SET points = ? WHERE ID = ?');
+		$updPts->execute(array($finalPoints,$dataArray['ID']));
+
+		$updPts->closeCursor();
+
+		return $finalPoints;
+
 
 	}
 
