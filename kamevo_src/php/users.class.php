@@ -129,6 +129,14 @@ class users{
 
 
 	}
+    
+    static public function getGrade($ID) {
+        require('co_pdo.php');
+        
+        $reqGrade = $bdd->prepare('SELECT grade FROM users WHERE ID = ?');
+        $reqGrade->execute(array($ID));
+        return($reqGrade->fetch());
+    }
 
 	private function initialize($ID){
 
