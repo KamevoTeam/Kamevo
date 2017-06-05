@@ -22,6 +22,7 @@
     <!-- LINKED CSS FROM DETAILS TO LOAD !-->
     <link rel="stylesheet" href="css/likes.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
 
     <!-- LOADING JAVASCRIPT/AJAX  !-->
     <script type="text/javascript" src="js/createHttpObject.js"></script>

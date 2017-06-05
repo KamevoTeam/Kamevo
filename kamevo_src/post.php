@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="frameworks/w3.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
     <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
     <script type="text/javascript" src="frameworks/jquery.min.js"></script>
 </head>
 <body>

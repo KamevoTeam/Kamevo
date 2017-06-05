@@ -93,12 +93,20 @@
 }
 .note{
   display: inline-block;
+  outline: none;
   width: 50px;
   transition: all ease 0.4s;
+}
+.notejs{
+  outline: none;
+}
+.msgjs{
+  outline: none;
 }
 .profile-note{
   width: 40px;
   height: 40px;
+  object-fit: cover;
   margin-top: -3.5px;
   margin-left: -5px;
   border: solid transparent 1px;
@@ -221,7 +229,7 @@
   /*width: 228px;*/
   width: 400px;
   margin-top: -3px;
-  padding: 9px;
+  padding: 12px;
 }
 /*.f-input:focus{
   transition-duration: 0.3s;

@@ -4,7 +4,7 @@
 	  <ul>
 	    <a href="index.php" class="log" id="icon"></a>
 	     <a href="index.php"><li class="logo"><img src="img/Kamevo-logo.png" class="kamelogo" alt="logo"></li></a><!-- <div class="line-separator"></div> -->
-	    <a href="index.php"><li class="title"> KAMEVO</li></a>
+	    <a href="../"><li class="title"> KAMEVO</li></a>
 
 	     <div class="mme">
 	         <a class="js" href="deco.php"><li class="link"><i class="fa fa-sign-out" id="icon"></i> Déconnexion</li></a>

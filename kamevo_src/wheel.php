@@ -20,6 +20,7 @@ session_start();
 	<link rel="stylesheet" href="css/notes.css">
 	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="roulette/css/style.max.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
 </head>
 <body>
 <?php 
@@ -29,7 +30,6 @@ session_start();
  <div class="roulette">
   <h2 class="r-title">Bienvenue sur la roulette des profils de <span class="orange uppercase">Kamevo.com</span></h2>
    <p class="r-desc">La roulette de <span class="orange">Kamevo</span> vous permet de trouver aléatoirement des profils aux mêmes centres d'intérêt que vous.<br/>Et qui sait , peut être faire de belles rencontres parmi la communauté ...</p>
-   <p class="r-desc">Vous faites partie de la catégorie <span class="orange"><?php  ?></span> , la roulette va donc rechercher dans ce sens .</p>
      <br/><a href="#" class="r-btn">Faire tourner la roulette</a>
     <div class="slider">
 	 <div class="slides">
@@ -44,7 +44,7 @@ session_start();
 	$fr = $toto->fetch();
  	$toto->closeCursor();
 
-	$slide = $bdd->query('SELECT * FROM users WHERE category = "'.$fr['category'].'"');
+	$slide = $bdd->query('SELECT * FROM users');
 	$max = $slide->rowCount();
 	$mw = $max - 8;
 	$w = 120 * $max; // Style variable
@@ -52,15 +52,10 @@ session_start();
 
 
 
-	// $random = rand(1 , $max); 
+	$random = rand(1 , $max); 
 	// Choosing a random profile
-	$randomise = array();
-		while($randoms = $slide->fetch()){
-			$randomise[] = $randoms['ID'];
-			echo $randomise;
-		}
 
-	$random = array_rand($randomise, 1);
+	// $random = array_rand($randomise, 1);
 
 	while($show = $slide->fetch()){
 		echo '<div class="slide"><img src="img/'.$show['avatar'].'" alt="slided-image"></div>';
@@ -132,8 +127,8 @@ session_start();
 	<div class="r-result">
 	<?php 
 
- 	$results = $bdd->prepare('SELECT * FROM users WHERE ID = ? AND category = ?');
- 	$results->execute(array($random, $fr['category']));  
+ 	$results = $bdd->prepare('SELECT * FROM users WHERE ID = ?');
+ 	$results->execute(array($random));  
 
 	// $results = $bdd->query('SELECT * FROM users WHERE id = '.$random.' AND category = "'.$fr['category'].'"');
 	

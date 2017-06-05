@@ -1,11 +1,13 @@
 
 .profile-header{
-	z-index: 999;
+	z-index: 99;
 	width: 1050px;
 	position: absolute;
 }
 .profile-img{
 	width: 120px;
+	height: 120px;
+	object-fit: cover;
 	border:solid 2px #e67e22;
 	margin-left: 30px;
 	position: absolute;
@@ -14,8 +16,8 @@
 .cover-img{
 	border:solid 2px #e67e22;
 	width: 100%;
-	max-height: 180px;
-	height: auto;
+	height: 180px;
+	object-fit: cover;
 	margin-bottom: 15px;/*
 	-webkit-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 27px 0px rgba(0,0,0,0.75);

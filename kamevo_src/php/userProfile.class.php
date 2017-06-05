@@ -434,18 +434,12 @@
 					if($mode == 'profile'){ //mode affichage multiple  = miniature only ?>
 					<div class="img">
 						<a href="details.php?idpost=<?=$resp['ID'] ?>"><img src="<?=$thumbnailsYt; ?>" alt="" id="" class="image" /></a>
-
 					</div> 
 
 				<?php } }?>
-					
-					
-
-			<br/>
-
 	 			<div class="abouts">
-	  				<img onclick="userVote(1,<?=$resp['ID'] ?>)" src="img/poucevert.png" alt="like" height="20" weight="20" class="like"/> <span class="nblikesid<?=$resp['ID'] ?>" id="nblikesid<?=$resp['ID'] ?>"><?=$resp['likes']; ?></span>
-	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.png" alt="like" height="20" weight="20" class="like"/> <span class="nbdislikesid<?=$resp['ID'] ?>" id="nbdislikesid<?=$resp['ID'] ?>"><?=$resp['dislikes']; ?></span> <span class="infoLike"><progress id="avancement" class="avancementid<?=$resp['ID'] ?> progress-one" value="<?=$calculPourcent; ?>" max="100"></progress></span>
+	  				<img onclick="userVote(1,<?=$resp['ID'] ?>)" src="img/poucevert.png" alt="like" height="20" weight="20" class="like likes"/> <span class="nblikesid<?=$resp['ID'] ?>" id="nblikesid<?=$resp['ID'] ?>"><?=$resp['likes']; ?></span>
+	  				<img onclick="userVote(2,<?=$resp['ID'] ?>)" src="img/poucerouge.png" alt="like" height="20" weight="20" class="like dislikes"/> <span class="nbdislikesid<?=$resp['ID'] ?>" id="nbdislikesid<?=$resp['ID'] ?>"><?=$resp['dislikes']; ?></span> <span class="infoLike"><progress id="avancement" class="avancementid<?=$resp['ID'] ?> progress-one" value="<?=$calculPourcent; ?>" max="100"></progress></span>
 	  				 <div id="votemessage<?=$resp['ID'] ?>" class="votemessage<?=$resp['ID'] ?>" style="display:none;"></div>
 
  	 				 <?php if($mode != 'uniq'){ ?>

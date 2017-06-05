@@ -34,10 +34,10 @@
 		<?php
 			//require ("displaypost.php");
 			require ("groups.php");
-			$id = 14;
 		?>
 	</div>
 <?php require ("javascript.php"); ?>
+<script src="js/like.js"></script>
 <script src="js/explore.js"></script>
 <script src="js/groups.js"></script>
 </body>

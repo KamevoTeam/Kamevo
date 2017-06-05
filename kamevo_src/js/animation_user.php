@@ -33,6 +33,6 @@ $(window).bind('scroll', function () {
     position: fixed;
     right:calc((100% - 1050px) / 2);
     margin-top: -40px;
-    z-index: 9998;
+    z-index: 9997;
 }
 </style>

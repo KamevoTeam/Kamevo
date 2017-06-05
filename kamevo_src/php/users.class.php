@@ -23,6 +23,16 @@ class users{
 		$this->initialize($ID);
 	}
 
+	public function getAvatar($ID){
+
+		include('co_pdo.php');
+		 $getUsr = $bdd->prepare('SELECT * FROM users WHERE ID = ?');
+		  $getUsr->execute(array($ID));
+		 $usr = $getUsr->fetch();
+		return $usr['banner'];
+
+	}
+
 	public function getNbNotifs(){
 
 		include('co_pdo.php');

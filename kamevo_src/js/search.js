@@ -1,15 +1,6 @@
     $('.f-input').focusin(function(e){
 	    $('.results').addClass('resulted');
 	});
-	$( ".f-input" ).blur( function(e) {
-		// $(".f-input").focus();
-	});
-	$('.results').click(function(e){
-	    $('.f-input').focus();
-	});
-	$('.result').click(function(){
-		$('.f-inpt').focus();
-	});
 $('#search').keyup(function() {
 	var keyword = $(this).val();
 
@@ -18,12 +9,29 @@ $('#search').keyup(function() {
 	}else{
 		$('.results').addClass("resulted");
 	}
-	if(keyword.length>1){		
+	if(keyword.length>0){		
 		getContentFromSearch(keyword);
 
 
 	}
-	/* avoid disapearing effect :o (Wist) */
+	var mousedownHappened = false;
+
+$('.f-input').blur(function() {
+    if(mousedownHappened) // cancel the blur event
+    {
+        $('.focuser').focus();
+        mousedownHappened = false;
+    }
+    else   // blur event is okay
+    {
+        $('.results').removeClass('resulted');
+    }
+});
+
+$('.results').mousedown(function() {
+    mousedownHappened = true;
+});
+/* avoid disapearing effect :o (Wist) */
 $('.results').hover(function(){
 	 $('.results').addClass('resulted');
 	});

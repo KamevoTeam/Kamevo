@@ -1,8 +1,8 @@
 .pub{
 	position: fixed;
-	left:  calc(((100% - 1150px) / 2) + 860px);
+	left:  calc(((100% - 1150px) / 2) + 840px);
 	top: 80px;
-	width: 300px;
+	width: 321px;
 	z-index: 98;
 	padding: 10px;
 	padding-top: 0;
@@ -19,6 +19,6 @@
 	text-transform: uppercase;
 }
 .pub-image{
-	width: 280px;
-	height: 210px;
+	width: 300px;
+	height: 250px;
 }
