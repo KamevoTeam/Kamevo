@@ -11,6 +11,7 @@ session_start();
 <html>
 <head>
 	<meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="img/kamico.ico" />
 	<title>Kamevo - Roulette</title>
 	<link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">
     <!-- <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet"> -->
@@ -37,7 +38,6 @@ session_start();
 		<!-- Auto-generated images -->
 	  <?php 
 	require("php/co_pdo.php");
-
 
 	$toto = $bdd->prepare('SELECT * FROM users WHERE ID =?');
  	$toto->execute(array((int)($_SESSION['ID'])));  
@@ -129,11 +129,15 @@ session_start();
 
  	$results = $bdd->prepare('SELECT * FROM users WHERE ID = ?');
  	$results->execute(array($random));  
-
-	// $results = $bdd->query('SELECT * FROM users WHERE id = '.$random.' AND category = "'.$fr['category'].'"');
 	
 	while($result = $results->fetch()){
-		echo '<h3>Voici le profil de <span class="orange">'.$result['pseudo'].'</span><br/>Nous espèrons qu\'il te plaira !</h3>';
+
+ 	// Let's get user's publication number
+	$userPosts = $bdd->prepare('SELECT * FROM posts WHERE author = ?');
+	$userPosts->execute(array($result['ID']));
+	$userPublics = $userPosts->rowCount();
+
+		echo '<h3>Voici le profil de <a href="user.php?id='.$result['ID'].'" class="nodeco"><span class="orange">'.$result['pseudo'].'</span></a><br/><span class="orange"><i>'.$result['points'].'</i></span> points & <span class="orange"><i>'.$userPublics.'</i></span> publications<br/>Nous espèrons qu\'il te plaira !</h3>';
 		echo '<img src="img/'.$result['avatar'].'" alt="slided-image" class="slider-founded"><br/><br/><br/>';
 		echo '<a href="wheel.php" class="refresh"><i class="fblue fa fa-refresh" id="icon"></i> Recommencer </a>';
 	}

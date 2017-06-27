@@ -23,6 +23,12 @@
  </div>
  <div class="options">
  	<h3 class="options-title">Plus d'options ...</h3>
+   <div class="notifier">
+    <div class="notify-controller">
+     <input type="checkbox" value="notify" id="notify" name="notify"/>
+      <label for="notify"></label>
+    </div>
+   </div><br/><br/>
  	 <div class="photo">
  	  <h5 class="file-label">Ajouter une photo : </h5>
  	   <input type="file" name="picture" class="inline input-file" id="my-file" >

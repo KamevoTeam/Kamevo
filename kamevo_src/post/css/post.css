@@ -209,3 +209,69 @@
 	margin-left: -70px;
 	padding: 8px;
 }
+.notify-controller {
+  float: right;
+  display: inline-block;
+  width: 80px;
+  height: 26px;
+  background: #e67e22;
+  margin: 20px auto;
+  position: absolute;
+  right: calc((100% - 1100px) / 2);
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.notify-controller:after {
+  content: 'NON';
+  color: #000;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.notify-controller:before {
+  content: 'OUI';
+  color: #FFF;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.notify-controller label {
+  display: block;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #FFF;
+  border-radius: 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.notify-controller input[type=checkbox] {
+  visibility: hidden;
+}
+.notify-controller input[type=checkbox]:checked + label {
+  left: 43px;
+}
+.notifier{
+	display: inline-block;
+	width: 1000px;
+	position: absolute;
+	right: calc((100% - 830px)/2);
+	margin-top: -25px;
+}
+.notifier:before{
+	content: 'Notifier mes abonnés qui le souhaitent :';
+	font-size: 17px;
+	margin-top: 25px;
+	margin-left: 110px;
+	position: absolute;
+}

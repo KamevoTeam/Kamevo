@@ -202,11 +202,54 @@ class Post{
 			$groupToBdd = (int)$this->dataForm['group'];
 		}
 
+		// Notify the subscribers who want to be notified
+
+		if(isset($_POST['notify'])){
+			$header = "MIME-Version: 1.0\r\n";
+			$header.= 'From:"Kamevo.com"<noreply@kamevo.com>'."\n";
+			$header.= 'Content-Type:text/html; charset="utf-8"'."\n";
+			$header.= 'Content-Transfer-Encoding: 8bit';
+
+			$getSubs = $bdd->prepare('SELECT * FROM subs WHERE abonnement = ?');
+			$getSubs->execute(array($_SESSION['ID']));
+
+			while($sub = $getSubs->fetch()){
+
+				$profile = $bdd->prepare('SELECT * FROM users WHERE ID = ?');
+				$profile->execute(array($sub['abonne']));
+				$profiler = $profile->fetch();
+
+				$getName = $bdd->prepare('SELECT * FROM users WHERE ID = ?');
+				$getName->execute(array($sub['abonnement']));
+				$named = $getName->fetch();
+
+				$mailContent = '
+					<html>
+						<head>
+							<meta charset="utf-8"/>
+						</head>
+						<body align="center">
+						   <img src="https://skyfight.be/kamevo-mailing-notify.png" alt="mailing-header" style="width: 100%">
+							<h1><span style="color: #e67e22;">'.$named['pseudo'].'</span> a publié du nouveau contenu intéressant !</h1>
+						   <div class="mail-post" style="width: 65%; border: solid 1px rgba(0,0,0,0.1); border-bottom: solid 1px rgba(0,0,0,0.2); padding: 15px; padding-top: 0px; text-align: left;">
+						   <img src="https://skyfight.be/kameprofile.jpg" alt="profile-img" style="width: 30px; height: 30px; border-radius: 5px; float: left; margin-top: 15px;">
+						   	<p><span style="color: #e67e22; float: left; margin-left: 6px;"><b>'.$named['pseudo'].'</b></span><br/><span style="font-size: 11px; color: silver; margin-left: 6px;">'.$dateCre.'</span></p><br/>
+							<p style="word-wrap: break-word; margin-top: -25px;">"'.mb_substr($mess,0,400).' ..."</p>
+						   </div>
+						  <h3>Cliquez <a href="#">ici</a> pour voir cette publication !</h3>
+						  <br/><br/><h6>Ce message est un message automatique, merci de ne pas y répondre. Pour vous désinscrire des notifications, rendez-vous sur http://www.kamevo.com, puis dans Centre de notifications, et désactivez y les notifications.</h6>
+						</body>
+					</html>
+				';
+				mail($profiler['email'], 'Nouvelle notification de '.$named['pseudo'], $mailContent, $header);
+			}
+
+		}
+
 		$reqSd = $bdd->prepare('INSERT INTO posts(author,message,datecreation,title,video,image,categorie,groupId) VALUES(?,?,?,?,?,?,?,?)');
 		$reqSd->execute(array($this->author, $mess,$dateCre,'No title',$this->video,$this->idImg,$this->catego, $groupToBdd)) or die('FATAL ERROR: '.print_r($reqSd->errorInfo(), TRUE));;
 		$reqSd->closeCursor();
 		return;
-
 
 	}
 

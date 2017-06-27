@@ -28,6 +28,9 @@
 		<a href="wheel.php" class="nodeco"><div class="group">
 		 <h3 class="g-roulette"> <i class="fblue fa fa-refresh" id="icon"></i> Roulette ( Nouveau ! )</h3>
 		</div>
+		<a href="notifications.php" class="nodeco"><div class="group">
+		 <h3 class="g-roulette"> <i class="fblue fa fa-tasks" id="icon"></i> Centre de notifications</h3>
+		</div>
 		<div class="aboutabout">
 			<i class="fblue fa fa-cog" id="icon"></i> <a href="#" class="param-groups">A propos de Kamevo</a>
 		</div>

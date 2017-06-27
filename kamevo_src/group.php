@@ -29,6 +29,7 @@
 <html>
 <head>
  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="img/kamico.ico" />
   <link rel="stylesheet" href="css/menu_co.css">
    <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="css/block.css">

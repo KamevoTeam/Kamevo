@@ -1,5 +1,6 @@
-	<title>Kamevo - Accueil</title>
+	<title>Kamevo</title>
 	<meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="img/kamico.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<!--  ORGINAL INCLUSIONS  !-->
 
