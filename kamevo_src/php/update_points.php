@@ -51,14 +51,19 @@
 		/*DAYS UNTIL INSCRIPTION*/
 		date_default_timezone_set('Europe/Paris');
 		$daysBeforeInscription = intval((time() - strtotime($res['insDate']))/86400)+1; 
-		$hoursBeforeInscription = intval((time() - strtotime($res['lastCo']))/3600)+1; 
+		$hoursBeforeInscription = intval((time() - strtotime($res['lastCo']))/604800)+1; 
 
 
 		/*SOCIAL NETWORKS CONNECTED*/
+
+
+		/*AMOUNT OF COMMENTS*/
+
+		//$nbComments = $bdd->prepare();
 			
 		/*FINAL COUNT :) */
 
-		$userPoints = round(100*((($sumLikes+$sumDislikes)/$total_views) + ($numbersOfPublis/$daysBeforeInscription) + (($sumLikes-$sumDislikes)/$total_views) + ($socialNetworksConnected*0.5))/(0.5*$hoursBeforeInscription+1),0);
+		$userPoints = round(100*((($sumLikes+$sumDislikes)/$total_views) + ($numbersOfPublis/$daysBeforeInscription) + (($sumLikes-$sumDislikes)/$total_views) + ($socialNetworksConnected*0.5))/($hoursBeforeInscription+1),0);
 
 		/*UPDATE DATABASE*/
 		
