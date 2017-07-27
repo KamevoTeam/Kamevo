@@ -36,7 +36,12 @@
 
 			//}
 			
-
+			/*UPDATING LAST PROFIL ACTIVITY*/
+				date_default_timezone_set('Europe/Paris');
+				$majActivity = $bdd->prepare('UPDATE users SET lastCo = ? WHERE ID = ?');
+				$majActivity->execute(array(date('Y-m-d H:i:s'),$_SESSION['ID']));
+				$majActivity->closeCursor();
+					
 			//echo 'Commentaire posté!';
 			$_POST = array(); //cleaning receving datas
 
@@ -155,7 +160,7 @@
   				<div class="oneComment" id="comment<?=$dataCom['ID']; ?>">
 	  	 			<div class="block-comment com">
 						<img class="block-img" src="<?=$this->getAvatarFromId($dataCom['poster']); ?>" alt="William">
-		 				 <h6 class="block-name"><strong><?=$this->getPsdFromId($dataCom['poster']); ?> </strong> | <span class="comment-date"><?=$dataCom['date']; ?></span></h6>
+		 				 <h6 class="block-name"><strong><a href="user.php?id=<?=$dataCom['poster']; ?>"><?=$this->getPsdFromId($dataCom['poster']); ?></a> </strong> | <span class="comment-date"><?=$dataCom['date']; ?></span></h6>
 						<p class="comment-content">
 							 <?=$dataCom['comment']; ?>
 		  				 <br/><br/>

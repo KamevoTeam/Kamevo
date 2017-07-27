@@ -365,7 +365,7 @@
 			<div class="block">
   				<div class="block-title">
 					 <img class="block-img" src="userDataUpload/picProfile/<?=$this->getAvatarUser($resp['author']); ?>" alt="William">
-	 				 <h6 class="block-name"><span class="orange"><strong><?=$this->getPsdFromId($resp['author']); ?> - </strong></span></h6>
+	 				 <h6 class="block-name"><span class="orange"><strong><a href="user.php?id=<?=$resp['author']; ?>"><?=$this->getPsdFromId($resp['author']); ?></a> - </strong></span></h6>
 					 <h6 class="block-points">Points : <?=$newPts; ?></h6>
 					 <h6 class="block-views"><?=$resp['uniq_views']; ?> <!-- <img src='img/view.png' alt='Views' class="eyes-css"> --><i class="fa fa-eye" aria-hidden="true"></i></h6>
 					 <p class="block-date">Date : <strong><?=$resp['datecreation']; ?></strong></p>
@@ -497,7 +497,7 @@
 				$ratioLike = ($dataArray['likes'])/($dataArray['likes']+$dataArray['dislikes']); }
 
 
-		$finalPoints = 20*$ratioLike*(1+round($dataArray['uniq_views']/5,0)) + round($dataArray['total_views']*0.1,0);
+		$finalPoints = round(20*$ratioLike*(1+round($dataArray['uniq_views']/5,0)) + round($dataArray['total_views']*0.1,0),0);
 
 
 		$updPts = $bdd->prepare('UPDATE posts SET points = ? WHERE ID = ?');

@@ -184,13 +184,18 @@ class Post{
 
 		require('co_pdo.php');
 
-		
+		date_default_timezone_set ( 'Europe/Paris' );
+
+		/*UPDATING LAST PROFIL ACTIVITY*/
+		$majActivity = $bdd->prepare('UPDATE users SET lastCo = ? WHERE ID = ?');
+		$majActivity->execute(array(date('Y-m-d H:i:s'),$this->author));
+		$majActivity->closeCursor();
 
 		$this->sendNotifMention();
 
 		$mess = $this->text;
 
-		date_default_timezone_set ( 'Europe/Paris' );
+		
 		$dateCre = date('d/m/Y à H:i');
 
 		if(!isset($this->dataForm['group'])){

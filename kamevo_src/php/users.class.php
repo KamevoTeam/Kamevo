@@ -150,7 +150,7 @@ class users{
 		$this->mail = $rep['email'];
 		$this->name = $rep['Nom'];
 		$this->grade = $rep['grade'];
-		$this->lastvisit = $rep['lastvisit'];
+		$this->lastvisit = $rep['lastCo'];
 		$this->abonnes = $rep['abonnes'];
 		$this->abonnements = $rep['abonnements'];
 		$this->points = $rep['points'];
@@ -181,6 +181,13 @@ class users{
 
 				$_SESSION['ID'] = $response['ID'];
 				$_SESSION['pseudo'] = $response['pseudo'];
+
+				/*UPDATING LAST PROFIL ACTIVITY*/
+				date_default_timezone_set('Europe/Paris');
+				$majActivity = $bdd->prepare('UPDATE users SET lastCo = ? WHERE ID = ?');
+				$majActivity->execute(array(date('Y-m-d H:i:s'),$response['ID']));
+				$majActivity->closeCursor();
+
 				return 'Félicitations! Vous êtes maintenant connecté!';
 
 
