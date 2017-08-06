@@ -17,9 +17,11 @@
 		private $numberOfPubli = 0;
 		private $numberOfMember = 0;
 		private $authorOfGroup;
+		private $totalPoints = 0;
 
 		private $nameOfGroup;
 		public $perm;
+		private $bestMember = '';
 
 
 
@@ -163,6 +165,8 @@
 			self::getNumberOfMember();
 			self::getNumberOfPubli();
 			self::getPerm();
+			self::calcTotalPoints();
+			self::calcBestMember();
 
 
 		}
@@ -204,6 +208,22 @@
 
 		}
 
+		public function getTotalPoints(){
+
+			return $this->totalPoints;
+		}
+
+		public function avgPoints(){
+
+			return round($this->totalPoints/$this->numberOfMember,0);
+
+		}
+		public function getBestMember(){
+
+			return $this->bestMember;
+
+		}
+
 		private function getNumberOfMember(){
 
 			include 'php/co_pdo.php';
@@ -221,9 +241,35 @@
 			$req2->closeCursor();
 
 
+	}
 
+		private function calcTotalPoints(){
+
+			include 'php/co_pdo.php';
+
+			$req = $bdd->prepare('SELECT SUM(points) AS spoints FROM users LEFT JOIN groups_members ON users.ID = groups_members.user WHERE groups_members.groupId = ?');
+			$req->execute(array($this->groupeId));
+			$repo = $req->fetch()['spoints'];
+			$req->closeCursor();
+
+			$this->totalPoints = $repo;
 
 		}
+
+		private function calcBestMember(){
+
+			include 'php/co_pdo.php';
+
+			$req = $bdd->prepare('SELECT pseudo FROM users LEFT JOIN groups_members ON users.ID = groups_members.user WHERE groups_members.groupId = ? ORDER BY users.points DESC');
+			$req->execute(array($this->groupeId));
+			$repon = $req->fetch()['pseudo'];
+			$req->closeCursor();
+
+			$this->bestMember = $repon;
+
+		}
+
+
 		private function getNumberOfPubli(){
 
 			include 'php/co_pdo.php';
@@ -258,10 +304,6 @@
 
 
 				$this->checkDatas();
-
-
-
-
 
 			}else{
 

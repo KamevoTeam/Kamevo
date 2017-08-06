@@ -18,6 +18,15 @@
  	<div class="info">
  		Publications : <strong><span class="info-var"><?=$currentGroup->getNbPubliGroup(); ?></span></strong><br/>
  	</div>
+ 	<div class="info">
+ 		Points totaux : <strong><span class="info-var"><?=$currentGroup->getTotalPoints(); ?></span></strong><br/>
+ 	</div>
+ 	<div class="info">
+ 		Points moyen: <strong><span class="info-var"><?=$currentGroup->avgPoints(); ?></span></strong><br/>
+ 	</div>
+ 	<div class="info">
+ 		Meilleur membre: <strong><span class="info-var"><?=$currentGroup->getBestMember(); ?></span></strong><br/>
+ 	</div>
  </div>
  <div class="join">
  	<?php $currentGroup->drawButton(); ?>
