@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="css/menu_co.css">
   <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="css/betapop.css">
 
     <!--  LOADING FRAMWORKS   !-->
     <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css">
