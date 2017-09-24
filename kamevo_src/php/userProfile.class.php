@@ -78,7 +78,7 @@
 		$this->avatarID = $rep['avatar'];
 		$this->bannerID = $rep['banner'];
 		$this->bio = $rep['bio'];
-		$this->lastActivity = $rep['lastCo'];
+		$this->lastActivity = self::betterDate($rep['lastCo']);
 
 		$req->closeCursor();
 
@@ -527,6 +527,15 @@
 
 			return $video;
 
+	}
+
+
+	private function betterDate($dateOld){
+
+		$dateInfo = explode(' ',$dateOld)[0];
+		$HeureInfo = explode(' ',$dateOld)[1];
+		
+		return explode('-', $dateInfo)[0].'-'.explode('-', $dateInfo)[2].'-'.explode('-', $dateInfo)[1].' à '.explode(':', $HeureInfo)[0].'h '.explode(':', $HeureInfo)[1].' min '.explode(':', $HeureInfo)[2].'s';
 	}
 
 } //end of class
