@@ -24,9 +24,9 @@
  <title>Kamevo - Paramètres</title>
 </head>
 <body>
- <?php require("menu_co.php"); ?>
+ <?php require("menu_co.php"); //load the menu  ?>
   <div class="container">
-   <?php require("settingsContent.php"); ?>
+   <?php require("disp_settings_content.php"); //show page content ?>
   </div>
   <script src="js/explore.js"></script>
 </body>

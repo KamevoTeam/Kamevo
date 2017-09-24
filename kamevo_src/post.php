@@ -25,9 +25,9 @@
     <script type="text/javascript" src="frameworks/jquery.min.js"></script>
 </head>
 <body>
-	<?php require("menu_co.php"); ?>
+	<?php require("menu_co.php"); //show menu?>
 	<div class="container">
-		<?php require("postContent.php"); ?>
+		<?php require("disp_post_content.php"); //show new post page content ?>
 	</div>
 <script src="js/explore.js"></script>
 </body>

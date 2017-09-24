@@ -19,8 +19,8 @@ $mpBox = new mpClass($user);
 <div class="messager">
 <input type="hidden" value="" class="idConv" id="idConv">
  <div class="messager-header">
-  <img src="img/Ionic.png" alt="chatter-img" class="messager-img">	
-   <h5 class="messager-name">Zelkyo</h5>
+  <img src="" alt="chatter-img" class="messager-img">	
+   <h5 class="messager-name">User</h5>
    <span class="chatter-closer">X</span>
   </div>
   <div class="messager-messages">

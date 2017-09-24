@@ -1,17 +1,17 @@
 <?php
 	session_start();
-	require('php/userProfile.class.php');
+	require('php/userProfile.class.php'); //load userProfileclass
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<?php
-		require("head_userpage.php");
+		require("head_userpage.php"); //load special header only for this page 
 	?>
 </head>
 <body>
 	<?php
-	if(isset($_SESSION['ID'])){ 
+	if(isset($_SESSION['ID'])){ //load the appropriate menu
 		require("menu_co.php");
 
 	}else{
@@ -26,8 +26,9 @@
 	 if(!isset($errorProfile)){
 
 	 	
-	   require("user_profile.php"); 
-	   require("info_user.php"); ?>
+	   require("disp_user_profile.php"); //load banner, pseudo and avatar of the current user
+	   require("disp_info_user.php"); //load info box for the user 
+	   ?>
 
 	   <div class="fade"></div>
 		<div class=blockallz>
@@ -35,13 +36,12 @@
 
 	<?php
 
-		 //require("posts_user.php");
-	$userPage->printPosts('profile');
+	$userPage->printPosts('profile'); //show all posts of the user (userProfile.class.php)
 
 	 
 	}else{
 
-		include('userNotExist.php');
+		include('disp_userNotExist.php'); //if we can't find user
 	}
 	?>
 	</div>

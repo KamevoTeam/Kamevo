@@ -69,13 +69,9 @@
 	<?php
 	if(isset($_SESSION['ID'])){ 
 		require("menu_co.php");
-
-	}else{
-		require("menu_pasco_general.php");
-	}
-	  
-	require("addons.php");
-	require("pub.php");
+	}  
+	require("disp_back_details.php"); //show button to go back in thee 
+	require("disp_pub.php");
 	 ?>
 	<div class="container">
 	<?php 

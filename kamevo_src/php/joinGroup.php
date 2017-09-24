@@ -1,9 +1,9 @@
 <?php
 
 
-	include 'php/co_pdo.php';
-	include 'php/userProfile.class.php';
-	include 'php/groups.class.php';
+	include 'co_pdo.php';
+	include 'userProfile.class.php';
+	include 'groups.class.php';
 	
 	session_start();
 
@@ -21,13 +21,13 @@
 			$req->execute(array($userId, $group2join, $currentDate,'Membre'));
 			$req->closeCursor();
 
-			header('location: group.php?groupId='.$group2join);
+			header('location: ../group.php?groupId='.$group2join);
 
 
 		}else{
 
 
-			header('location: index.php?error=fatalErrorJoiningGroup');
+			header('location: ../index.php?error=fatalErrorJoiningGroup');
 
 		}
 

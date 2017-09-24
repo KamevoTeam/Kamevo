@@ -79,11 +79,11 @@
 		
 			if(self::ifUserInGroup($_SESSION['ID'], $this->groupeId) <> 'no'){
 
-				echo '<a href="leaveGroup.php?group='.$this->groupeId.'" class="group-btn">Quitter le groupe</a>';
+				echo '<a href="php/leaveGroup.php?group='.$this->groupeId.'" class="group-btn">Quitter le groupe</a>';
 
 			}else{
 
-				echo '<a href="joinGroup.php?group='.$this->groupeId.'" class="group-btn">Rejoindre le groupe</a>';
+				echo '<a href="php/joinGroup.php?group='.$this->groupeId.'" class="group-btn">Rejoindre le groupe</a>';
 
 			}
 
@@ -215,7 +215,11 @@
 
 		public function avgPoints(){
 
+			if($this->numberOfMember > 0){
 			return round($this->totalPoints/$this->numberOfMember,0);
+			}else{
+			return 0;
+			}
 
 		}
 		public function getBestMember(){

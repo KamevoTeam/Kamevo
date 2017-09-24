@@ -29,8 +29,8 @@
  	</div>
  </div>
  <div class="join">
- 	<?php $currentGroup->drawButton(); ?>
- 	<!-- Remplacer par "Rejoindre le groupe si la personne est déjà dedans" -->
+ 	<?php $currentGroup->drawButton(); //show the useful button to join or leave a groupe
+ 	 ?>
  </div>
  <div class="publics">
 <?php

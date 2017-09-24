@@ -71,12 +71,13 @@
  <title>Kamevo - Groupe</title>
 </head>
 <body>
- <?php require("menu_co.php"); ?>
+ <?php require("menu_co.php"); //load menu
+ ?>
 	 <div class="container">
 
 
 	  <?php 
-	   require("groupContent.php")
+	   require("disp_group_content.php"); //show the info box of the groupe (avatar, banner, infos and posts)
 	  ?>
 	</div>
 </body>

@@ -28,9 +28,9 @@ require('php/users.class.php');
  <title>Kamevo - Newsletter</title>
 </head>
 <body>
- <?php require("menu_co.php"); ?>
+ <?php require("menu_co.php"); //show menu ?>
   <div class="container">
-   <?php require("newsletterContent.php"); ?>
+   <?php require("disp_newsletter_content.php"); //show newletter content ?>
   </div>
   <script src="js/explore.js"></script>
 </body>

@@ -14,11 +14,8 @@
 		<h4>GROUPES</h4>
 
 		<?php 
-			group::printGroupFollowed($_SESSION['ID']);
+			group::printGroupFollowed($_SESSION['ID']); //show all groups followed or created by the current user
 		?>
-		
-		
-		<!-- Keep everything below -->
 		
 		<a href="" class="nodeco"><div class="group">
 		<h3 class="group-create"> + Créer un groupe</h3>
