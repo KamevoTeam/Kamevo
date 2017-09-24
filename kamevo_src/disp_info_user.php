@@ -17,7 +17,7 @@
 	   	<h6 class="inf-t">Publications : <span class="p-count"><?=$userPage->user_nb_posts; ?></span></h6>
 	   </div>
 	   <div class="points">
-	   	<h6 class="inf-t">Dernière activité : <span class="p-count"></span></h6>
+	   	<h6 class="inf-t">Dernière activité : <span class="p-count"><?=$userPage->lastActivity; ?></span></h6>
 	   </div>
 	</div>
 	<div class="infos">

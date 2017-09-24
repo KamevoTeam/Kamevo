@@ -79,11 +79,6 @@ class mpClass extends users{
 
 		$getIdConv = $bdd->prepare('SELECT * FROM ');
 
-
-
-
-
-
 	}
 
 }

@@ -13,6 +13,7 @@
 	private $avatarID;
 	private $bannerID;
 	public $bio;
+	public $lastActivity;
 	private $userConnected;
 
 
@@ -77,6 +78,7 @@
 		$this->avatarID = $rep['avatar'];
 		$this->bannerID = $rep['banner'];
 		$this->bio = $rep['bio'];
+		$this->lastActivity = $rep['lastCo'];
 
 		$req->closeCursor();
 

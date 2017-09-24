@@ -1,0 +1,12 @@
+Il reste à faire (pour la beta):
+
+- En savoir plus (details.php): design à fix (dossier DESIGN supprimé )
+- Correction design page profil (user.php)
+- Corriger inscription.php
+- Faire notifications messages recus
+- Corriger bug affichage messages 
+- Corriger nom/avatar conversation
+- Faire une page a propos et cgu
+- Améliorer points utilisation (php/update_points.php)
+- Corriger et proteger newsletter.php
+- 

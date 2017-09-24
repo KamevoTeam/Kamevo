@@ -73,7 +73,7 @@ table.vb-container.fullwidth {padding-left: 0;padding-right: 0;}</style><style t
 <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit" style="max-width: 570px;">
         <table width="570" border="0" cellpadding="0" cellspacing="9" class="vb-container halfpad" bgcolor="#f2f2f2" style="border-collapse: separate;border-spacing: 9px;padding-left: 9px;padding-right: 9px;width: 100%;max-width: 570px;background-color: #f2f2f2;"><tbody><tr><td bgcolor="#f2f2f2" align="center" style="background-color: #f2f2f2; font-size: 22px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; text-align: center;">
-              <span>coucou</span>
+              <span>zefze</span>
             </td>
           </tr></tbody></table></div>
 <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
@@ -83,7 +83,7 @@ table.vb-container.fullwidth {padding-left: 0;padding-right: 0;}</style><style t
 <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit" style="max-width: 570px;">
         <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#f2f2f2" style="border-collapse: separate;border-spacing: 18px;padding-left: 0;padding-right: 0;width: 100%;max-width: 570px;background-color: #f2f2f2;"><tbody><tr><td align="left" class="long-text links-color" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;">
-              <p style="margin: 1em 0px;margin-top: 0px; text-align: center;">coucou, c'est moi</p>
+              <p style="margin: 1em 0px;margin-top: 0px; text-align: center;">fzefzefzefze</p>
             </td>
           </tr></tbody></table></div>
 <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
