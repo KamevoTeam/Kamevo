@@ -1,0 +1,40 @@
+meter {
+    -webkit-appearance: none;
+}
+
+.style meter::-webkit-meter-bar {
+    background: #666;
+    -webkit-box-shadow: inset 0 0 2px 2px #555;
+    -moz-box-shadow: inset 0 0 2px 2px #555;
+    box-shadow: inset 0 0 2px 2px #555;   
+}
+
+.style meter::-webkit-meter-bar, 
+.style meter::-webkit-meter-optimum-value, 
+.style meter::-webkit-meter-suboptimum-value, 
+.style meter::-webkit-meter-even-less-good-value {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.style meter::-webkit-meter-optimum-value {
+    background: #4fa2f7;
+    border: 1px solid #1560ad;
+}
+
+.style meter::-webkit-meter-suboptimum-value {
+    background: #f7c64f;
+    border: 1px solid #b9870d;
+}
+
+.style meter::-webkit-meter-even-less-good-value {
+    background: #f76f4f;
+    border: 1px solid #bd3413;
+}​
+.infoLike span{
+
+    margin-top: 50px;
+
+
+}

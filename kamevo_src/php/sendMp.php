@@ -13,7 +13,7 @@
 	$dateCrea = date('d/m/Y à H:i 	s\s');
 
 	$reqSendMp = $bdd->prepare('INSERT INTO messages(messFrom, messTo, content, ack, date) VALUES (?,?,?,?,?)');
-	$reqSendMp->execute(array($myId, $destMp, $contentMess,0,$dateCrea));
+	$reqSendMp->execute(array($myId, $destMp, $contentMess,"unread",$dateCrea));
 	$reqSendMp->closeCursor();
 
 	echo 'Done';

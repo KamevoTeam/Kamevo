@@ -1,4 +1,5 @@
 
+var go = 0;
 //scrolling bar message box
 $(document).ready(function(){
 	$('.messager-messages').animate({
@@ -8,12 +9,25 @@ $(document).ready(function(){
 //Open message box with specific ID
 	$('.chatter').click(function(e){
 
-	var idDestMessConv;
+		go = 1;
+
+		var idDestMessConv = 0;
+
 
 	    $('.messager').toggleClass('messages-shower');
 
 	    idDestMessConv = $(this).attr('id');
-	    
+
+	    //var toto = $(this).attr('id');
+
+	    //console.log('currentuser = '+toto);
+
+	    /*FIL WITH USER INFOS*/
+	    $('.userName').html(idDestMessConv);
+	    $('.messager-img').attr('src','userDataUpload/picProfile/defaultAvatar.png');
+
+		console.log('dest = '+idDestMessConv);
+
 	    $('.idConv').val('Utilisateur'+idDestMessConv);
 
 	    $('.messager-messages').animate({
@@ -23,8 +37,15 @@ $(document).ready(function(){
 	    //refreshing messages 
 	    var auto_refresh = setInterval(
  		 function (){
-    		$('.messager-messages').load('php/getMessList.php?idTo='+idDestMessConv).fadeIn(1000,"slow");
+
+
+ 		 	if(go == 1){
+ 		 		console.log('go = '+idDestMessConv);
+    			$('.messager-messages').load('php/getMessList.php?idTo='+idDestMessConv).fadeIn(1000,"slow");
+    		}
   		}, 500); 
+
+
 
 				    //envoi formulaire
 			$('.messager-sender').keypress(function(e){
@@ -88,6 +109,8 @@ $(document).ready(function(){
 	    $('.messager').removeClass('messages-shower');
 	    $('.idConv').val('');
 	    auto_refresh = null;
+	  	go = 0;
+	    
 	})
 
 	});

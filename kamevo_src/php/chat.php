@@ -20,7 +20,7 @@ $mpBox = new mpClass($user);
 <input type="hidden" value="" class="idConv" id="idConv">
  <div class="messager-header">
   <img src="" alt="chatter-img" class="messager-img">	
-   <h5 class="messager-name">User</h5>
+   <h5 class="messager-name"><div class="userName"></div></h5>
    <span class="chatter-closer">X</span>
   </div>
   <div class="messager-messages">

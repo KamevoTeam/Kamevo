@@ -36,7 +36,7 @@
 				<div class="note">
 				 <a href="#" class="msgjs"><div class="message">
 				  <img src="img/message.png" alt="message" class="note-img">
-				  <span class="mes-value">1</span>
+				  <span class="mes-value"><?=$user->getNbNotifsMp(); ?></span>
 				 </div></a>
 				</div>
 				<!-- <div class="note mobile-only">

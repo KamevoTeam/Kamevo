@@ -36,14 +36,13 @@ class mpClass extends users{
 		<?php }else {
 		
 		while ($foll = $getF->fetch()) 
-
-			//$this->generate_id_conv();
+	//$this->generate_id_conv();
 
 			{?>
 
 
 			 <div class="chatter" id="<?=$foll['abonnement'] ?>">
-			 	<input type="hidden" value="<?=$foll['abonnement']; ?>" class="idDestMess"/>
+			 	<input type="hidden" class="idDestMess" value="<?=$foll['abonnement']; ?>"/>
 
  				<img src="userDataUpload/picProfile/<?=$this->getAvatarUser($foll['abonnement']); ?>" alt="chatter-img" class="chatter-img">	
  			 <h5 class="chatter-name"> <?php echo $this->getPseudoByID($foll['abonnement']); ?></h5>	
@@ -69,7 +68,17 @@ class mpClass extends users{
 		$req->execute(array($userIDAv));
 		$rep = $req->fetch();
 
-		return $rep['avatar'];
+		$avatar = $rep['avatar'];
+
+		$req->closeCursor();
+
+		if(file_exists('userDataUpload/picProfile/'.$avatar)){
+
+			return $avatar;
+		}else{
+
+			return "defaultavatar.png";
+		}
 
 	}
 

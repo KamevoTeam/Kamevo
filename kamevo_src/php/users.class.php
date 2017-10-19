@@ -16,6 +16,7 @@ class users{
 	public $banner;
 	public $bio;
 	public $nbNotifs = ''; //define as a string to be empty in case of non-notif
+	public $nbNotifsMp = ''; //define as a string to be empty in case of non-notif
 
 
 	public function __construct($ID){
@@ -51,6 +52,29 @@ class users{
 		}else{
 
 			$this->nbNotifs = $nb;
+			return $nb;
+		}
+
+	}
+
+	public function getNbNotifsMp(){
+
+		include('co_pdo.php');
+
+		$req = $bdd->prepare('SELECT * FROM messages WHERE messTo = ? AND ack = "unread" ');
+		$req->execute(array($this->idUser));
+		$nb = $req->rowCount();
+
+		$req->closeCursor();
+
+		if($nb == 0){
+
+			$this->nbNotifsMp = '';
+			return '';
+
+		}else{
+
+			$this->nbNotifsMp = $nb;
 			return $nb;
 		}
 
@@ -94,6 +118,44 @@ class users{
 
 		 }
 
+	}
+	public function printNotifsMp(){
+
+		include('co_pdo.php');
+
+		$req = $bdd->prepare('SELECT * FROM messages WHERE messTo = ? AND ack = "unread" ORDER BY ID desc');
+		$req->execute(array($this->idUser));
+		$nb = $req->rowCount();
+
+		
+
+		if($nb == 0){ ?>
+
+			  <div class="msg-res">
+			     <div class="msg-res-about">
+			     <p class="mr-about"><strong> Vous n'avez aucun nouveau message</strong></p>
+			   </div>
+			  </div>
+			
+
+		<?php }else{ 
+
+			while($notiMp = $req->fetch()){ ?>
+
+
+			  <div class="msg-res">
+			    <img src="img/Ionic.png" alt="note-img" class="note-res-img">
+			     <div class="msg-res-about">
+			     <p class="mr-about"><strong> Vous avez un message non-lu de <br/> <span class="msg-res-name"><?=self::getPseudoByID($notiMp['messFrom']); ?></span></strong></p>
+			   </div>
+			  </div>
+
+			<?php }
+
+
+		 }
+
+		 $req->closeCursor();
 	}
 
 	static private function ifUserExist($pseudo){
