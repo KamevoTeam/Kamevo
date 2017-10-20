@@ -123,6 +123,38 @@ class users{
 
 		include('co_pdo.php');
 
+		echo "<script>function clearNotifMp(notifID){
+
+			var idOfNotifMp = notifID; 		
+
+	 		$.ajax({
+
+       			url : 'php/notifMp.php', 
+      			type : 'POST',
+      			dataType : 'html',
+       			data : 'mode=delete&id='+idOfNotifMp,
+       		
+       			 success : function(html_return, statut){ // code_html contient le HTML renvoyé
+
+       			 	$('#mpid'+idOfNotifMp).fadeOut(500);
+       			 	
+       			 	if(html_return != 'ok'){
+
+       			 		console.log('Cleared.');
+       			 	}     			 		
+           
+       			},
+
+       			 error : function(resultat, statut, erreur){
+
+       			 		alert('Une erreur est survenue!');
+
+       			}
+
+    		});
+
+		}</script>";
+
 		$req = $bdd->prepare('SELECT * FROM messages WHERE messTo = ? AND ack = "unread" ORDER BY ID desc');
 		$req->execute(array($this->idUser));
 		$nb = $req->rowCount();
@@ -140,10 +172,37 @@ class users{
 
 		<?php }else{ 
 
-			while($notiMp = $req->fetch()){ ?>
+			$cptUsersCollapsed = 0;
+			$listUserCollasped = array();
 
+			while($notiMp = $req->fetch()){ 
 
-			  <div class="msg-res">
+				$nbMpSameUser = 0;
+
+				$testD = $bdd->prepare('SELECT * FROM messages WHERE messTo = ? AND ack = "unread" AND messFrom = ?ORDER BY ID desc');	
+				$testD->execute(array($this->idUser, $notiMp['messFrom']));
+				$nbMpSameUser = $testD->rowCount();
+				$testD->closeCursor();
+
+				if($nbMpSameUser > 1 && !in_array($notiMp['messFrom'], $listUserCollasped)){
+
+					$listUserCollasped[$cptUsersCollapsed] = $notiMp['messFrom'];
+					$cptUsersCollapsed++;
+
+					?>
+
+				<div class="msg-res" id="mpid<?=$notiMp['messFrom']; ?>" onclick="clearNotifsMp(<?=$notiMp['messFrom']; ?>)">
+			   		 <img src="img/Ionic.png" alt="note-img" class="note-res-img">
+			     	<div class="msg-res-about">
+			     	<p class="mr-about"><strong> Vous avez <?=$nbMpSameUser; ?> messages non-lu de <br/> <span class="msg-res-name"><?=self::getPseudoByID($notiMp['messFrom']); ?></span></strong></p>
+			  	 	</div>
+			  	</div>
+
+				<?php }elseif(!in_array($notiMp['messFrom'], $listUserCollasped)){
+
+				?>
+
+			  <div class="msg-res" id="mpid<?=$notiMp['messFrom']; ?>" onclick="clearNotifMp(<?=$notiMp['messFrom']; ?>)">
 			    <img src="img/Ionic.png" alt="note-img" class="note-res-img">
 			     <div class="msg-res-about">
 			     <p class="mr-about"><strong> Vous avez un message non-lu de <br/> <span class="msg-res-name"><?=self::getPseudoByID($notiMp['messFrom']); ?></span></strong></p>
@@ -152,7 +211,7 @@ class users{
 
 			<?php }
 
-
+			}
 		 }
 
 		 $req->closeCursor();

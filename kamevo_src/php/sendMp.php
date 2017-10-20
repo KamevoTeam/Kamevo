@@ -16,6 +16,12 @@
 	$reqSendMp->execute(array($myId, $destMp, $contentMess,"unread",$dateCrea));
 	$reqSendMp->closeCursor();
 
+	/*update notifs in subs dbb*/
+
+	$reqSendMp2 = $bdd->prepare('UPDATE subs SET nbNotifMp = nbNotifMp + 1 WHERE abonne = ? AND abonnement = ?');
+	$reqSendMp2->execute(array($destMp, $myId));
+	$reqSendMp2->closeCursor();
+
 	echo 'Done';
 
 

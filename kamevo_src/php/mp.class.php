@@ -17,13 +17,31 @@ class mpClass extends users{
 
 	}
 
+	private function getNbNotifFromUser($currentUser){
+
+		include 'co_pdo.php';
+
+		$reqa = $bdd->prepare('SELECT * FROM messages WHERE ack = ? AND messFrom = ? AND messTo = ?');
+		$reqa->execute(array('unread', $currentUser, $this->userDatas->idUser));
+		$nbmp = $reqa->rowCount();
+		$reqa->closeCursor();
+
+		if($nbmp > 0){
+
+			return '('.$nbmp.')';
+
+		}else{
+			return '';
+		}
+	}
+
 
 
 	public function displayUserFollowed(){
 
 		include 'co_pdo.php';
 
-		$getF = $bdd->prepare('SELECT abonnement FROM subs WHERE abonne = ?');
+		$getF = $bdd->prepare('SELECT abonnement FROM subs WHERE abonne = ? ORDER BY nbNotifMp DESC');
 		$getF->execute(array($this->userDatas->idUser));
 
 		if($getF->rowCount() == 0){?>
@@ -36,16 +54,15 @@ class mpClass extends users{
 		<?php }else {
 		
 		while ($foll = $getF->fetch()) 
-	//$this->generate_id_conv();
 
 			{?>
 
 
 			 <div class="chatter" id="<?=$foll['abonnement'] ?>">
 			 	<input type="hidden" class="idDestMess" value="<?=$foll['abonnement']; ?>"/>
-
- 				<img src="userDataUpload/picProfile/<?=$this->getAvatarUser($foll['abonnement']); ?>" alt="chatter-img" class="chatter-img">	
- 			 <h5 class="chatter-name"> <?php echo $this->getPseudoByID($foll['abonnement']); ?></h5>	
+			 	<input type="hidden" class="psdDestMess" value="<?=self::getPseudoByID($foll['abonnement']); ?>"/>
+ 				<img src="userDataUpload/picProfile/<?=$this->getAvatarUser($foll['abonnement']); ?>" alt="chatter-img" class="chatter-img" style="visibility:hidden;">	
+ 			 <h5 class="chatter-name"> <?php echo $this->getPseudoByID($foll['abonnement']); ?> <span class="nbUserMp"><?=self::getNbNotifFromUser($foll['abonnement']); ?></span></h5>	
   			</div>
 				
 				 
